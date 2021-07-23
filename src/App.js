@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import './AppConstants.js';
+
+
 
 function App() {
   return (
@@ -8,11 +11,9 @@ function App() {
         Hello World
       </header>
         <body>
-          <div className="card"></div>
-          <div className="card"></div>
-          <div className="card"></div>
-          <div className="card"></div>
-          <div className="card"></div>
+          <div>   
+            <image className="skillSet" src={} ""></image>
+          </div>
         </body>
     </div>
 
