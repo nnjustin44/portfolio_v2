@@ -8,12 +8,15 @@ function App() {
   return (
     <div className="App">
       <header>
-        Hello World
+        <div>
+          <image src={profile_pic}></image>
+        </div>
       </header>
         <body>
           <div>   
             <image className="skillSet" src={} ""></image>
           </div>
+
         </body>
     </div>
 
