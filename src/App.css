@@ -1,15 +1,45 @@
 .App {
   /*to fit with screen size vw*/
   width: 100vw;
+  text-align: center;
 }
 header {
   background-color: #0000ff;
-  height: 100px;
+  height: 500px;
 }
-.card {
-  height: 10em;
-  width: 15em;
+.navbar {
   background-color: green;
+}
+.profile_pic {
+  height: 15vw;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .profile_pic {
+    animation: App-logo-spin infinite 100s linear;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.skillSet1 {
+  margin: 10px;
+  flex: none;
+}
+.skillSet2 {
+  margin: 10px;
+  flex: none;
+}
+.skillSet3 {
+  margin: 10px;
+  flex: none;
+}
+.skillSet4 {
   margin: 10px;
   flex: none;
 }
