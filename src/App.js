@@ -1,4 +1,6 @@
 import  React  from 'react';
+
+import Button from '@mui/material/Button';
 import './App.css';
 import {background_pic, profile_pic,skillSet1,skillSet2,skillSet3,skillSet4} from './AppConstants.js';
 
@@ -17,8 +19,9 @@ function App() {
 
           
           <div className="title">
-            SkillSet
+            SKILLSET
           </div>
+
           <div className="body">
 
           <div>   
@@ -32,6 +35,22 @@ function App() {
           </div>
           <div>          
             <img className="skillSet4" src={skillSet4}></img>
+          </div>
+          <div>
+            <p>
+              <a
+                className="codelink"
+                href="https://github.com/nnjustin44/portfolio"
+              >
+              <Button className="Resume">Resume</Button>
+              </a>
+              <a
+                className="codelink"
+                href="https://github.com/nnjustin44/portfolio"
+              >
+              <Button className="Resume">Resume</Button>
+              </a>
+            </p>
           </div>
         </div>
     </div>

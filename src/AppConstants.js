@@ -4,8 +4,8 @@
     
 
 
-export const profile_pic = "https://cdn.discordapp.com/attachments/519146706118508544/867934138617978890/profile_pic.png";
-export const background_pic = "https://cdn.discordapp.com/attachments/881162947655786496/890432932823572511/background_discord.jpg";
+export const profile_pic = "https://cdn.discordapp.com/attachments/816358803163447387/891777884975403018/Screen_Shot_2021-08-26_at_10.12.09.png";
+export const background_pic = "https://cdn.discordapp.com/attachments/816358803163447387/891777777714462750/IMG_0904.jpg";
 
 /*******Skill Sets*******/
 export const skillSet1 = "https://cdn.discordapp.com/attachments/816358803163447387/873958459538833408/logo192.png";

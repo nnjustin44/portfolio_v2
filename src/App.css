@@ -18,7 +18,7 @@ div {
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0.6;
+  opacity: 0.9;
   object-fit: cover;
   object-position: 50% 20%;
 }
@@ -31,9 +31,10 @@ div {
 }
 .profile_pic {
   background-color: transparent;
-  height: 18vw;
+  height: 50%;
   pointer-events: none;
   margin: 8%;
+  border-radius: 50%;
 }
 @media (prefers-reduced-motion: no-preference) {
   .profile_pic {
@@ -49,10 +50,11 @@ div {
   }
 }
 .title {
+  height: 30%;
   text-align: center;
-  font-family: "serif";
-  font-weight: bold;
-  font-size: 5vw;
+  font-family: Quantico, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
   margin: 1vw;
 }
 .skillSet1 {
