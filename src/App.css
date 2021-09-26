@@ -35,6 +35,7 @@ div {
   pointer-events: none;
   margin: 8%;
   border-radius: 50%;
+  border: solid white 5px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .profile_pic {
@@ -77,4 +78,15 @@ div {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+}
+.linkButton {
+  border: solid cornflowerblue 2px;
+  margin: 20vw;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.btn {
+  font-size: 200px;
+  font-family: Quantico, sans-serif;
+  background-color: black;
 }

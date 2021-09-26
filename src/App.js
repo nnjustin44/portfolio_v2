@@ -2,7 +2,7 @@ import  React  from 'react';
 
 import Button from '@mui/material/Button';
 import './App.css';
-import {background_pic, profile_pic,skillSet1,skillSet2,skillSet3,skillSet4} from './AppConstants.js';
+import {background_pic, profile_pic, skillSet1, skillSet2, skillSet3, skillSet4, resume} from './AppConstants.js';
 
 
 function App() {
@@ -38,20 +38,20 @@ function App() {
           </div>
         </div>
           <div>
-            <p>
+            
               <a
-                className="codelink"
+                className = "linkButton"
                 href="https://github.com/nnjustin44/portfolio"
               >
-              <Button className="githubButton">GitHub</Button>
+              <Button className="btn">GitHub</Button>
               </a>
               <a
-                className="codelink"
-                href="https://github.com/nnjustin44/portfolio"
+                className = "linkButton"
+                href= {resume}
               >
-              <Button className="Resume">Resume</Button>
+              <Button className="btn">Resume</Button>
               </a>
-            </p>
+            
           </div>
     </div>
 
