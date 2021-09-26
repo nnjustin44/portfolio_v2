@@ -29,6 +29,9 @@ div {
   height: 40x;
   text-align: right;
 }
+.dateTime {
+  color: black;
+}
 .profile_pic {
   background-color: transparent;
   height: 50%;
@@ -75,7 +78,7 @@ div {
   flex: none;
 }
 .bio {
-  margin: 20vw;
+  margin: 13vw;
 }
 .body {
   justify-content: center;
@@ -83,6 +86,7 @@ div {
   flex-wrap: wrap;
   height: 50vh;
   overflow-y: scroll;
+  font-family: Quantico, sans-serif;
 }
 .linkButton {
   border: solid cornflowerblue 2px;

@@ -1,5 +1,5 @@
 import  React  from 'react';
-
+import { dateTime } from "./dateTime.js";
 import Button from '@mui/material/Button';
 import './App.css';
 import {background_pic, profile_pic, skillSet1, skillSet2, skillSet3, skillSet4, resume} from './AppConstants.js';
@@ -10,9 +10,9 @@ function App() {
     <div className="App">
         <div className="topHeader">
           
-        <div className="nav">
-          hello
-        </div>
+          <div className="nav">
+            <p className="dateTime">{dateTime()}</p> 
+          </div>
           <img src= {background_pic} className="background_pic"></img>
           <img src={profile_pic} className="profile_pic"></img>
         </div>
@@ -36,7 +36,11 @@ function App() {
             <div>          
               <img className="skillSet4" src={skillSet4}></img>
             </div>
-            <div className="bio">Bio Goes Here</div>
+            <div className="bio"> 
+              <p>Hello my name is Justin Nguyen, I am a self taught programmer </p>
+              <p>in the pursuit of excellence, driven for self growth in software development.</p>
+              <p>Honest. Creative. Dedicated.</p>
+            </div>
           </div>
           <div>
               <a
