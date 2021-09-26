@@ -36,6 +36,7 @@ function App() {
           <div>          
             <img className="skillSet4" src={skillSet4}></img>
           </div>
+        </div>
           <div>
             <p>
               <a
@@ -52,7 +53,6 @@ function App() {
               </a>
             </p>
           </div>
-        </div>
     </div>
 
   );
