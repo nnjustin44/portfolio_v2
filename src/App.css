@@ -1,20 +1,92 @@
+div {
+  position: relative;
+}
 .App {
   /*to fit with screen size vw*/
   width: 100vw;
+  text-align: center;
 }
-header {
-  background-color: #0000ff;
-  height: 100px;
+.topHeader {
+  background: transparent;
+  height: 50vh;
+  position: sticky;
+  overflow: hidden;
 }
-.card {
-  height: 10em;
-  width: 15em;
-  background-color: green;
-  margin: 10px;
+.background_pic {
+  top: 0vh;
+  left: 0vw;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+.nav {
+  position: sticky;
+  top: 0vw;
+  background-color: transparent;
+  height: 40x;
+  text-align: right;
+}
+.profile_pic {
+  background-color: transparent;
+  height: 50%;
+  pointer-events: none;
+  margin: 8%;
+  border-radius: 50%;
+  border: solid white 5px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .profile_pic {
+    animation: App-logo-spin infinite 100s linear;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.title {
+  height: 30%;
+  text-align: center;
+  font-family: Quantico, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  margin: 1vw;
+}
+.skillSet1 {
+  margin: 30px;
   flex: none;
 }
-body {
+.skillSet2 {
+  margin: 30px;
+  flex: none;
+}
+.skillSet3 {
+  margin: 30px;
+  flex: none;
+}
+.skillSet4 {
+  margin: 30px;
+  flex: none;
+}
+.body {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+}
+.linkButton {
+  border: solid cornflowerblue 2px;
+  margin: 20vw;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.btn {
+  font-size: 200px;
+  font-family: Quantico, sans-serif;
+  background-color: black;
 }
