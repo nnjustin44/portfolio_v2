@@ -43,7 +43,7 @@ function App() {
                 className="codelink"
                 href="https://github.com/nnjustin44/portfolio"
               >
-              <Button className="Resume">Resume</Button>
+              <Button className="githubButton">GitHub</Button>
               </a>
               <a
                 className="codelink"
