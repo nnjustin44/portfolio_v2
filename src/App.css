@@ -74,10 +74,15 @@ div {
   margin: 30px;
   flex: none;
 }
+.bio {
+  margin: 20vw;
+}
 .body {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  height: 50vh;
+  overflow-y: scroll;
 }
 .linkButton {
   border: solid cornflowerblue 2px;

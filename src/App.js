@@ -24,21 +24,21 @@ function App() {
 
           <div className="body">
 
-          <div>   
-            <img className="skillSet1" src={skillSet1}></img>
+            <div>   
+              <img className="skillSet1" src={skillSet1}></img>
+            </div>
+            <div>
+              <img className="skillSet2" src={skillSet2}></img>
+            </div>
+            <div>
+              <img className="skillSet3" src={skillSet3}></img>
+            </div>
+            <div>          
+              <img className="skillSet4" src={skillSet4}></img>
+            </div>
+            <div className="bio">Bio Goes Here</div>
           </div>
           <div>
-            <img className="skillSet2" src={skillSet2}></img>
-          </div>
-          <div>
-            <img className="skillSet3" src={skillSet3}></img>
-          </div>
-          <div>          
-            <img className="skillSet4" src={skillSet4}></img>
-          </div>
-        </div>
-          <div>
-            
               <a
                 className = "linkButton"
                 href="https://github.com/nnjustin44/portfolio"
@@ -51,7 +51,6 @@ function App() {
               >
               <Button className="btn">Resume</Button>
               </a>
-            
           </div>
     </div>
 
