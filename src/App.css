@@ -26,7 +26,8 @@ div {
   position: sticky;
   top: 0vw;
   background-color: transparent;
-  height: 40x;
+  height: 40px;
+
   text-align: right;
 }
 .dateTime {
@@ -90,7 +91,7 @@ div {
 }
 .linkButton {
   border: solid cornflowerblue 2px;
-  margin: 19vw;
+  margin: 18vw;
   text-transform: uppercase;
   text-decoration: none;
 }
