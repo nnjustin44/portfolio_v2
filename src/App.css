@@ -1,18 +1,39 @@
+div {
+  position: relative;
+}
 .App {
   /*to fit with screen size vw*/
   width: 100vw;
   text-align: center;
 }
-header {
-  background-color: #0000ff;
-  height: 500px;
+.topHeader {
+  background: transparent;
+  height: 50vh;
+  position: sticky;
+  overflow: hidden;
 }
-.navbar {
-  background-color: green;
+.background_pic {
+  top: 0vh;
+  left: 0vw;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+.nav {
+  position: sticky;
+  top: 0vw;
+  background-color: transparent;
+  height: 40x;
+  text-align: right;
 }
 .profile_pic {
-  height: 15vw;
+  background-color: transparent;
+  height: 18vw;
   pointer-events: none;
+  margin: 8%;
 }
 @media (prefers-reduced-motion: no-preference) {
   .profile_pic {
@@ -27,23 +48,30 @@ header {
     transform: rotate(360deg);
   }
 }
+.title {
+  text-align: center;
+  font-family: "serif";
+  font-weight: bold;
+  font-size: 5vw;
+  margin: 1vw;
+}
 .skillSet1 {
-  margin: 10px;
+  margin: 30px;
   flex: none;
 }
 .skillSet2 {
-  margin: 10px;
+  margin: 30px;
   flex: none;
 }
 .skillSet3 {
-  margin: 10px;
+  margin: 30px;
   flex: none;
 }
 .skillSet4 {
-  margin: 10px;
+  margin: 30px;
   flex: none;
 }
-body {
+.body {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
