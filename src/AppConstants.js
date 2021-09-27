@@ -16,3 +16,4 @@ export const skillSet4 = "https://cdn.discordapp.com/attachments/811991353969213
 /*****Resume Link******/
 export const resume = "https://cdn.discordapp.com/attachments/816358803163447387/891793588155985960/Screen_Shot_2021-09-26_at_17.09.00.png";
 export const resume2 = "file:///Users/justinnguyen/Downloads/Justin_Nguyen_Resume%20(1).pdf"
+export const githubLink = "https://github.com/nnjustin44/portfolio_v2";
