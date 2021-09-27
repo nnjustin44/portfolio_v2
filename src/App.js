@@ -2,20 +2,20 @@ import  React  from 'react';
 import { dateTime } from "./dateTime.js";
 import Button from '@mui/material/Button';
 import './App.css';
-import {background_pic, profile_pic, skillSet1, skillSet2, skillSet3, skillSet4, resume} from './AppConstants.js';
+import {background_pic, profile_pic, skillSet1, skillSet2, skillSet3, skillSet4, resume, githubLink} from './AppConstants.js';
 
 
 function App() {
   return (
     <div className="App">
-        <div className="topHeader">
-          
-          <div className="nav">
-            <p className="dateTime">{dateTime()}</p> 
-          </div>
-          <img src= {background_pic} className="background_pic"></img>
-          <img src={profile_pic} className="profile_pic"></img>
+      <div className="topHeader">
+        
+        <div className="nav">
+          <p className="dateTime">{dateTime()}</p> 
         </div>
+        <img src= {background_pic} className="background_pic"></img>
+        <img src={profile_pic} className="profile_pic"></img>
+      </div>
 
           
           <div className="title">
@@ -41,21 +41,21 @@ function App() {
               <p>in the pursuit of excellence, driven for self growth in software development.</p>
               <p>Honest. Creative. Dedicated.</p>
             </div>
-          </div>
           <div>
               <a
                 className = "linkButton"
-                href="https://github.com/nnjustin44/portfolio"
-              >
+                href={githubLink}
+                >
               <Button className="btn">GitHub</Button>
               </a>
               <a
                 className = "linkButton"
                 href= {resume}
-              >
+                >
               <Button className="btn">Resume</Button>
               </a>
           </div>
+        </div>
     </div>
 
   );
