@@ -80,6 +80,7 @@ div {
 }
 .bio {
   margin: 13vw;
+  height: 20vh;
 }
 .body {
   justify-content: center;
@@ -91,7 +92,7 @@ div {
 }
 .linkButton {
   border: solid cornflowerblue 2px;
-  margin: 18vw;
+  margin: 30vw;
   text-transform: uppercase;
   text-decoration: none;
 }
