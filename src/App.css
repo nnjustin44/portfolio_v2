@@ -3,7 +3,7 @@ div {
 }
 .App {
   /*to fit with screen size vw*/
-  width: 100vw;
+  width: 100%;
   text-align: center;
 }
 .topHeader {
@@ -24,11 +24,22 @@ div {
 }
 .nav {
   position: sticky;
-  top: 0vw;
+  top: 1vw;
   background-color: transparent;
   height: 20px;
-
   text-align: right;
+}
+.skillsetNavbar {
+  margin: 2vw;
+}
+.aboutNavbar {
+  margin: 2vw;
+}
+.connectNavbar {
+  margin: 2vw;
+}
+.resumeNavbar {
+  margin: 2vw;
 }
 .dateTime {
   color: black;
@@ -37,7 +48,7 @@ div {
   background-color: transparent;
   height: 50%;
   pointer-events: none;
-  margin: 5%;
+  margin-top: 5%;
   border-radius: 50%;
   border: solid white 5px;
 }
@@ -61,21 +72,48 @@ div {
   font-weight: 700;
   font-size: 3vw;
   margin: 1vw;
+  justify-content: center;
+}
+.skillTitle {
+  width: 45vw;
+  text-align: center;
+  font-family: Quantico, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  margin-top: 4vw;
+  justify-content: center;
+}
+.titleTop {
+  text-align: center;
+  font-family: Quantico, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  color: antiquewhite;
+}
+/* .menu {
+  margin: 1vw;
+  text-decoration: none;
+} */
+.skillsetWrapper {
+  margin: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .skillSet1 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .skillSet2 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .skillSet3 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .skillSet4 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .bio {
@@ -90,6 +128,7 @@ div {
   overflow-y: scroll;
   font-family: Quantico, sans-serif;
 }
+
 .linkButton {
   border: solid cornflowerblue 2px;
   margin: 18vw;
@@ -103,6 +142,9 @@ div {
 }
 .btn {
   font-family: Quantico, sans-serif;
+  text-decoration: none;
+  box-shadow: none;
+  box-shadow: none;
 }
 .btn:hover {
   transition: 0.5s;

@@ -8,35 +8,68 @@ import {background_pic, profile_pic, skillSet1, skillSet2, skillSet3, skillSet4,
 function App() {
   return (
     <div className="App">
+      <title>Justin Nguyen Portfolio</title>
       <div className="topHeader">
         
         <div className="nav">
-          <p className="dateTime">{dateTime()}</p> 
         </div>
         <img src= {background_pic} className="background_pic"></img>
         <img src={profile_pic} className="profile_pic"></img>
+          <div className="titleTop">
+            Justin Nguyen
+          </div>
       </div>
 
           
-          <div className="title">
-            SKILLSET
+          <div className="menu">
+            <a className="skillsetNavbar">
+              <Button className="btn">Skillset</Button>
+            </a> 
+            <a className="aboutNavbar">
+              <Button className="btn">About</Button>
+            </a>
+            <a className="connectNavbar">
+              <Button className="btn">Connect</Button>
+            </a>
+            <a
+                className = "resumeNavBar"
+                href= {resume}
+                >
+              <Button className="btn">Resume</Button>
+            </a>
+            <a 
+               className="githubNavbar" 
+               href={githubLink}
+              >
+              <Button className="btn">Github</Button>
+            </a>
+          {/* <p className="dateTime">{dateTime()}</p>  */}
           </div>
 
           <div className="body">
-
-            <div>   
-              <img className="skillSet1" src={skillSet1}></img>
+            <div className="skillTitle">
+              Skillset
             </div>
-            <div>
-              <img className="skillSet2" src={skillSet2}></img>
+              
+            <div className="skillsetWrapper">
+              <div>   
+                <img className="skillSet1" src={skillSet1}></img>
+              </div>
+              <div>
+                <img className="skillSet2" src={skillSet2}></img>
+              </div>
+              <div>
+                <img className="skillSet3" src={skillSet3}></img>
+              </div>
+              <div>          
+                <img className="skillSet4" src={skillSet4}></img>
+              </div>
             </div>
-            <div>
-              <img className="skillSet3" src={skillSet3}></img>
-            </div>
-            <div>          
-              <img className="skillSet4" src={skillSet4}></img>
-            </div>
+            
             <div className="bio"> 
+              <div className="title">
+              About
+              </div>
               <p>Hello my name is Justin Nguyen, I am a self taught programmer </p>
               <p>in the pursuit of excellence, driven for self growth in software development.</p>
               <p>Honest. Creative. Dedicated.</p>
