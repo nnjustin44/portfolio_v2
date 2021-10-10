@@ -5,6 +5,7 @@ div {
   /*to fit with screen size vw*/
   width: 100%;
   text-align: center;
+  height: 100%;
 }
 .topHeader {
   background: transparent;
@@ -103,6 +104,7 @@ div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  scroll-snap-align: center;
 }
 .skillSet1 {
   margin: 25px;
@@ -123,12 +125,14 @@ div {
 .bio {
   margin: 13vw;
   height: 20vh;
-  margin-bottom: 10vh;
+  margin-bottom: 18vh;
+  scroll-snap-align: center;
 }
 .connect {
   margin: 13vw;
   margin-bottom: 20vh;
   margin-top: 10vh;
+  scroll-snap-align: center;
 }
 .body {
   justify-content: center;
