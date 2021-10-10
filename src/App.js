@@ -84,7 +84,7 @@ function App() {
                 Connect
                 </h1>
                 <p>Email: nnjustin44@gmail.com </p>
-                <p>·    ·    ·</p>
+                <p>·       ·       ·</p>
                 <p>404-789-0044</p>
               </div>
             </section>

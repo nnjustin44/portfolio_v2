@@ -124,7 +124,7 @@ div {
   flex: none;
 }
 .bio {
-  margin-top: 23vw;
+  margin: 18vw;
   margin-bottom: 18vh;
   scroll-snap-align: center;
 }
