@@ -3,8 +3,9 @@ div {
 }
 .App {
   /*to fit with screen size vw*/
-  width: 100vw;
+  width: 100%;
   text-align: center;
+  height: 100%;
 }
 .topHeader {
   background: transparent;
@@ -24,11 +25,30 @@ div {
 }
 .nav {
   position: sticky;
-  top: 0vw;
+  top: 1vw;
   background-color: transparent;
   height: 20px;
-
   text-align: right;
+}
+.skillsetNavbar {
+  margin: 2vw;
+  text-decoration: none;
+}
+.aboutNavbar {
+  margin: 2vw;
+  text-decoration: none;
+}
+.connectNavbar {
+  margin: 2vw;
+  text-decoration: none;
+}
+.resumeNavBar {
+  margin: 2vw;
+  text-decoration: none;
+}
+.githubNavbar {
+  margin: 2vw;
+  text-decoration: none;
 }
 .dateTime {
   color: black;
@@ -37,7 +57,7 @@ div {
   background-color: transparent;
   height: 50%;
   pointer-events: none;
-  margin: 5%;
+  margin-top: 5%;
   border-radius: 50%;
   border: solid white 5px;
 }
@@ -61,26 +81,63 @@ div {
   font-weight: 700;
   font-size: 3vw;
   margin: 1vw;
+  justify-content: center;
+}
+.skillTitle {
+  width: 80vw;
+  text-align: center;
+  font-family: Quantico, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  margin-top: 4vw;
+  justify-content: center;
+  scroll-snap-align: center;
+}
+.titleTop {
+  margin-top: 3vh;
+  text-align: center;
+  font-family: Quantico, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  color: antiquewhite;
+}
+.menu {
+  margin: 1vw;
+  text-decoration: none;
+}
+.skillsetWrapper {
+  margin: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  scroll-snap-align: center;
 }
 .skillSet1 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .skillSet2 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .skillSet3 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .skillSet4 {
-  margin: 30px;
+  margin: 25px;
   flex: none;
 }
 .bio {
+  margin: 18vw;
+  margin-bottom: 18vh;
+  scroll-snap-align: center;
+}
+.connect {
   margin: 13vw;
-  height: 20vh;
+  margin-bottom: 20vh;
+  margin-top: 10vh;
+  scroll-snap-align: center;
 }
 .body {
   justify-content: center;
@@ -89,7 +146,10 @@ div {
   height: 50vh;
   overflow-y: scroll;
   font-family: Quantico, sans-serif;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
+
 .linkButton {
   border: solid cornflowerblue 2px;
   margin: 18vw;
@@ -100,12 +160,17 @@ div {
   border-color: #e96106;
   color: black;
   background: #e96106;
+  text-decoration: none;
 }
 .btn {
   font-family: Quantico, sans-serif;
+  box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
 }
 .btn:hover {
   transition: 0.5s;
   color: white;
   font-family: Quantico, sans-serif;
+  text-decoration: none;
 }
