@@ -2,7 +2,7 @@ import  React  from 'react';
 import { dateTime } from "./dateTime.js";
 import Button from '@mui/material/Button';
 import './App.css';
-import {background_pic, profile_pic, skillSet1, skillSet2, skillSet3, skillSet4, resume, githubLink} from './AppConstants.js';
+import {background_pic, profile_pic, skillSet1, skillSet2, skillSet3, skillSet4, resumeLink, githubLink} from './AppConstants.js';
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
             </a>
             <a
                 className = "resumeNavBar"
-                href= {resume}
+                href= {resumeLink}
                 >
               <Button className="btn">Resume</Button>
             </a>
