@@ -22,13 +22,13 @@ function App() {
 
           
           <div className="menu">
-            <a className="skillsetNavbar">
+            <a href= "skillsetWrapper" className="skillsetNavbar">
               <Button className="btn">Skillset</Button>
             </a> 
-            <a className="aboutNavbar">
+            <a href= "bio" className="aboutNavbar">
               <Button className="btn">About</Button>
             </a>
-            <a className="connectNavbar">
+            <a href= "connect" className="connectNavbar">
               <Button className="btn">Connect</Button>
             </a>
             <a
@@ -47,47 +47,42 @@ function App() {
           </div>
 
           <div className="body">
-            <div className="skillTitle">
-              Skillset
-            </div>
-              
-            <div className="skillsetWrapper">
-              <div>   
-                <img className="skillSet1" src={skillSet1}></img>
+              <h1 className="skillTitle">
+                Skillset
+              </h1>
+                
+              <div className="skillsetWrapper">
+                <div>   
+                  <img className="skillSet1" src={skillSet1}></img>
+                </div>
+                <div>
+                  <img className="skillSet2" src={skillSet2}></img>
+                </div>
+                <div>
+                  <img className="skillSet3" src={skillSet3}></img>
+                </div>
+                <div>          
+                  <img className="skillSet4" src={skillSet4}></img>
+                </div>
               </div>
-              <div>
-                <img className="skillSet2" src={skillSet2}></img>
+
+              <div className="bio"> 
+                <h1 className="title">
+                About
+                </h1>
+                <p>Hi! I'm Justin Nguyen, I am a self taught programmer </p>
+                <p>in the pursuit of excellence, driven for self growth in software development.</p>
+                <p>Honest. Creative. Dedicated.</p>
               </div>
-              <div>
-                <img className="skillSet3" src={skillSet3}></img>
+
+              <div className="connect"> 
+                <h1 className="title">
+                Connect
+                </h1>
+                <p>Email: nnjustin44@gmail.com </p>
+                <p>·    ·    ·</p>
+                <p>404-789-0044</p>
               </div>
-              <div>          
-                <img className="skillSet4" src={skillSet4}></img>
-              </div>
-            </div>
-            
-            <div className="bio"> 
-              <div className="title">
-              About
-              </div>
-              <p>Hello my name is Justin Nguyen, I am a self taught programmer </p>
-              <p>in the pursuit of excellence, driven for self growth in software development.</p>
-              <p>Honest. Creative. Dedicated.</p>
-            </div>
-          <div>
-              <a
-                className = "linkButton"
-                href={githubLink}
-                >
-              <Button className="btn">GitHub</Button>
-              </a>
-              <a
-                className = "linkButton"
-                href= {resume}
-                >
-              <Button className="btn">Resume</Button>
-              </a>
-          </div>
         </div>
     </div>
 

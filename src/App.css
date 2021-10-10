@@ -41,6 +41,9 @@ div {
 .resumeNavbar {
   margin: 2vw;
 }
+.githubNavbar {
+  margin: 2vw;
+}
 .dateTime {
   color: black;
 }
@@ -84,16 +87,17 @@ div {
   justify-content: center;
 }
 .titleTop {
+  margin-top: 3vh;
   text-align: center;
   font-family: Quantico, sans-serif;
   font-weight: 700;
   font-size: 3vw;
   color: antiquewhite;
 }
-/* .menu {
+.menu {
   margin: 1vw;
   text-decoration: none;
-} */
+}
 .skillsetWrapper {
   margin: 2vh;
   display: flex;
@@ -119,6 +123,12 @@ div {
 .bio {
   margin: 13vw;
   height: 20vh;
+  margin-bottom: 10vh;
+}
+.connect {
+  margin: 13vw;
+  margin-bottom: 20vh;
+  margin-top: 10vh;
 }
 .body {
   justify-content: center;
@@ -127,6 +137,8 @@ div {
   height: 50vh;
   overflow-y: scroll;
   font-family: Quantico, sans-serif;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 .linkButton {
@@ -150,4 +162,5 @@ div {
   transition: 0.5s;
   color: white;
   font-family: Quantico, sans-serif;
+  text-decoration: none;
 }
