@@ -79,13 +79,14 @@ div {
   justify-content: center;
 }
 .skillTitle {
-  width: 45vw;
+  width: 80vw;
   text-align: center;
   font-family: Quantico, sans-serif;
   font-weight: 700;
   font-size: 3vw;
   margin-top: 4vw;
   justify-content: center;
+  scroll-snap-align: center;
 }
 .titleTop {
   margin-top: 3vh;
@@ -123,8 +124,7 @@ div {
   flex: none;
 }
 .bio {
-  margin: 13vw;
-  height: 20vh;
+  margin-top: 23vw;
   margin-bottom: 18vh;
   scroll-snap-align: center;
 }

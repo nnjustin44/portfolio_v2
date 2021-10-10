@@ -22,13 +22,13 @@ function App() {
 
           
           <div className="menu">
-            <a href= "#" className="skillsetNavbar">
+            <a href= "#homeSection" className="skillsetNavbar">
               <Button className="btn">Skillset</Button>
             </a> 
-            <a href= "#" className="aboutNavbar">
+            <a href= "#bioSection" className="aboutNavbar">
               <Button className="btn">About</Button>
             </a>
-            <a href= "#" className="connectNavbar">
+            <a href= "#connectSection" className="connectNavbar">
               <Button className="btn">Connect</Button>
             </a>
             <a
@@ -47,10 +47,11 @@ function App() {
           </div>
 
           <div className="body">
-              <h1 className="skillTitle">
-                Skillset
-              </h1>
+            <section id="homeSection">
               <div className="skillsetWrapper">
+                <h1 className="skillTitle">
+                  Skillset
+                </h1>
                 <div>   
                   <img className="skillSet1" src={skillSet1}></img>
                 </div>
@@ -64,6 +65,7 @@ function App() {
                   <img className="skillSet4" src={skillSet4}></img>
                 </div>
               </div>
+            </section>
             
             <section id="bioSection">
               <div className="bio"> 
@@ -75,6 +77,8 @@ function App() {
                 <p>Honest. Creative. Dedicated.</p>
               </div>
             </section>
+
+            <section id="connectSection">
               <div className="connect"> 
                 <h1 className="title">
                 Connect
@@ -83,6 +87,7 @@ function App() {
                 <p>·    ·    ·</p>
                 <p>404-789-0044</p>
               </div>
+            </section>
         </div>
     </div>
 
