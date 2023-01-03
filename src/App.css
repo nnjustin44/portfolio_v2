@@ -89,7 +89,8 @@ div {
   font-family: Quantico, sans-serif;
   font-weight: 700;
   font-size: 3vw;
-  margin-top: 4vw;
+  margin-top: 4vh;
+  margin: 4vw;
   justify-content: center;
   scroll-snap-align: center;
 }

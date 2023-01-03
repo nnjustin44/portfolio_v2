@@ -46,7 +46,7 @@ function App() {
           {/* <p className="dateTime">{dateTime()}</p>  */}
           </div>
 
-          <div className="body">
+          <div className="body"> 
             <section id="homeSection">
               <div className="skillsetWrapper">
                 <h1 className="skillTitle">
@@ -74,6 +74,7 @@ function App() {
                 </h1>
                 <p>Hi! I'm Justin Nguyen, I am a self taught programmer </p>
                 <p>in the pursuit of excellence, driven for self growth in software development.</p>
+                <p>I have been a developer at Fiserv since 2020.</p>
                 <p>Honest. Creative. Dedicated.</p>
               </div>
             </section>
