@@ -30,10 +30,12 @@ div {
   height: 20px;
   text-align: right;
 }
+
 .skillsetNavbar {
   margin: 2vw;
   text-decoration: none;
 }
+
 .aboutNavbar {
   margin: 2vw;
   text-decoration: none;
@@ -130,14 +132,17 @@ div {
   flex: none;
 }
 .bio {
-  margin: 18vw;
-  margin-bottom: 18vh;
+  margin-left: 18vw;
+  margin-right: 18vw;
+  margin-top: 12vh;
+  margin-bottom: 20vh;
   scroll-snap-align: center;
 }
 .connect {
-  margin: 13vw;
+  margin-left: 18vw;
+  margin-right: 18vw;
+  margin-top: 11vh;
   margin-bottom: 20vh;
-  margin-top: 10vh;
   scroll-snap-align: center;
 }
 .body {
@@ -157,12 +162,7 @@ div {
   text-transform: uppercase;
   text-decoration: none;
 }
-.linkButton:hover {
-  border-color: #e96106;
-  color: black;
-  background: #e96106;
-  text-decoration: none;
-}
+
 .btn {
   font-family: Quantico, sans-serif;
   box-shadow: none;
@@ -171,7 +171,7 @@ div {
 }
 .btn:hover {
   transition: 0.5s;
-  color: white;
+  color: rgb(195, 26, 26);
   font-family: Quantico, sans-serif;
   text-decoration: none;
 }
