@@ -14,5 +14,5 @@ export const skillSet3 = "https://cdn.discordapp.com/attachments/578355339133452
 export const skillSet4 = "https://cdn.discordapp.com/attachments/811991353969213502/888541955414429696/2048px-Python-logo-notext.svg.png";
 
 /*****Resume Link******/
-export const resumeLink = "https://cdn.discordapp.com/attachments/787777223855439893/1072569365813268510/Screenshot_2023-02-07_at_12.27.40.png";
+export const resumeLink = "https://cdn.discordapp.com/attachments/787777223855439893/1072599187369234494/Screenshot_2023-02-07_at_14.25.50.png";
 export const githubLink = "https://github.com/nnjustin44/portfolio_v2";

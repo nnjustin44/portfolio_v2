@@ -72,7 +72,7 @@ function App() {
                 <p>Hi! I'm Justin Nguyen, I am a self taught programmer.</p>
                 <p>In the pursuit of excellence, driven for self growth in software development.</p>
                 <p>This Portfolio was programmed from scratch using React.js and hosted on Google Firebase.</p>
-                <p>I have been a developer at Fiserv since 2020.</p>
+                <p>I have been a developer at Fiserv since 2021.</p>
                 <p>Honest. Creative. Dedicated.</p>
               </div>
             </section>
