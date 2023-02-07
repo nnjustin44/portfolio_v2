@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <title>Justin Nguyen Portfolio</title>
       <div className="topHeader">
-        
         <div className="nav">
         </div>
         <img src= {background_pic} className="background_pic"></img>
@@ -19,8 +18,6 @@ function App() {
             Justin Nguyen
           </div>
       </div>
-
-          
           <div className="menu">
             <a href= "#homeSection" className="skillsetNavbar">
               <Button className="btn">Skillset</Button>
@@ -72,8 +69,9 @@ function App() {
                 <h1 className="title">
                 About
                 </h1>
-                <p>Hi! I'm Justin Nguyen, I am a self taught programmer </p>
-                <p>in the pursuit of excellence, driven for self growth in software development.</p>
+                <p>Hi! I'm Justin Nguyen, I am a self taught programmer.</p>
+                <p>In the pursuit of excellence, driven for self growth in software development.</p>
+                <p>This Portfolio was programmed from scratch using React.js and hosted on Google Firebase.</p>
                 <p>I have been a developer at Fiserv since 2020.</p>
                 <p>Honest. Creative. Dedicated.</p>
               </div>
