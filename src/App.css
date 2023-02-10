@@ -91,8 +91,10 @@ div {
   font-family: Quantico, sans-serif;
   font-weight: 700;
   font-size: 3vw;
-  margin-top: 4vh;
-  margin: 4vw;
+  margin-top: 2vh;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  margin-bottom: 4vh;
   justify-content: center;
   scroll-snap-align: center;
 }
@@ -134,7 +136,7 @@ div {
 .bio {
   margin-left: 18vw;
   margin-right: 18vw;
-  margin-top: 12vh;
+  margin-top: 9vh;
   margin-bottom: 20vh;
   scroll-snap-align: center;
 }
@@ -171,7 +173,7 @@ div {
 }
 .btn:hover {
   transition: 0.5s;
-  color: rgb(241, 92, 92);
+  color: rgb(195, 26, 26);
   font-family: Quantico, sans-serif;
   text-decoration: none;
 }
