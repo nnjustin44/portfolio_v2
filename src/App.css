@@ -171,7 +171,7 @@ div {
 }
 .btn:hover {
   transition: 0.5s;
-  color: rgb(195, 26, 26);
+  color: rgb(241, 92, 92);
   font-family: Quantico, sans-serif;
   text-decoration: none;
 }
