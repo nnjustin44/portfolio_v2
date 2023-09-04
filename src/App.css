@@ -12,16 +12,16 @@ div {
   height: 50vh;
   position: sticky;
   overflow: hidden;
-}
-.background_pic {
-  top: 0vh;
-  left: 0vw;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
-  object-fit: cover;
-  object-position: 50% 40%;
+  .background_pic {
+    top: 0vh;
+    left: 0vw;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
 }
 .nav {
   position: sticky;
@@ -85,19 +85,7 @@ div {
   margin: 1vw;
   justify-content: center;
 }
-.skillTitle {
-  width: 80vw;
-  text-align: center;
-  font-family: Quantico, sans-serif;
-  font-weight: 700;
-  font-size: 3vw;
-  margin-top: 2vh;
-  margin-left: 4vw;
-  margin-right: 4vw;
-  margin-bottom: 4vh;
-  justify-content: center;
-  scroll-snap-align: center;
-}
+
 .titleTop {
   margin-top: 3vh;
   text-align: center;
@@ -110,43 +98,6 @@ div {
   margin: 1vw;
   text-decoration: none;
 }
-.skillsetWrapper {
-  margin: 2vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  scroll-snap-align: center;
-}
-.skillSet1 {
-  margin: 25px;
-  flex: none;
-}
-.skillSet2 {
-  margin: 25px;
-  flex: none;
-}
-.skillSet3 {
-  margin: 25px;
-  flex: none;
-}
-.skillSet4 {
-  margin: 25px;
-  flex: none;
-}
-.bio {
-  margin-left: 18vw;
-  margin-right: 18vw;
-  margin-top: 9vh;
-  margin-bottom: 20vh;
-  scroll-snap-align: center;
-}
-.connect {
-  margin-left: 18vw;
-  margin-right: 18vw;
-  margin-top: 11vh;
-  margin-bottom: 20vh;
-  scroll-snap-align: center;
-}
 .body {
   justify-content: center;
   display: flex;
@@ -155,7 +106,57 @@ div {
   overflow-y: scroll;
   font-family: Quantico, sans-serif;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
+  .skillsetWrapper {
+    margin: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* scroll-snap-align: center; */
+    .skillset-background {
+      z-index: -1;
+    }
+    .skillTitle {
+      width: 80vw;
+      text-align: center;
+      font-family: Quantico, sans-serif;
+      font-weight: 700;
+      font-size: 3vw;
+      margin-top: 2vh;
+      margin-left: 4vw;
+      margin-right: 4vw;
+      margin-bottom: 4vh;
+      justify-content: center;
+    }
+    .skillSet1 {
+      display: inline;
+      margin: 1vw;
+    }
+    .skillSet2 {
+      display: inline;
+      margin: 1vw;
+    }
+    .skillSet3 {
+      display: inline;
+      margin: 1vw;
+    }
+    .skillSet4 {
+      display: inline;
+      margin: 1vw;
+    }
+  }
+  .bio {
+    margin-left: 18vw;
+    margin-right: 18vw;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
+  }
+  .connect {
+    margin-left: 18vw;
+    margin-right: 18vw;
+    margin-top: 11vh;
+    margin-bottom: 20vh;
+  }
 }
 
 .linkButton {
