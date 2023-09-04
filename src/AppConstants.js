@@ -14,5 +14,5 @@ export const skillSet4 =
 
 /*****Resume Link******/
 export const resumeLink =
-  "https://cdn.discordapp.com/attachments/816358803163447387/1148292235952144394/Screenshot_2023-09-04_at_12.23.16.png";
+  "https://cdn.discordapp.com/attachments/816358803163447387/1148346424778567720/Screenshot_2023-09-04_at_15.58.36.png";
 export const githubLink = "https://github.com/nnjustin44/portfolio_v2";
