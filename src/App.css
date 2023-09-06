@@ -167,7 +167,7 @@ div {
   .connect {
     margin-left: 18vw;
     margin-right: 18vw;
-    margin-top: 11vh;
+    margin-top: 6vh;
     margin-bottom: 20vh;
     .connectIcons {
       display: flex;
@@ -185,11 +185,11 @@ div {
         font-family: Quantico, sans-serif;
         font-size: 17px;
         color: #1976d2;
-        padding-left: 1vw;
+        padding-left: 8px;
         padding-right: 1vw;
       }
       .linkedIn-btn:hover {
-        padding-left: 1vw;
+        padding-left: 8px;
         padding-right: 1vw;
         transition: 0.5s;
         color: rgb(195, 26, 26);
