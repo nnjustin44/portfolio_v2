@@ -97,10 +97,10 @@ function App() {
             <div className="connectIcons">
               <PhoneIphoneIcon />:<div className="sub-item">404-789-0044</div>
             </div>
-            <div className="connectIcons">
+            <div className="linkedIn">
               <LinkedInIcon />:
               <a href={linkedInLink}>
-                <button className="linkedIn-link">LinkedIn</button>
+                <button className="linkedIn-btn">LinkedIn</button>
               </a>
             </div>
           </div>

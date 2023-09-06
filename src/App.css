@@ -173,23 +173,30 @@ div {
       display: flex;
       margin-top: 2vh;
       margin-bottom: 2vh;
-      .linkedIn-link {
+      .sub-item {
+        padding-left: 0.5rem;
+      }
+    }
+    .linkedIn {
+      display: flex;
+      .linkedIn-btn {
         border: none;
         background-color: transparent;
         font-family: Quantico, sans-serif;
         font-size: 17px;
         color: #1976d2;
+        padding-left: 1vw;
+        padding-right: 1vw;
       }
-      .linkedIn-link:hover {
+      .linkedIn-btn:hover {
+        padding-left: 1vw;
+        padding-right: 1vw;
         transition: 0.5s;
         color: rgb(195, 26, 26);
         font-size: 17px;
         font-family: Quantico, sans-serif;
         text-decoration: none;
         background-color: rgba(25, 118, 210, 0.04);
-      }
-      .sub-item {
-        padding-left: 0.5rem;
       }
     }
   }
