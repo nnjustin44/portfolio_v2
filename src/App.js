@@ -27,7 +27,6 @@ function App() {
     <div className="App">
       <title>Justin Nguyen Portfolio</title>
       <div className="topHeader">
-        <div className="nav"></div>
         <img src={background_pic} className="background_pic"></img>
         <img src={profile_pic} className="profile_pic"></img>
         <div className="titleTop">Justin Nguyen</div>

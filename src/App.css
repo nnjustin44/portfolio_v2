@@ -8,9 +8,10 @@ div {
   height: 100%;
 }
 .topHeader {
+  display: block;
+  justify-content: center;
   background: transparent;
   height: 50vh;
-  position: sticky;
   overflow: hidden;
   .background_pic {
     top: 0vh;
