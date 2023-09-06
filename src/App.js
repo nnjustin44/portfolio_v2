@@ -1,6 +1,14 @@
 import React from "react";
 import { dateTime } from "./dateTime.js";
 import Button from "@mui/material/Button";
+// import {
+//   PhoneAndroidIcon,
+//   MailOutlineIcon,
+//   LinkedInIcon,
+// } from "@mui/icons-material";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import "./App.css";
 import {
   background_pic,
@@ -11,6 +19,7 @@ import {
   skillSet4,
   resumeLink,
   githubLink,
+  linkedInLink,
 } from "./AppConstants.js";
 
 function App() {
@@ -25,19 +34,19 @@ function App() {
       </div>
       <div className="menu">
         <a href="#homeSection" className="skillsetNavbar">
-          <Button className="btn">Skillset</Button>
+          <Button className="nav-btn">Skillset</Button>
         </a>
         <a href="#bioSection" className="aboutNavbar">
-          <Button className="btn">About</Button>
+          <Button className="nav-btn">About</Button>
         </a>
         <a href="#connectSection" className="connectNavbar">
-          <Button className="btn">Connect</Button>
+          <Button className="nav-btn">Connect</Button>
         </a>
         <a className="resumeNavBar" href={resumeLink}>
-          <Button className="btn">Resume</Button>
+          <Button className="nav-btn">Resume</Button>
         </a>
         <a className="githubNavbar" href={githubLink}>
-          <Button className="btn">Github</Button>
+          <Button className="nav-btn">Github</Button>
         </a>
         {/* <p className="dateTime">{dateTime()}</p>  */}
       </div>
@@ -81,9 +90,19 @@ function App() {
         <section id="connectSection">
           <div className="connect">
             <h1 className="title">Connect</h1>
-            <p>Email: nnjustin44@gmail.com</p>
-            <p>· · ·</p>
-            <p>Phone: 404-789-0044</p>
+            <div className="connectIcons">
+              <MailOutlineIcon />:
+              <div className="sub-item"> nnjustin44@gmail.com</div>
+            </div>
+            <div className="connectIcons">
+              <PhoneIphoneIcon />:<div className="sub-item">404-789-0044</div>
+            </div>
+            <div className="connectIcons">
+              <LinkedInIcon />:
+              <a href={linkedInLink}>
+                <button className="linkedIn-link">LinkedIn</button>
+              </a>
+            </div>
           </div>
         </section>
       </div>

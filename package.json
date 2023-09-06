@@ -6,7 +6,9 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^5.0.0-beta.5",
-    "@mui/material": "^5.0.1",
+    "@mui/icons-material": "^5.14.8",
+    "@mui/material": "^5.14.8",
+    "@mui/styled-engine-sc": "^5.14.8",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -19,12 +21,13 @@
     "react-dom": "^17.0.2",
     "react-moment": "^1.1.1",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.11",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "ENV NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "ENV NODE_OPTIONS=--openssl-legacy-provider && react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,6 +49,9 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.8.3"
+    "babel-plugin-import": "^1.13.8",
+    "customize-cra": "^1.0.0",
+    "prettier": "2.8.3",
+    "react-app-rewired": "^2.2.1"
   }
 }

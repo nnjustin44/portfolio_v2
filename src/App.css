@@ -36,22 +36,6 @@ div {
   text-decoration: none;
 }
 
-.aboutNavbar {
-  margin: 2vw;
-  text-decoration: none;
-}
-.connectNavbar {
-  margin: 2vw;
-  text-decoration: none;
-}
-.resumeNavBar {
-  margin: 2vw;
-  text-decoration: none;
-}
-.githubNavbar {
-  margin: 2vw;
-  text-decoration: none;
-}
 .dateTime {
   color: black;
 }
@@ -97,6 +81,35 @@ div {
 .menu {
   margin: 1vw;
   text-decoration: none;
+  .nav-btn {
+    font-family: Quantico, sans-serif;
+    box-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+  }
+  .nav-btn:hover {
+    transition: 0.5s;
+    color: rgb(195, 26, 26);
+    font-family: Quantico, sans-serif;
+    text-decoration: none;
+  }
+
+  .aboutNavbar {
+    margin: 2vw;
+    text-decoration: none;
+  }
+  .connectNavbar {
+    margin: 2vw;
+    text-decoration: none;
+  }
+  .resumeNavBar {
+    margin: 2vw;
+    text-decoration: none;
+  }
+  .githubNavbar {
+    margin: 2vw;
+    text-decoration: none;
+  }
 }
 .body {
   justify-content: center;
@@ -156,25 +169,34 @@ div {
     margin-right: 18vw;
     margin-top: 11vh;
     margin-bottom: 20vh;
+    .connectIcons {
+      display: flex;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      .linkedIn-link {
+        border: none;
+        background-color: transparent;
+        font-family: Quantico, sans-serif;
+        font-size: 17px;
+        color: #1976d2;
+      }
+      .linkedIn-link:hover {
+        transition: 0.5s;
+        color: rgb(195, 26, 26);
+        font-size: 17px;
+        font-family: Quantico, sans-serif;
+        text-decoration: none;
+        background-color: rgba(25, 118, 210, 0.04);
+      }
+      .sub-item {
+        padding-left: 0.5rem;
+      }
+    }
   }
 }
-
 .linkButton {
   border: solid cornflowerblue 2px;
   margin: 18vw;
   text-transform: uppercase;
-  text-decoration: none;
-}
-
-.btn {
-  font-family: Quantico, sans-serif;
-  box-shadow: none;
-  box-shadow: none;
-  text-decoration: none;
-}
-.btn:hover {
-  transition: 0.5s;
-  color: rgb(195, 26, 26);
-  font-family: Quantico, sans-serif;
   text-decoration: none;
 }
