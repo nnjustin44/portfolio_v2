@@ -12,7 +12,7 @@ div {
   display: block;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 93vh;
   .profile_pic {
     background-color: transparent;
     height: 30%;

@@ -46,19 +46,13 @@ function App() {
         <a href="#connectSection" className="menuNavbar">
           <Button className="nav-btn">Connect</Button>
         </a>
-        <a href={githubLink} className="menuNavbar">
-          <Button
-            className="nav-btn"
-            // onClick={() => openInNewTab(githubLink)}
-          >
+        <a className="menuNavbar">
+          <Button className="nav-btn" onClick={() => openInNewTab(githubLink)}>
             Github
           </Button>
         </a>
-        <a href={resumeLink} className="menuNavbar">
-          <Button
-            className="nav-btn"
-            // onClick={() => openInNewTab(resumeLink)}
-          >
+        <a className="menuNavbar">
+          <Button className="nav-btn" onClick={() => openInNewTab(resumeLink)}>
             Resume
           </Button>
         </a>
