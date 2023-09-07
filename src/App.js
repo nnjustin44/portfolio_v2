@@ -18,6 +18,7 @@ import SkillSection from "./components/SkillsSection/index.js";
 import BioSection from "./components/BioSection/index.js";
 import ConnectSection from "./components/ConnectSection/index.js";
 import ExperienceSection from "./components/ExperienceSection/index.js";
+import openInNewTab from "./components/helpers/openNewTab.js";
 
 function App() {
   return (
@@ -41,11 +42,15 @@ function App() {
         <a href="#connectSection" className="connectNavbar">
           <Button className="nav-btn">Connect</Button>
         </a>
-        <a className="resumeNavBar" href={resumeLink}>
-          <Button className="nav-btn">Resume</Button>
+        <a className="resumeNavBar">
+          <Button className="nav-btn" onClick={() => openInNewTab(resumeLink)}>
+            Resume
+          </Button>
         </a>
-        <a className="githubNavbar" href={githubLink}>
-          <Button className="nav-btn">Github</Button>
+        <a className="githubNavbar">
+          <Button className="nav-btn" onClick={() => openInNewTab(githubLink)}>
+            Github
+          </Button>
         </a>
       </div>
 

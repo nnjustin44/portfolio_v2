@@ -3,6 +3,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { linkedInLink } from "../../AppConstants";
+import openInNewTab from "../helpers/openNewTab";
 
 const ConnectSection = () => {
   return (
@@ -17,8 +18,13 @@ const ConnectSection = () => {
       </div>
       <div className="linkedIn">
         <LinkedInIcon />:
-        <a href={linkedInLink}>
-          <button className="linkedIn-btn">LinkedIn</button>
+        <a>
+          <button
+            className="linkedIn-btn"
+            onClick={() => openInNewTab(linkedInLink)}
+          >
+            LinkedIn
+          </button>
         </a>
       </div>
     </div>
