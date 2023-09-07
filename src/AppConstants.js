@@ -1,5 +1,5 @@
 export const profile_pic =
-  "https://cdn.discordapp.com/attachments/816358803163447387/891777884975403018/Screen_Shot_2021-08-26_at_10.12.09.png";
+  "https://cdn.discordapp.com/attachments/517434029683769367/1149039506612305950/IMG_7997.jpg";
 export const background_pic =
   "https://cdn.discordapp.com/attachments/881162947655786496/1147260420881649714/Screenshot_2023-09-01_at_16.03.12.png";
 /*******Skill Sets*******/

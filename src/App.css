@@ -10,9 +10,7 @@ div {
 .topHeader {
   display: block;
   justify-content: center;
-  background: transparent;
   height: 50vh;
-  overflow: hidden;
   .background_pic {
     top: 0vh;
     left: 0vw;
@@ -23,13 +21,6 @@ div {
     object-fit: cover;
     object-position: 50% 40%;
   }
-}
-.nav {
-  position: sticky;
-  top: 1vw;
-  background-color: transparent;
-  height: 20px;
-  text-align: right;
 }
 
 .skillsetNavbar {
@@ -82,6 +73,11 @@ div {
 .menu {
   margin: 1vw;
   text-decoration: none;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  color: white;
+  z-index: 2;
   .nav-btn {
     font-family: Quantico, sans-serif;
     box-shadow: none;
@@ -116,17 +112,15 @@ div {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  height: 50vh;
+  height: 100vh;
   overflow-y: scroll;
-  font-family: Quantico, sans-serif;
   scroll-behavior: smooth;
-  /* scroll-snap-type: y mandatory; */
+  font-family: Quantico, sans-serif;
   .skillsetWrapper {
     margin: 2vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* scroll-snap-align: center; */
     .skillset-background {
       z-index: -1;
     }
@@ -162,13 +156,19 @@ div {
   .bio {
     margin-left: 18vw;
     margin-right: 18vw;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+  }
+  .experience {
+    margin-left: 18vw;
+    margin-right: 18vw;
     margin-top: 9vh;
     margin-bottom: 20vh;
   }
   .connect {
-    margin-left: 18vw;
-    margin-right: 18vw;
-    margin-top: 6vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 9vh;
     margin-bottom: 20vh;
     .connectIcons {
       display: flex;
