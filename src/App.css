@@ -12,12 +12,14 @@ div {
   display: block;
   flex-direction: column;
   justify-content: center;
-  height: 93vh;
+  height: 50vh;
+  overflow: hidden;
   .profile_pic {
     background-color: transparent;
-    height: 30%;
+    height: 50%;
     pointer-events: none;
-    margin-top: 20%;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
     border-radius: 50%;
     border: solid white 5px;
   }
@@ -110,7 +112,7 @@ div {
   scroll-behavior: smooth;
   font-family: Quantico, sans-serif;
   .skillsetWrapper {
-    margin: 2vh;
+    margin: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

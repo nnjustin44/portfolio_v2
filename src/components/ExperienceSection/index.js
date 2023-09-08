@@ -12,8 +12,8 @@ const ExperienceSection = () => {
       </p>
       <p>
         The first rotation was with the AI and ML team. Working on IVR's,
-        chatbot utilizing IBM Watson, and later ChatGPT. Here we used C# within
-        .NET CORE.
+        chatbot utilizing IBM Watson, and later large language models such as
+        GPT 3.5 Turbo. Here we used C# within .NET CORE.
       </p>
 
       <p>
