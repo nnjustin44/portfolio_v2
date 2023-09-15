@@ -77,120 +77,117 @@ div {
   margin: 1vw;
   justify-content: center;
 }
-.main-body {
-  margin-top: 2rem;
-  .menu {
-    margin: 1rem;
+.menu {
+  margin: 1rem;
+  text-decoration: none;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  color: white;
+  z-index: 2;
+  .nav-btn {
+    font-family: Quantico, sans-serif;
+    box-shadow: none;
+    box-shadow: none;
     text-decoration: none;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    color: white;
-    z-index: 2;
-    .nav-btn {
-      font-family: Quantico, sans-serif;
-      box-shadow: none;
-      box-shadow: none;
-      text-decoration: none;
-    }
-    .nav-btn:hover {
-      transition: 0.5s;
-      color: rgb(195, 26, 26);
-      font-family: Quantico, sans-serif;
-      text-decoration: none;
-    }
-    .menuNavbar {
-      margin: 2vw;
-      text-decoration: none;
-    }
   }
-  .info-body {
-    justify-content: center;
+  .nav-btn:hover {
+    transition: 0.5s;
+    color: rgb(195, 26, 26);
+    font-family: Quantico, sans-serif;
+    text-decoration: none;
+  }
+  .menuNavbar {
+    margin: 2vw;
+    text-decoration: none;
+  }
+}
+.info-body {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  background-color: white;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  font-family: Quantico, sans-serif;
+  .skillsetWrapper {
+    margin: 2rem;
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
-    background-color: white;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    font-family: Quantico, sans-serif;
-    .skillsetWrapper {
-      margin: 2rem;
-      display: flex;
-      flex-wrap: wrap;
+    justify-content: center;
+    .skillset-background {
+      z-index: -1;
+    }
+    .skillTitle {
+      width: 80vw;
+      text-align: center;
+      font-family: Quantico, sans-serif;
+      font-weight: 700;
+      font-size: 3vw;
+      margin-top: 2vh;
+      margin-left: 4vw;
+      margin-right: 4vw;
+      margin-bottom: 4vh;
       justify-content: center;
-      .skillset-background {
-        z-index: -1;
+    }
+    .skillSetItem {
+      display: inline;
+      margin: 1vw;
+    }
+  }
+  .bio {
+    margin-left: 18vw;
+    margin-right: 18vw;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+  }
+  .experience {
+    margin-left: 18vw;
+    margin-right: 18vw;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
+  }
+  .connect {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
+    .connectIcons {
+      display: flex;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      .sub-item {
+        padding-left: 0.5rem;
       }
-      .skillTitle {
-        width: 80vw;
-        text-align: center;
+    }
+    .linkedIn {
+      display: flex;
+      .linkedIn-btn {
+        border: none;
+        background-color: transparent;
         font-family: Quantico, sans-serif;
-        font-weight: 700;
-        font-size: 3vw;
-        margin-top: 2vh;
-        margin-left: 4vw;
-        margin-right: 4vw;
-        margin-bottom: 4vh;
-        justify-content: center;
+        font-size: 17px;
+        color: #1976d2;
+        padding-left: 8px;
+        padding-right: 1vw;
       }
-      .skillSetItem {
-        display: inline;
-        margin: 1vw;
-      }
-    }
-    .bio {
-      margin-left: 18vw;
-      margin-right: 18vw;
-      margin-top: 20vh;
-      margin-bottom: 20vh;
-    }
-    .experience {
-      margin-left: 18vw;
-      margin-right: 18vw;
-      margin-top: 9vh;
-      margin-bottom: 20vh;
-    }
-    .connect {
-      margin-left: 15vw;
-      margin-right: 15vw;
-      margin-top: 9vh;
-      margin-bottom: 20vh;
-      .connectIcons {
-        display: flex;
-        margin-top: 2vh;
-        margin-bottom: 2vh;
-        .sub-item {
-          padding-left: 0.5rem;
-        }
-      }
-      .linkedIn {
-        display: flex;
-        .linkedIn-btn {
-          border: none;
-          background-color: transparent;
-          font-family: Quantico, sans-serif;
-          font-size: 17px;
-          color: #1976d2;
-          padding-left: 8px;
-          padding-right: 1vw;
-        }
-        .linkedIn-btn:hover {
-          padding-left: 8px;
-          padding-right: 1vw;
-          transition: 0.5s;
-          color: rgb(195, 26, 26);
-          font-size: 17px;
-          font-family: Quantico, sans-serif;
-          text-decoration: none;
-          background-color: rgba(25, 118, 210, 0.04);
-        }
+      .linkedIn-btn:hover {
+        padding-left: 8px;
+        padding-right: 1vw;
+        transition: 0.5s;
+        color: rgb(195, 26, 26);
+        font-size: 17px;
+        font-family: Quantico, sans-serif;
+        text-decoration: none;
+        background-color: rgba(25, 118, 210, 0.04);
       }
     }
   }
-  .linkButton {
-    border: solid cornflowerblue 2px;
-    margin: 18vw;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
+}
+.linkButton {
+  border: solid cornflowerblue 2px;
+  margin: 18vw;
+  text-transform: uppercase;
+  text-decoration: none;
 }
