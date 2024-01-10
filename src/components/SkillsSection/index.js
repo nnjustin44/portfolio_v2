@@ -1,21 +1,21 @@
 import React from "react";
-import { skillSet1, skillSet2, skillSet3, skillSet4 } from "../../AppConstants";
+import { LINKS } from "../../AppConstants";
 
 const SkillSection = () => {
   return (
     <div className="skillsetWrapper">
       <h1 className="skillTitle">Skillset</h1>
       <div>
-        <img className="skillSetItem" src={skillSet1}></img>
+        <img className="skillSetItem" src={LINKS.SKILLSET_1}></img>
       </div>
       <div>
-        <img className="skillSetItem" src={skillSet2}></img>
+        <img className="skillSetItem" src={LINKS.SKILLSET_2}></img>
       </div>
       <div>
-        <img className="skillSetItem" src={skillSet3}></img>
+        <img className="skillSetItem" src={LINKS.SKILLSET_3}></img>
       </div>
       <div>
-        <img className="skillSetItem" src={skillSet4}></img>
+        <img className="skillSetItem" src={LINKS.SKILLSET_4}></img>
       </div>
     </div>
   );

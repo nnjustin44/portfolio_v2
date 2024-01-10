@@ -2,8 +2,8 @@ import React from "react";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { linkedInLink } from "../../AppConstants";
 import openInNewTab from "../helpers/openNewTab";
+import { LINKS } from "../../AppConstants";
 
 const ConnectSection = () => {
   return (
@@ -21,7 +21,7 @@ const ConnectSection = () => {
         <a>
           <button
             className="linkedIn-btn"
-            onClick={() => openInNewTab(linkedInLink)}
+            onClick={() => openInNewTab( LINKS.LINKEDIN_LINK)}
           >
             LinkedIn
           </button>
