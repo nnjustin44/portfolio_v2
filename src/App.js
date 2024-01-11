@@ -14,15 +14,16 @@ import ConnectSection from "./components/ConnectSection/index.js";
 import ExperienceSection from "./components/ExperienceSection/index.js";
 import openInNewTab from "./components/helpers/openNewTab.js";
 import { LINKS } from "./AppConstants.js";
-import GptApiCall from "./api/chatGPT.jsx";
+import GptApiCall from "./api/chatGPT.js";
 
 require("dotenv").config();
 
 function App() {
+  const { response } = GptApiCall();
+  console.log(response);
   return (
     <div className="App">
       <title>Justin Nguyen Portfolio</title>
-      <GptApiCall />
       <div className="topHeader" id="homeSection">
         <img src={LINKS.PROFILE_PIC} className="profile_pic" />
         <img src={LINKS.BACKGROUND_PIC} className="background_pic" />
