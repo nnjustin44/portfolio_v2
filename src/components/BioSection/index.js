@@ -2,8 +2,7 @@ import React from "react";
 
 const BioSection = () => {
   return (
-    <div className="bio">
-      <h1 className="title">About</h1>
+    <div className="bioBody">
       <p>My name is Justin Nguyen, I am a self taught programmer.</p>
       <p>
         Graduated with a degree in Biology and a direct commissioned officer in

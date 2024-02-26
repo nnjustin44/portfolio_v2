@@ -4,8 +4,8 @@ import { LINKS } from "../../AppConstants";
 const SkillSection = () => {
   return (
     <div className="skillsetWrapper">
-      <h1 className="skillTitle">Skillset</h1>
-      <div>
+      <h1 className="title">Skillset</h1>
+      {/* <div>
         <img className="skillSetItem" src={LINKS.SKILLSET_1}></img>
       </div>
       <div>
@@ -16,7 +16,7 @@ const SkillSection = () => {
       </div>
       <div>
         <img className="skillSetItem" src={LINKS.SKILLSET_4}></img>
-      </div>
+      </div> */}
     </div>
   );
 };
