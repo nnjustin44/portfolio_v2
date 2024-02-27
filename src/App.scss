@@ -8,9 +8,9 @@ div {
   scroll-behavior: smooth !important;
 }
 .topHeader {
-  display: flex;
-  justify-content: space-between;
-  height: 30rem;
+//   display: flex;
+// flex-wrap: wrap;
+  height: 100vh;
   overflow: hidden;
   background-color: #1279e0;
   .profile_pic {
@@ -68,6 +68,15 @@ div {
   .skillsetWrapper {
       margin: 9vh 18vw 20vh 18vw;
       color:white;
+      .skill{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .items{
+          font-size: medium;
+          margin:3rem;
+        }
+      }
   }
   .p {
     font-family: Quantico, sans-serif !important;

@@ -12,9 +12,7 @@ const MenuHeader = () => {
       <a href="#skillSection" className="menuNavbar">
         <Button className="nav-btn">Skillset</Button>
       </a>
-      <a href="#bioSection" className="menuNavbar">
-        <Button className="nav-btn">About</Button>
-      </a>
+
       <a href="#experienceSection" className="menuNavbar">
         <Button className="nav-btn">Experience</Button>
       </a>
@@ -36,6 +34,9 @@ const MenuHeader = () => {
         >
           Resume
         </Button>
+      </a>
+      <a href="#homeSection" className="menuNavbar">
+        <Button className="nav-btn">J.O.N.A.H</Button>
       </a>
       <div className="menuNavbar">
         <div className="name">Justin Nguyen</div>
