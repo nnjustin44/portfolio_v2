@@ -3,16 +3,18 @@ import Button from "@mui/material/Button";
 import openInNewTab from "../helpers/openNewTab";
 import { LINKS } from "../../AppConstants";
 import "./styles.scss";
-const MenuHeader = () => {
+const MenuHeader = ({ width, height }) => {
   return (
     <div className="menu">
       <a href="#homeSection" className="menuNavbar">
         <Button className="nav-btn">Home</Button>
       </a>
+      <a href="#homeSection" className="menuNavbar">
+        <Button className="nav-btn">J.O.N.A.H</Button>
+      </a>
       <a href="#skillSection" className="menuNavbar">
         <Button className="nav-btn">Skillset</Button>
       </a>
-
       <a href="#experienceSection" className="menuNavbar">
         <Button className="nav-btn">Experience</Button>
       </a>
@@ -35,9 +37,7 @@ const MenuHeader = () => {
           Resume
         </Button>
       </a>
-      <a href="#homeSection" className="menuNavbar">
-        <Button className="nav-btn">J.O.N.A.H</Button>
-      </a>
+
       <div className="menuNavbar">
         <div className="name">Justin Nguyen</div>
       </div>

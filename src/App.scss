@@ -10,24 +10,10 @@ div {
 .topHeader {
 //   display: flex;
 // flex-wrap: wrap;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
   background-color: #1279e0;
-  .profile_pic {
-    background-color: transparent;
-    height: 65%;
-    margin: 5rem 2rem 2rem 3rem;
-    border-radius: 50%;
-    border: solid white 5px;
-  }
-  .imgWrapper {
-    padding-right: 1rem;
-  }
-
-  .bio {
-    display: flex;
-    margin: 6rem 5rem 5rem 5rem;
-  }
+  
   padding: 2rem 2rem;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -86,6 +72,7 @@ div {
     margin:9vh 18vw 20vh 18vw;
     color: white;
   }
+
   .connect {
     margin-left: 15vw;
     margin-right: 15vw;

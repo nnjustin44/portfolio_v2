@@ -1,18 +1,31 @@
-import React from "react";
-import TextField from "@mui/material/TextField";
+import React, { useState } from "react";
 import "./styles.scss";
+import { Box, Input } from "@mui/material";
+import GptApiCall from "../../api/chatGPT";
+import { placeHolder } from "../../AppConstants";
+
 const JONAH = () => {
+  const [input, setInput] = useState();
+  const { response } = GptApiCall(input);
+  console.log(response);
+
+  const showResponse = response ? response : placeHolder;
+
   return (
-    <>
-      <TextField
-        className="textField"
-        id="first-name"
-        label="Ask me anything you'd like"
-        // value={this.state.name}
-        // onChange={this.handleChange("name")}
-        // margin="normal"
-      />
-    </>
+    <div className="jonah">
+      <h1 className="title">J.O.N.A.H</h1>
+      <div className="jonahBody">
+        {showResponse}
+        <Input
+          className="inputField"
+          id="first-name"
+          placeholder="Ask me anything you'd like"
+          color="primary"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+      </div>
+    </div>
   );
 };
 
