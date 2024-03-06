@@ -16,3 +16,5 @@ export const LINKS = {
   GITHUB_LINK: "https://github.com/nnjustin44",
   LINKEDIN_LINK: "https://www.linkedin.com/in/justin-nguyen-00a624192/",
 };
+export const placeHolder =
+  "Hello! I am Justin's Online Native Artifical Helper. You can call me J.O.N.A.H! You can ask me anything you'd like!";
