@@ -24,9 +24,9 @@ function App() {
         </div>
       </div>
       <div className="info-body">
-        <div id="jonahSection">
+        {/* <div id="jonahSection">
           <JONAH />
-        </div>
+        </div> */}
         <div id="skillSection">
           <SkillSection id="skillSection" />
         </div>
