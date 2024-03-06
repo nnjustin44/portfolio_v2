@@ -1,0 +1,120 @@
+div {
+  position: relative;
+}
+.App {
+  /*to fit with screen size vw*/
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth !important;
+}
+.topHeader {
+//   display: flex;
+// flex-wrap: wrap;
+  height: 50vh;
+  overflow: hidden;
+  background-color: #1279e0;
+  
+  padding: 2rem 2rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .profile_pic {
+    animation: App-logo-spin infinite 100s linear;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skillsetNavbar {
+  margin: 2vw;
+  text-decoration: none;
+}
+
+.title {
+  height: 30%;
+  text-align: center;
+  font-family: Quantico, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  margin: 1vw;
+  justify-content: center;
+}
+
+.info-body {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  font-family: Quantico, sans-serif;
+  .skillsetWrapper {
+      margin: 9vh 18vw 20vh 18vw;
+      color:white;
+      .skill{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .items{
+          font-size: medium;
+          margin:3rem;
+        }
+      }
+  }
+  .p {
+    font-family: Quantico, sans-serif !important;
+    color: white !important;
+  }
+  .experience {
+    margin:9vh 18vw 20vh 18vw;
+    color: white;
+  }
+
+  .connect {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
+    color:white;
+    background-color: black;
+    .connectIcons {
+      display: flex;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      .sub-item {
+        padding-left: 0.5rem;
+      }
+    }
+    .linkedIn {
+      display: flex;
+      .linkedIn-btn {
+        border: none;
+        background-color: transparent;
+        font-family: Quantico, sans-serif;
+        font-size: 17px;
+        color: #1976d2;
+        padding-left: 8px;
+        padding-right: 1vw;
+      }
+      .linkedIn-btn:hover {
+        padding-left: 8px;
+        padding-right: 1vw;
+        transition: 0.5s;
+        color: rgb(195, 26, 26);
+        font-size: 17px;
+        font-family: Quantico, sans-serif;
+        text-decoration: none;
+        background-color: rgba(25, 118, 210, 0.04);
+      }
+    }
+  }
+}
+.linkButton {
+  border: solid cornflowerblue 2px;
+  margin: 18vw;
+  text-transform: uppercase;
+  text-decoration: none;
+}

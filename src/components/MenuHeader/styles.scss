@@ -1,0 +1,33 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    color: white;
+    z-index: 2;
+
+    .nav-btn {
+        font-family: Quantico, sans-serif;
+        box-shadow: none;
+        box-shadow: none;
+    }
+
+    .nav-btn:hover {
+        transition: 0.5s;
+        color: rgb(195, 26, 26);
+        font-family: Quantico, sans-serif;
+    }
+
+    .menuNavbar {
+        margin: 1vw 2vw 1vw 2vw;
+        text-decoration: none;
+    }
+
+    .name {
+        font-size: 1.5rem;
+        font-weight: 900;
+        justify-self: center;
+    }
+}
