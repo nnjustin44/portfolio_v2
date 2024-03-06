@@ -9,9 +9,9 @@ const MenuHeader = ({ width, height }) => {
       <a href="#homeSection" className="menuNavbar">
         <Button className="nav-btn">Home</Button>
       </a>
-      <a href="#homeSection" className="menuNavbar">
+      {/* <a href="#homeSection" className="menuNavbar">
         <Button className="nav-btn">J.O.N.A.H</Button>
-      </a>
+      </a> */}
       <a href="#skillSection" className="menuNavbar">
         <Button className="nav-btn">Skillset</Button>
       </a>
@@ -29,14 +29,14 @@ const MenuHeader = ({ width, height }) => {
           Github
         </Button>
       </a>
-      <a className="menuNavbar">
+      {/* <a className="menuNavbar">
         <Button
           className="nav-btn"
           onClick={() => openInNewTab(LINKS.RESUME_LINK)}
         >
           Resume
         </Button>
-      </a>
+      </a> */}
 
       <div className="menuNavbar">
         <div className="name">Justin Nguyen</div>

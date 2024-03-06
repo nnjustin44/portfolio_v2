@@ -7,9 +7,10 @@ import { placeHolder } from "../../AppConstants";
 const JONAH = () => {
   const [input, setInput] = useState();
   const { response } = GptApiCall(input);
-  console.log(response);
+  console.log("response", response);
+  console.log("input", input);
 
-  const showResponse = response ? response : placeHolder;
+  const showResponse = input ? response : placeHolder;
 
   return (
     <div className="jonah">
