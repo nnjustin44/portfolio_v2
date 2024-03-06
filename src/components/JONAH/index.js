@@ -1,29 +1,35 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./styles.scss";
-import { Box, Input } from "@mui/material";
+import Input from "@mui/joy/Input";
 import GptApiCall from "../../api/chatGPT";
 import { placeHolder } from "../../AppConstants";
 
 const JONAH = () => {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState(null);
   const { response } = GptApiCall(input);
   console.log("response", response);
   console.log("input", input);
 
-  const showResponse = input ? response : placeHolder;
+  const showResponse = response ? response : placeHolder;
+
+  const handleSubmit = useCallback((value) => {
+    setInput(value);
+  }, []);
 
   return (
     <div className="jonah">
       <h1 className="title">J.O.N.A.H</h1>
-      <div className="jonahBody">
-        {showResponse}
+      <div>
+        <div className="response">{showResponse}</div>
         <Input
-          className="inputField"
-          id="first-name"
+          //   className="inputField"
+          //   id="first-name"
           placeholder="Ask me anything you'd like"
-          color="primary"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          color="primary"
+          size="lg"
+          variant="soft"
+          onChange={(e) => handleSubmit(e.target.value)}
         />
       </div>
     </div>
