@@ -7,24 +7,26 @@ import ExperienceSection from "./components/ExperienceSection/index.js";
 import MenuHeader from "./components/MenuHeader";
 import SkillSection from "./components/SkillsSection/index.js";
 import profile_pic from "./images/profile_pic.jpeg";
+import JONAH from "./components/JONAH";
+
 require("dotenv").config();
 
 function App() {
-  const { response } = GptApiCall();
-  console.log(response);
+  var width = window.innerWidth;
+  var height = window.innerHeight;
   return (
     <div className="App">
       <title>Justin Nguyen Portfolio</title>
-      <MenuHeader />
+      <MenuHeader width={width} height={height} />
       <div className="topHeader" id="homeSection">
-        <div className="bio">
-          <BioSection />
-        </div>
-        <div className="imgWrapper">
-          <img src={profile_pic} className="profile_pic" />
+        <div id="bioSection">
+          <BioSection id="bioSection" />
         </div>
       </div>
       <div className="info-body">
+        <div id="jonahSection">
+          <JONAH />
+        </div>
         <div id="skillSection">
           <SkillSection id="skillSection" />
         </div>
