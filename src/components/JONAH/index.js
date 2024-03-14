@@ -1,36 +1,52 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import Input from "@mui/joy/Input";
 import GptApiCall from "../../api/chatGPT";
 import { placeHolder } from "../../AppConstants";
+import { Button } from "@mui/material";
 
-const JONAH = () => {
-  const [input, setInput] = useState(null);
-  const { response } = GptApiCall(input);
+const JONAH = ({ deviceSize }) => {
+  const [input, setInput] = useState("");
+  const [temp, setTemp] = useState("");
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState("Something went wrong");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (input) {
+          const { response } = await GptApiCall(input);
+          setResponse(response);
+        }
+      } catch (error) {
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, [input]);
+
   console.log("response", response);
   console.log("input", input);
 
   const showResponse = response ? response : placeHolder;
 
-  const handleSubmit = useCallback((value) => {
-    setInput(value);
-  }, []);
-
   return (
     <div className="jonah">
-      <h1 className="title">J.O.N.A.H</h1>
-      <div>
+      <h1 className={deviceSize}>J.O.N.A.H</h1>
+      <div className="responseWrapper">
         <div className="response">{showResponse}</div>
         <Input
-          //   className="inputField"
-          //   id="first-name"
           placeholder="Ask me anything you'd like"
-          value={input}
+          value={temp}
           color="primary"
           size="lg"
           variant="soft"
-          onChange={(e) => handleSubmit(e.target.value)}
+          onChange={(e) => setTemp(e.target.value)}
         />
+        <Button className="jonahButton" onClick={() => setInput(temp)}>
+          Submit
+        </Button>
       </div>
     </div>
   );

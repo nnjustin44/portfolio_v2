@@ -1,9 +1,9 @@
 import React from "react";
 
-const ExperienceSection = () => {
+const ExperienceSection = ({ deviceSize }) => {
   return (
     <div className="experience">
-      <h1 className="title">Experience</h1>
+      <h1 className={deviceSize}>Experience</h1>
       <p>I have been a developer at Fiserv since 2021.</p>
       <p>
         I had the unquie oppurtunity of being apart of a two year rotational
