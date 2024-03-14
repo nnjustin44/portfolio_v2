@@ -11,7 +11,7 @@ const MenuHeader = ({ width, height }) => {
         <a href="#homeSection" className="menuNavbar">
           <Button className="nav-btn">Home</Button>
         </a>
-        <a href="#homeSection" className="menuNavbar">
+        <a href="#jonahSection" className="menuNavbar">
           <Button className="nav-btn">J.O.N.A.H</Button>
         </a>
         <a href="#skillSection" className="menuNavbar">

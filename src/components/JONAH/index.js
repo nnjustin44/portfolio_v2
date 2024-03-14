@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 
 const JONAH = ({ deviceSize }) => {
   const [input, setInput] = useState("");
-  const [temp, setTemp] = useState("");
+  //   const [temp, setTemp] = useState("");
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
 
@@ -15,7 +15,7 @@ const JONAH = ({ deviceSize }) => {
     const fetchData = async () => {
       try {
         if (input) {
-          const { response } = await GptApiCall(input);
+          const { response } = GptApiCall(input);
           setResponse(response);
         }
       } catch (error) {
@@ -38,13 +38,13 @@ const JONAH = ({ deviceSize }) => {
         <div className="response">{showResponse}</div>
         <Input
           placeholder="Ask me anything you'd like"
-          value={temp}
+          //   value={temp}
           color="primary"
           size="lg"
           variant="soft"
-          onChange={(e) => setTemp(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
         />
-        <Button className="jonahButton" onClick={() => setInput(temp)}>
+        <Button className="jonahButton" onClick={() => GptApiCall(input)}>
           Submit
         </Button>
       </div>

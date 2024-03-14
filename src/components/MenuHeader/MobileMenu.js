@@ -30,7 +30,7 @@ const MobileMenu = () => {
             Home
           </Button>
         </a>
-        <a href="#homeSection" className="menuNavbar">
+        <a href="#jonahSection" className="menuNavbar">
           <Button className="nav-btn" onClick={handleClick}>
             J.O.N.A.H
           </Button>
@@ -72,11 +72,11 @@ const MobileMenu = () => {
 
   return (
     <>
-      <div className="mobileButton">
+      <div className="mobileHeader">
         <IconButton className="mobileButton" onClick={handleClick}>
-          <MoreVertIcon sx="lg" />
+          <MoreVertIcon />
         </IconButton>
-        {/* <div className="mobileName">Justin Nguyen</div> */}
+        <div className="mobileName">Justin Nguyen</div>
       </div>
       {opened ? <MobileDropdown /> : null}
     </>
