@@ -9,7 +9,7 @@ const JONAH = ({ deviceSize }) => {
   const [input, setInput] = useState("");
   const [temp, setTemp] = useState("");
   const [response, setResponse] = useState(null);
-  const [error, setError] = useState("Something went wrong");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +26,8 @@ const JONAH = ({ deviceSize }) => {
     fetchData();
   }, [input]);
 
-  console.log("response", response);
   console.log("input", input);
+  console.log("response", response);
 
   const showResponse = response ? response : placeHolder;
 
