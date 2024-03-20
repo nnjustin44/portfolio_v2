@@ -1,34 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import Input from "@mui/joy/Input";
-import GptApiCall from "../../api/chatGPT";
+import GptApiCall, { postData } from "../../api/chatGPT";
 import { placeHolder } from "../../AppConstants";
 import { Button } from "@mui/material";
 
 const JONAH = ({ deviceSize }) => {
-  const [input, setInput] = useState("");
-  //   const [temp, setTemp] = useState("");
+  const [input, setInput] = useState(null);
   const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (input) {
-          const { response } = GptApiCall(input);
-          setResponse(response);
-        }
-      } catch (error) {
-        setError(error);
-      }
-    };
-
-    fetchData();
-  }, [input]);
-
   console.log("input", input);
-  console.log("response", response);
 
+  const onSuccess = (data) => {
+    console.log("response:", data);
+    setResponse(data);
+  };
+
+  const onFailure = () => {
+    console.log("Something went wrong");
+  };
+
+  const onSubmit = () => {
+    postData(input, onSuccess, onFailure);
+  };
   const showResponse = response ? response : placeHolder;
 
   return (
@@ -44,7 +37,7 @@ const JONAH = ({ deviceSize }) => {
           variant="soft"
           onChange={(e) => setInput(e.target.value)}
         />
-        <Button className="jonahButton" onClick={() => GptApiCall(input)}>
+        <Button className="jonahButton" onClick={onSubmit}>
           Submit
         </Button>
       </div>
