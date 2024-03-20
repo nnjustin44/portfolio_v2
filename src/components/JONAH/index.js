@@ -38,7 +38,7 @@ const JONAH = ({ deviceSize }) => {
         <div className="response">{showResponse}</div>
         <Input
           placeholder="Ask me anything you'd like"
-          //   value={temp}
+          value={input}
           color="primary"
           size="lg"
           variant="soft"
