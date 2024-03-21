@@ -18,31 +18,31 @@ const MenuHeader = ({ width, height }) => {
       <div className="menu">
         <a href="#homeSection" className="menuNavbar">
           <Button className="nav-btn">
-            <HomeIcon className="menuIcon" color="primary" />
+            <HomeIcon className="menuIcon" />
             Home
           </Button>
         </a>
         <a href="#jonahSection" className="menuNavbar">
           <Button className="nav-btn">
-            <AccessibilityNewIcon className="menuIcon" color="primary" />
+            <AccessibilityNewIcon className="menuIcon" />
             J.O.N.A.H
           </Button>
         </a>
         <a href="#skillSection" className="menuNavbar">
           <Button className="nav-btn">
-            <HandymanIcon className="menuIcon" color="primary" />
+            <HandymanIcon className="menuIcon" />
             Skillset
           </Button>
         </a>
         <a href="#experienceSection" className="menuNavbar">
           <Button className="nav-btn">
-            <EngineeringIcon className="menuIcon" color="primary" />
+            <EngineeringIcon className="menuIcon" />
             Experience
           </Button>
         </a>
         <a href="#connectSection" className="menuNavbar">
           <Button className="nav-btn">
-            <PhoneAndroidIcon className="menuIcon" color="primary" />
+            <PhoneAndroidIcon className="menuIcon" />
             Connect
           </Button>
         </a>
@@ -51,7 +51,7 @@ const MenuHeader = ({ width, height }) => {
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.GITHUB_LINK)}
           >
-            <GitHubIcon className="menuIcon" color="primary" />
+            <GitHubIcon className="menuIcon" />
             Github
           </Button>
         </a>
@@ -60,7 +60,7 @@ const MenuHeader = ({ width, height }) => {
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.RESUME_LINK)}
           >
-            <DescriptionIcon className="menuIcon" color="primary" />
+            <DescriptionIcon className="menuIcon" />
             Resume
           </Button>
         </a>

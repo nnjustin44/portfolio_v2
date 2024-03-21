@@ -6,26 +6,44 @@ const BioSection = ({ width, height }) => {
   const BioSection = () => {
     return (
       <div className="bioSection">
-        <h1 className="title">Meet The Developer</h1>
         <div className="bioBody">
-          <div className="aboutMe">
-            <div className="text">
-              My name is Justin Nguyen, I am a self taught programmer.
-            </div>
-            <div className="text">
-              Graduated with a degree in Biology and a direct commissioned
-              officer in the United States Navy Reserves.
-            </div>
-            <div className="text">
-              Consistently pursuing excellence and driven in self growth for
-              software development.
-            </div>
-            <div className="text">Honest. Creative. Dedicated.</div>
-          </div>
+          <p id="head1" class="aniHeader">
+            Meet The Developer
+          </p>
+          <p id="head2" class="aniHeader">
+            Justin Nguyen
+          </p>
+          <p id="head3" class="aniHeader">
+            Honest. Creative. Dedicated.
+          </p>
+          <p id="head4" class="aniHeader">
+            This website was developed from the ground up
+          </p>
+          <p id="head5" class="aniHeader">
+            Developed for both mobile and desktop
+          </p>
+          <p id="head6" class="aniHeader">
+            Artificial Intelligence
+          </p>
+          <p id="head7" class="aniHeader">
+            Welcome to my Portfolio
+          </p>
+          <p id="head8" class="aniHeader">
+            Fullstack Software Engineer
+          </p>
           <div className="imgWrapper">
             <img src={profile_pic} className="profile_pic" />
           </div>
         </div>
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
       </div>
     );
   };

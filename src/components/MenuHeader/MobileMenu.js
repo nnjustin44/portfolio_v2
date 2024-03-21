@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import "./styles.scss";
-import {
-  IconButton,
-  ListDivider,
-  ListItemDecorator,
-  Menu,
-  MenuButton,
-  MenuItem,
-} from "@mui/joy";
+import { IconButton } from "@mui/joy";
 import HomeIcon from "@mui/icons-material/Home";
 import HandymanIcon from "@mui/icons-material/Handyman";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -16,10 +9,10 @@ import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DescriptionIcon from "@mui/icons-material/Description";
-import { DeleteForever, Edit, MoreVert } from "@mui/icons-material";
 import openInNewTab from "../helpers/openNewTab";
 import { LINKS } from "../../AppConstants";
 import { Button } from "@mui/material";
+import profile_pic from "../../images/profile_pic.jpeg";
 
 const MobileMenu = () => {
   const [opened, setOpened] = useState(false);
@@ -34,31 +27,31 @@ const MobileMenu = () => {
       <div className="mobileMenu">
         <a href="#homeSection" className="menuNavbar">
           <Button className="nav-btn" onClick={handleClick}>
-            <HomeIcon className="menuIcon" color="primary" />
+            <HomeIcon className="menuIcon" />
             Home
           </Button>
         </a>
         <a href="#jonahSection" className="menuNavbar">
           <Button className="nav-btn" onClick={handleClick}>
-            <AccessibilityNewIcon className="menuIcon" color="primary" />
+            <AccessibilityNewIcon className="menuIcon" />
             J.O.N.A.H
           </Button>
         </a>
         <a href="#skillSection" className="menuNavbar">
           <Button className="nav-btn" onClick={handleClick}>
-            <HandymanIcon className="menuIcon" color="primary" />
+            <HandymanIcon className="menuIcon" />
             Skillset
           </Button>
         </a>
         <a href="#experienceSection" className="menuNavbar">
           <Button className="nav-btn" onClick={handleClick}>
-            <EngineeringIcon className="menuIcon" color="primary" />
+            <EngineeringIcon className="menuIcon" />
             Experience
           </Button>
         </a>
         <a href="#connectSection" className="menuNavbar">
           <Button className="nav-btn" onClick={handleClick}>
-            <PhoneAndroidIcon className="menuIcon" color="primary" />
+            <PhoneAndroidIcon className="menuIcon" />
             Connect
           </Button>
         </a>
@@ -67,7 +60,7 @@ const MobileMenu = () => {
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.GITHUB_LINK) & handleClick()}
           >
-            <GitHubIcon className="menuIcon" color="primary" />
+            <GitHubIcon className="menuIcon" />
             Github
           </Button>
         </a>
@@ -76,7 +69,7 @@ const MobileMenu = () => {
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.RESUME_LINK) & handleClick()}
           >
-            <DescriptionIcon className="menuIcon" color="primary" />
+            <DescriptionIcon className="menuIcon" />
             Resume
           </Button>
         </a>
@@ -90,7 +83,9 @@ const MobileMenu = () => {
         <IconButton className="mobileButton" onClick={handleClick}>
           <MoreVertIcon />
         </IconButton>
-        <div className="mobileName">Justin Nguyen</div>
+        <div className="mobileImgWrapper">
+          <img src={profile_pic} className="mobileProfilePic" />
+        </div>
       </div>
       {opened ? <MobileDropdown /> : null}
     </>

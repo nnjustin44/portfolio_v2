@@ -8,33 +8,14 @@ div {
   scroll-behavior: smooth !important;
 }
 .topHeader {
-  display: flex;
-  height: 40%;
+  display: grid;
+  height: 35rem;
   overflow: hidden;
   background-color: #1279e0;
   padding: 2rem 2rem;
   .bioSection{
     justify-self: center;
-    // margin: 1rem 1rem 0rem 4rem;
   }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .profile_pic {
-    animation: App-logo-spin infinite 100s linear;
-  }
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.skillsetNavbar {
-  margin: 2vw;
-  text-decoration: none;
 }
 
 .title {
@@ -81,6 +62,45 @@ div {
   .experience {
     margin:9vh 18vw 20vh 18vw;
     color: white;
+  }
+
+  .connect {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
+    color:white;
+    background-color: black;
+    .connectIcons {
+      display: flex;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      .sub-item {
+        padding-left: 0.5rem;
+      }
+    }
+    .linkedIn {
+      display: flex;
+      .linkedIn-btn {
+        border: none;
+        background-color: transparent;
+        font-family: Quantico, sans-serif;
+        font-size: 17px;
+        color: #1976d2;
+        padding-left: 8px;
+        padding-right: 1vw;
+      }
+      .linkedIn-btn:hover {
+        padding-left: 8px;
+        padding-right: 1vw;
+        transition: 0.5s;
+        color: rgb(195, 26, 26);
+        font-size: 17px;
+        font-family: Quantico, sans-serif;
+        text-decoration: none;
+        background-color: rgba(25, 118, 210, 0.04);
+      }
+    }
   }
 }
 .linkButton {
