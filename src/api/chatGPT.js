@@ -3,7 +3,7 @@ import { trainingContext } from "../components/helpers/jonahHelper";
 const gpt_key = process.env.REACT_APP_GPT_API_KEY;
 const gpt_url = process.env.REACT_APP_GPT_API_URL;
 
-export const postData = (input, onSuccess, onFailure) => {
+export const postData = async (input, onSuccess, onFailure) => {
   fetch(gpt_url, {
     method: "POST",
     headers: {
@@ -16,7 +16,7 @@ export const postData = (input, onSuccess, onFailure) => {
       messages: [
         {
           role: "system",
-          content: { trainingContext },
+          content: `${trainingContext}`,
         },
         { role: "user", content: `${input}` },
       ],

@@ -21,7 +21,14 @@ const JONAH = ({ deviceSize }) => {
 
   const onSubmit = () => {
     postData(input, onSuccess, onFailure);
+    setInput("");
   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onSubmit();
+    }
+  };
+
   const showResponse = response ? response : placeHolder;
 
   return (
@@ -36,6 +43,7 @@ const JONAH = ({ deviceSize }) => {
           size="lg"
           variant="soft"
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <Button className="jonahButton" onClick={onSubmit}>
           Submit
