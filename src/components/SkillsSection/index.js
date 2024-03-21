@@ -1,10 +1,10 @@
 import React from "react";
 import { LINKS } from "../../AppConstants";
 
-const SkillSection = () => {
+const SkillSection = ({ deviceSize }) => {
   return (
     <div className="skillsetWrapper">
-      <h1 className="title">Skillset</h1>
+      <h1 className={deviceSize}>Skillset</h1>
       <div className="skill">
         <div className="items">REACT</div>
         <div className="items">REDUX</div>

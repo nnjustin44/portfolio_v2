@@ -4,37 +4,45 @@ import GptApiCall from "./api/chatGPT.js";
 import BioSection from "./components/BioSection/index.js";
 import ConnectSection from "./components/ConnectSection/index.js";
 import ExperienceSection from "./components/ExperienceSection/index.js";
-import MenuHeader from "./components/MenuHeader";
 import SkillSection from "./components/SkillsSection/index.js";
 import profile_pic from "./images/profile_pic.jpeg";
 import JONAH from "./components/JONAH";
+import MenuHeader from "./components/MenuHeader";
 
 require("dotenv").config();
 
 function App() {
   var width = window.innerWidth;
   var height = window.innerHeight;
+
+  var deviceSize = width <= 500 ? "mobileTitle" : "title";
+
   return (
     <div className="App">
       <title>Justin Nguyen Portfolio</title>
       <MenuHeader width={width} height={height} />
       <div className="topHeader" id="homeSection">
-        <div id="bioSection">
-          <BioSection id="bioSection" />
+        <div className="bioSection" id="bioSection">
+          <BioSection
+            width={width}
+            height={height}
+            deviceSize={deviceSize}
+            id="bioSection"
+          />
         </div>
       </div>
       <div className="info-body">
-        {/* <div id="jonahSection">
-          <JONAH />
-        </div> */}
+        <div id="jonahSection">
+          <JONAH deviceSize={deviceSize} />
+        </div>
         <div id="skillSection">
-          <SkillSection id="skillSection" />
+          <SkillSection deviceSize={deviceSize} id="skillSection" />
         </div>
         <div id="experienceSection">
-          <ExperienceSection />
+          <ExperienceSection deviceSize={deviceSize} />
         </div>
         <div id="connectSection">
-          <ConnectSection />
+          <ConnectSection deviceSize={deviceSize} />
         </div>
       </div>
     </div>
