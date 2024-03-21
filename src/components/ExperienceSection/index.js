@@ -5,11 +5,15 @@ const ExperienceSection = ({ deviceSize }) => {
     <div className="experience">
       <h1 className={deviceSize}>Experience</h1>
       <p>
-        I currently a Fullstack developer at Vergent Loan Managment Systems.
+        I'm currently a Fullstack developer at Vergent Loan Management Systems.
+        Specializing in end to end loan management software.
       </p>
-      <p>Starting off as a developer at Fiserv since 2021. </p>
       <p>
-        I had the unquie oppurtunity of being apart of a two year rotational
+        Starting off as a developer at Fiserv since 2021. A fortune 500 company
+        leading the charge in the fintech space.
+      </p>
+      <p>
+        I had the unique opportunity of being apart of a two year rotational
         program that allowed me to experience different areas of software
         development.
       </p>
