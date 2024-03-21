@@ -9,17 +9,14 @@ div {
 }
 .topHeader {
   display: grid;
-  height: 40%;
+  height: 35rem;
   overflow: hidden;
   background-color: #1279e0;
   padding: 2rem 2rem;
   .bioSection{
     justify-self: center;
-    // margin: 1rem 1rem 0rem 4rem;
   }
 }
-
-
 
 .title {
   height: 30%;

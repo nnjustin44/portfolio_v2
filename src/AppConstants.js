@@ -12,7 +12,7 @@ export const LINKS = {
   SKILLSET_4:
     "https://cdn.discordapp.com/attachmhttps://cdn.discordapp.com/attachments/816358803163447387/1073632223904944288/Screenshot_2023-02-10_at_10.50.43.png?ex=65eb33ed&is=65d8beed&hm=8b6b03f7f4265ee76226b7b62b9978758c40d7cd7208fc069cf0d504a3d2c962&ents/811991353969213502/888541955414429696/2048https://cdn.discordapp.com/attachments/816358803163447387/873958416421https://cdn.discordapp.com/attachments/816358803163447387/1211020244399689759/redux-2749334-2284724.png?ex=65ecad7d&is=65da387d&hm=8370619a29af94532fb78b03fba90e82dd1759339780b95379ca582f3404fb5b&371944/csharp-logo.png?ex=65e49e33&is=65d22933&hm=995dca7d802f644909e695167f995026b5bdb2af13ae48f8f9a71252a8330793&px-Python-logo-notext.svg.png",
   RESUME_LINK:
-    "https://cdn.discordapp.com/attachments/816358803163447387/1148346424778567720/Screenshot_2023-09-04_at_15.58.36.png",
+    "https://docs.google.com/document/d/1GUPhxA97H6ltoR0-061t2nQYOrhQuu3yWKeZH7eMQY4/edit?usp=sharing",
   GITHUB_LINK: "https://github.com/nnjustin44",
   LINKEDIN_LINK: "https://www.linkedin.com/in/justin-nguyen-00a624192/",
 };

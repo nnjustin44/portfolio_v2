@@ -10,6 +10,7 @@
 
     .nav-btn {
         font-family: Quantico, sans-serif;
+        font-weight: bolder;
         box-shadow: none;
         box-shadow: none;
     }
@@ -23,8 +24,6 @@
     .menuNavbar {
         margin: 1vw 2vw 1vw 2vw;
         text-decoration: none;
-<<<<<<< Updated upstream
-=======
         .menuIcon {
                 margin-right: .5rem !important;
                 color:primary
@@ -32,7 +31,9 @@
         .menuIcon:hover {
             color: rgb(195, 26, 26);
         }
->>>>>>> Stashed changes
+        .menuIcon {
+                margin-right: .5rem !important;
+            }
     }
 
     .name {
@@ -61,25 +62,12 @@
 .mobileMenu {
     display: grid;
     justify-content: space-between;
+    padding:1rem;
+    border-radius: 0% 0% 10% 0%;
     text-decoration: none;
-    position: sticky;
-    top: 0;
+    position: fixed;
     background-color: black;
     color: white;
-<<<<<<< Updated upstream
-    z-index: 2;
-
-    .nav-btn {
-        font-family: Quantico, sans-serif;
-        box-shadow: none;
-        box-shadow: none;
-    }
-
-    .nav-btn:hover {
-        transition: 0.5s;
-        color: rgb(195, 26, 26);
-        font-family: Quantico, sans-serif;
-=======
     z-index: 1;
     .menuNavbar{
         display: flex;
@@ -103,8 +91,7 @@
             color: rgb(195, 26, 26);
             font-family: Quantico, sans-serif;
         }
->>>>>>> Stashed changes
+        }
     }
 
    
-}

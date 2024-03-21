@@ -1,0 +1,38 @@
+ .connect {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
+    color:white;
+    background-color: black;
+    .connectIcons {
+      display: flex;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      .sub-item {
+        padding-left: 0.5rem;
+      }
+    }
+    .connectButton {
+      display: flex;
+      .connect-btn {
+        border: none;
+        background-color: transparent;
+        font-family: Quantico, sans-serif;
+        font-size: 17px;
+        color: #1976d2;
+        padding-left: 8px;
+        padding-right: 1vw;
+      }
+      .connect-btn:hover {
+        padding-left: 8px;
+        padding-right: 1vw;
+        transition: 0.5s;
+        color: rgb(195, 26, 26);
+        font-size: 17px;
+        font-family: Quantico, sans-serif;
+        text-decoration: none;
+        background-color: rgba(25, 118, 210, 0.04);
+      }
+    }
+  }
