@@ -8,7 +8,7 @@ div {
   scroll-behavior: smooth !important;
 }
 .topHeader {
-  display: flex;
+  display: grid;
   height: 40%;
   overflow: hidden;
   background-color: #1279e0;
@@ -18,24 +18,8 @@ div {
     // margin: 1rem 1rem 0rem 4rem;
   }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .profile_pic {
-    animation: App-logo-spin infinite 100s linear;
-  }
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.skillsetNavbar {
-  margin: 2vw;
-  text-decoration: none;
-}
+
 
 .title {
   height: 30%;

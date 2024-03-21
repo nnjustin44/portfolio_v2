@@ -9,6 +9,7 @@ const MenuHeader = ({ width, height }) => {
     return (
       <div className="menu">
         <a href="#homeSection" className="menuNavbar">
+<<<<<<< Updated upstream
           <Button className="nav-btn">Home</Button>
         </a>
         <a href="#jonahSection" className="menuNavbar">
@@ -22,12 +23,46 @@ const MenuHeader = ({ width, height }) => {
         </a>
         <a href="#connectSection" className="menuNavbar">
           <Button className="nav-btn">Connect</Button>
+=======
+          <Button className="nav-btn">
+            <HomeIcon className="menuIcon" />
+            Home
+          </Button>
+        </a>
+        <a href="#jonahSection" className="menuNavbar">
+          <Button className="nav-btn">
+            <AccessibilityNewIcon className="menuIcon" />
+            J.O.N.A.H
+          </Button>
+        </a>
+        <a href="#skillSection" className="menuNavbar">
+          <Button className="nav-btn">
+            <HandymanIcon className="menuIcon" />
+            Skillset
+          </Button>
+        </a>
+        <a href="#experienceSection" className="menuNavbar">
+          <Button className="nav-btn">
+            <EngineeringIcon className="menuIcon" />
+            Experience
+          </Button>
+        </a>
+        <a href="#connectSection" className="menuNavbar">
+          <Button className="nav-btn">
+            <PhoneAndroidIcon className="menuIcon" />
+            Connect
+          </Button>
+>>>>>>> Stashed changes
         </a>
         <a className="menuNavbar">
           <Button
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.GITHUB_LINK)}
           >
+<<<<<<< Updated upstream
+=======
+            <GitHubIcon className="menuIcon" />
+>>>>>>> Stashed changes
             Github
           </Button>
         </a>
@@ -36,6 +71,10 @@ const MenuHeader = ({ width, height }) => {
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.RESUME_LINK)}
           >
+<<<<<<< Updated upstream
+=======
+            <DescriptionIcon className="menuIcon" />
+>>>>>>> Stashed changes
             Resume
           </Button>
         </a>
