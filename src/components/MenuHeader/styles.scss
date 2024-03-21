@@ -10,6 +10,7 @@
 
     .nav-btn {
         font-family: Quantico, sans-serif;
+        font-weight: bolder;
         box-shadow: none;
         box-shadow: none;
     }
@@ -23,6 +24,9 @@
     .menuNavbar {
         margin: 1vw 2vw 1vw 2vw;
         text-decoration: none;
+        .menuIcon {
+                margin-right: .5rem !important;
+            }
     }
 
     .name {
