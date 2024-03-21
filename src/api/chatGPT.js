@@ -1,5 +1,5 @@
 import React from "react";
-
+import { trainingContext } from "../components/helpers/jonahHelper";
 const gpt_key = process.env.REACT_APP_GPT_API_KEY;
 const gpt_url = process.env.REACT_APP_GPT_API_URL;
 
@@ -16,8 +16,7 @@ export const postData = (input, onSuccess, onFailure) => {
       messages: [
         {
           role: "system",
-          content:
-            "You're a helpful assistant that lives on my personal portfolio website. You're job is to only answer questions about me and tell jokes. I will provide all the documents you need below. ",
+          content: { trainingContext },
         },
         { role: "user", content: `${input}` },
       ],
