@@ -70,6 +70,6 @@ const MenuHeader = ({ width, height }) => {
       </div>
     );
   };
-  return <>{width <= 500 ? <MobileMenu /> : <Menu />}</>;
+  return <>{width <= 1100 ? <MobileMenu /> : <Menu />}</>;
 };
 export default MenuHeader;

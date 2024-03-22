@@ -3,7 +3,7 @@ import "./styles.scss";
 import { IconButton } from "@mui/joy";
 import HomeIcon from "@mui/icons-material/Home";
 import HandymanIcon from "@mui/icons-material/Handyman";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import MenuIcon from "@mui/icons-material/Menu";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import EngineeringIcon from "@mui/icons-material/Engineering";
@@ -81,7 +81,7 @@ const MobileMenu = () => {
     <>
       <div className="mobileHeader">
         <IconButton className="mobileButton" onClick={handleClick}>
-          <MoreVertIcon />
+          <MenuIcon />
         </IconButton>
         <div className="mobileImgWrapper">
           <img src={profile_pic} className="mobileProfilePic" />

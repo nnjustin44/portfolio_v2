@@ -13,7 +13,7 @@ function App() {
   var width = window.innerWidth;
   var height = window.innerHeight;
 
-  var deviceSize = width <= 500 ? "mobileTitle" : "title";
+  var deviceSize = width <= 1100 ? "mobileTitle" : "title";
 
   return (
     <div className="App">

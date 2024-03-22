@@ -48,7 +48,7 @@ const BioSection = ({ width, height }) => {
     );
   };
 
-  return <>{width <= 500 ? <MobileBioSection /> : <BioSection />}</>;
+  return <>{width <= 1100 ? <MobileBioSection /> : <BioSection />}</>;
 };
 
 export default BioSection;
