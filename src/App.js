@@ -1,11 +1,9 @@
 import React from "react";
 import "./App.scss";
-import GptApiCall from "./api/chatGPT.js";
 import BioSection from "./components/BioSection/index.js";
 import ConnectSection from "./components/ConnectSection/index.js";
 import ExperienceSection from "./components/ExperienceSection/index.js";
 import SkillSection from "./components/SkillsSection/index.js";
-import profile_pic from "./images/profile_pic.jpeg";
 import JONAH from "./components/JONAH";
 import MenuHeader from "./components/MenuHeader";
 

@@ -43,7 +43,7 @@ const JONAH = ({ deviceSize }) => {
           {loading ? <CircularProgress /> : showResponse}
         </div>
         <Input
-          placeholder="Ask me anything you'd like"
+          placeholder="Ask me anything you'd like!"
           value={input}
           color="primary"
           size="lg"
