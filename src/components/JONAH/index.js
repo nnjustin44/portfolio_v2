@@ -5,17 +5,27 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { postData } from "../../api/chatGPT";
 import { placeHolder } from "../../AppConstants";
 import { Button } from "@mui/material";
+import { FirebaseDB } from "../../api/firebaseDB";
+import useDateTime from "../helpers/dateTime";
 
 const JONAH = ({ deviceSize }) => {
+  const { time, date } = useDateTime();
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState(null);
   const [response, setResponse] = useState(null);
+  const [count, setCount] = useState(0);
+
+  var userId = count.toString();
+
   console.log("input", input);
+  console.log("count", count);
+  console.log("userId", userId);
 
   const onSuccess = (data) => {
     console.log("response:", data);
     setLoading(false);
     setResponse(data);
+    setInput("");
   };
 
   const onFailure = () => {
@@ -25,8 +35,10 @@ const JONAH = ({ deviceSize }) => {
   const onSubmit = () => {
     postData(input, onSuccess, onFailure);
     setLoading(true);
-    setInput("");
+    setCount(count + 1);
+    FirebaseDB(input, time, date, userId);
   };
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       onSubmit();
