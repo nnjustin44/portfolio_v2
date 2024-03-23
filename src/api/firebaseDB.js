@@ -9,7 +9,7 @@ const messagingSenderId = process.env.REACT_APP_MESSAGING_SENDER_ID;
 const projectId = process.env.REACT_APP_PROJECT_ID;
 const storageBucket = process.env.REACT_APP_STORAGE_BUCKET;
 
-export const FirebaseDB = async (input, time, date, userId) => {
+export const FirebaseDB = async (input, time, date, userId, response) => {
   // Firebase code snippet for writing data
   const firebaseConfig = {
     apiKey: firebaseDb_key,
@@ -32,8 +32,9 @@ export const FirebaseDB = async (input, time, date, userId) => {
     input: input,
     time: time,
     date: date,
+    response: response,
   };
-  console.log("userId:", userId);
+
   set(ref(database, userId), {
     data,
   })

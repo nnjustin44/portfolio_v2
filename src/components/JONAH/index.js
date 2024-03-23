@@ -17,15 +17,11 @@ const JONAH = ({ deviceSize }) => {
 
   var userId = count.toString();
 
-  console.log("input", input);
-  console.log("count", count);
-  console.log("userId", userId);
-
   const onSuccess = (data) => {
-    console.log("response:", data);
     setLoading(false);
     setResponse(data);
     setInput("");
+    FirebaseDB(input, time, date, userId, data);
   };
 
   const onFailure = () => {
@@ -36,7 +32,6 @@ const JONAH = ({ deviceSize }) => {
     postData(input, onSuccess, onFailure);
     setLoading(true);
     setCount(count + 1);
-    FirebaseDB(input, time, date, userId);
   };
 
   const handleKeyDown = (e) => {
