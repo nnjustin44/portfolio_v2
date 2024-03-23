@@ -5,31 +5,44 @@ const ExperienceSection = ({ deviceSize }) => {
     <div className="experience">
       <h1 className={deviceSize}>Experience</h1>
       <p>
-        I'm currently a Fullstack developer at Vergent Loan Management Systems.
-        Specializing in end to end loan management software.
+        I currently hold the position of Fullstack Developer at Vergent Loan
+        Management Systems, where my focus lies in developing comprehensive loan
+        management software solutions from inception to deployment.
       </p>
       <p>
-        Starting off as a developer at Fiserv since 2021. A fortune 500 company
-        leading the charge in the fintech space.
+        My journey commenced as a developer at Fiserv in 2021, a distinguished
+        Fortune 500 company at the forefront of the fintech industry.
       </p>
       <p>
-        I had the unique opportunity of being apart of a two year rotational
-        program that allowed me to experience different areas of software
-        development.
+        During my tenure at Fiserv, I had the privilege of participating in a
+        unique two-year rotational program, which provided me with invaluable
+        exposure to various facets of software development.
       </p>
       <p>
-        The first rotation was with the AI and ML team. Working on IVR's,
-        chatbot utilizing IBM Watson, and later large language models such as
-        GPT 3.5 Turbo. Here we used C# within .NET CORE.
+        In my initial rotation, I collaborated with the AI and ML team,
+        contributing to projects involving IVRs and chatbots powered by IBM
+        Watson, and later delving into the utilization of advanced language
+        models like GPT 3.5 Turbo. Allowing to to utilize generative AI to crete
+        J.O.N.A.H. This experience involved extensive use of C# within the .NET
+        CORE framework.
       </p>
 
       <p>
-        My second rotation was with a web development team. Specifically working
-        with Javascript within React.js.
+        Subsequently, I transitioned to a web development team for my second
+        rotation, where I specialized in Javascript within the React.js
+        ecosystem.
       </p>
       <p>
-        This Portfolio was programmed from the ground up using React.js and
-        hosted on Google Firebase. The source code can be viewed in my Github.
+        One of the notable accomplishments I achieved during this timeframe was
+        the creation of a robust portfolio website utilizing React.js. This
+        website was seamlessly integrated and hosted on Google Firebase,
+        complete with a fully functional database. Notably, the design was
+        optimized for both mobile and desktop usage, ensuring a smooth user
+        experience across all devices.
+      </p>
+      <p>
+        For those interested, the entire source code for this project is
+        accessible for review on my GitHub repository.
       </p>
     </div>
   );
