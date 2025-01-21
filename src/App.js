@@ -34,11 +34,11 @@ function App() {
         <div id="jonahSection">
           <JONAH deviceSize={deviceSize} />
         </div>
-        <div id="skillSection">
-          <SkillSection deviceSize={deviceSize} id="skillSection" />
-        </div>
         <div id="experienceSection">
           <ExperienceSection deviceSize={deviceSize} />
+        </div>
+        <div id="skillSection">
+          <SkillSection deviceSize={deviceSize} id="skillSection" />
         </div>
         <div id="aboutJonahSection">
           <AboutJonah deviceSize={deviceSize} />

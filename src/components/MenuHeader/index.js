@@ -31,16 +31,16 @@ const MenuHeader = ({ width, height }) => {
             J.O.N.A.H
           </Button>
         </a>
-        <a href="#skillSection" className="menuNavbar">
-          <Button className="nav-btn">
-            <HandymanIcon className="menuIcon" />
-            Skillset
-          </Button>
-        </a>
         <a href="#experienceSection" className="menuNavbar">
           <Button className="nav-btn">
             <EngineeringIcon className="menuIcon" />
             Experience
+          </Button>
+        </a>
+        <a href="#skillSection" className="menuNavbar">
+          <Button className="nav-btn">
+            <HandymanIcon className="menuIcon" />
+            Skillset
           </Button>
         </a>
         <a href="#connectSection" className="menuNavbar">
