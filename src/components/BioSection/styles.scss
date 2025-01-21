@@ -5,7 +5,7 @@
     .bioBody {
         display: flex;
         width: 100%;
-        justify-content: end;
+        justify-content: start;
   
         .imgWrapper {
             margin: 6rem;
@@ -14,7 +14,7 @@
                 height: 15rem;
                 margin-top: 13%;
                 margin-left: .5rem;
-                border-radius: 50%;
+                border-radius: 25px;
                 border: solid white 5px;
             }
         }
@@ -39,7 +39,7 @@
             position: absolute;
             border: 2px solid white;
             background: transparent;
-            font-family: 'Roboto', sans-serif;
+            font-family: Helvetica, Arial, sans-serif;
             color: white;
             width: 250px;
             height: 50px;
@@ -295,8 +295,8 @@
             top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 200;
             color: white;
             font-size: 2em;
         }
@@ -582,7 +582,7 @@
         }
     
         // #footer {
-        //     font-family: 'Roboto', sans-serif;
+        //     font-family: Helvetica, Arial, sans-serif;
         //     font-size: 1.2em;
         //     color: white;
         //     position: fixed;

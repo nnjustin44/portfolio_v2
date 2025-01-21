@@ -1,6 +1,6 @@
 .jonah {
     display: grid;
-    color: white;
+    color: rgb(19, 16, 16);
     margin: 3rem 2rem 0rem 2rem;
     .inputField {
         margin-top: 1rem;
@@ -11,7 +11,12 @@
     .responseWrapper{
         display: grid;
         .jonahButton{
-            justify-self: end;
+            margin-top: 1rem;
+            padding: 5px 15px 5px 15px;
+            border-radius: 20px;
+            color:rgb(244, 241, 241);
+            background:#3a80c7;
+            justify-self: center;
         }
     }
     .response{

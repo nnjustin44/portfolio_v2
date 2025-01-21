@@ -4,12 +4,14 @@
     text-decoration: none;
     position: sticky;
     top: 0;
-    background-color: black;
-    color: white;
+    background-color: rgb(244, 241, 241);
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bolder;
+    color: black;
     z-index: 2;
 
     .nav-btn {
-        font-family: Quantico, sans-serif;
+        font-family: Helvetica, Arial, sans-serif;
         font-weight: bolder;
         box-shadow: none;
         box-shadow: none;
@@ -18,7 +20,7 @@
     .nav-btn:hover {
         transition: 0.5s;
         color: rgb(195, 26, 26);
-        font-family: Quantico, sans-serif;
+        font-family: Helvetica, Arial, sans-serif;
     }
 
     .menuNavbar {
@@ -37,8 +39,9 @@
     }
 
     .name {
+        margin-top: 6px;
         font-size: 1.5rem;
-        font-weight: 900;
+        font-weight: 200;
         justify-self: center;
     }
 }
@@ -49,13 +52,13 @@
     position: sticky;
     top: 0;
     z-index: 2;
-    background-color: black;
+    background-color: rgb(244, 241, 241);
     height: 5%;
     .mobileProfilePic {
         background-color: transparent;
         margin: .3rem;
-        height: 2rem ;
-        border-radius: 50%;
+        height: 3rem ;
+        border-radius: 25px;
         border: solid white 1px;
     }
 }
@@ -63,11 +66,15 @@
     display: grid;
     justify-content: space-between;
     padding:1rem;
-    border-radius: 0% 0% 10% 0%;
+    border-radius: 0% 0% 20px 0%;
+    border-color: black;
+    border-top: none;
+    border-left: none;
     text-decoration: none;
     position: fixed;
-    background-color: black;
-    color: white;
+    border-style: solid;
+    background-color: rgb(244, 241, 241);
+    color: rgb(244, 241, 241);
     z-index: 1;
     .menuNavbar{
         display: flex;
@@ -80,7 +87,7 @@
             color: rgb(195, 26, 26);
         }
         .nav-btn {
-            font-family: Quantico, sans-serif;
+            font-family: Helvetica, Arial, sans-serif;
             font-weight: bolder;
             box-shadow: none;
             box-shadow: none;
@@ -89,7 +96,7 @@
         .nav-btn:hover {
             transition: 0.5s;
             color: rgb(195, 26, 26);
-            font-family: Quantico, sans-serif;
+            font-family: Helvetica, Arial, sans-serif;
         }
         }
     }

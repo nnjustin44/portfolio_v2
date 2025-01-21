@@ -1,5 +1,4 @@
 import React from "react";
-import profile_pic from "../../images/profile_pic.jpeg";
 
 const MobileBioSection = () => {
   return (
@@ -15,13 +14,13 @@ const MobileBioSection = () => {
           Honest. Creative. Dedicated.
         </p>
         <p id="head4" class="aniHeader">
-          This website was developed from the ground up
+          Portfolio developed from the ground up
         </p>
         <p id="head5" class="aniHeader">
           Developed for both mobile and desktop
         </p>
         <p id="head6" class="aniHeader">
-          Artificial Intelligence
+          Powered by OpenAI
         </p>
         <p id="head7" class="aniHeader">
           Welcome to my Portfolio

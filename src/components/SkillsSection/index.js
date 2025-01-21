@@ -16,6 +16,7 @@ const SkillSection = ({ deviceSize }) => {
         <div className="items">.NET CORE</div>
         <div className="items">SQL</div>
         <div className="items">GIT</div>
+        <div className="items">SDLC</div>
       </div>
     </div>
   );

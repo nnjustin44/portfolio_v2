@@ -81,7 +81,7 @@ const MobileMenu = () => {
     <>
       <div className="mobileHeader">
         <IconButton className="mobileButton" onClick={handleClick}>
-          <MenuIcon />
+          <MenuIcon fontSize="medium" />
         </IconButton>
         <div className="mobileImgWrapper">
           <img src={profile_pic} className="mobileProfilePic" />

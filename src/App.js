@@ -6,6 +6,7 @@ import ExperienceSection from "./components/ExperienceSection/index.js";
 import SkillSection from "./components/SkillsSection/index.js";
 import JONAH from "./components/JONAH";
 import MenuHeader from "./components/MenuHeader";
+import AboutJonah from "./components/AboutJonah/index.js";
 
 require("dotenv").config();
 
@@ -38,6 +39,9 @@ function App() {
         </div>
         <div id="experienceSection">
           <ExperienceSection deviceSize={deviceSize} />
+        </div>
+        <div id="aboutJonahSection">
+          <AboutJonah deviceSize={deviceSize} />
         </div>
         <div id="connectSection">
           <ConnectSection deviceSize={deviceSize} />

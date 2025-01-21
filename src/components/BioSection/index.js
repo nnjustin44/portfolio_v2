@@ -7,6 +7,9 @@ const BioSection = ({ width, height }) => {
     return (
       <div className="bioSection">
         <div className="bioBody">
+          <div className="imgWrapper">
+            <img src={profile_pic} className="profile_pic" />
+          </div>
           <p id="head1" class="aniHeader">
             Meet The Developer
           </p>
@@ -17,13 +20,13 @@ const BioSection = ({ width, height }) => {
             Honest. Creative. Dedicated.
           </p>
           <p id="head4" class="aniHeader">
-            This website was developed from the ground up
+            Portfolio developed from the ground up
           </p>
           <p id="head5" class="aniHeader">
             Developed for both mobile and desktop
           </p>
           <p id="head6" class="aniHeader">
-            Artificial Intelligence
+            Powered by OpenAI
           </p>
           <p id="head7" class="aniHeader">
             Welcome to my Portfolio
@@ -31,9 +34,6 @@ const BioSection = ({ width, height }) => {
           <p id="head8" class="aniHeader">
             Fullstack Software Engineer
           </p>
-          <div className="imgWrapper">
-            <img src={profile_pic} className="profile_pic" />
-          </div>
         </div>
         <div class="light x1"></div>
         <div class="light x2"></div>

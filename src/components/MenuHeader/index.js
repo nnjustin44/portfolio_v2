@@ -16,6 +16,9 @@ const MenuHeader = ({ width, height }) => {
   const Menu = () => {
     return (
       <div className="menu">
+        <div className="menuNavbar">
+          <div className="name">JUSTIN NGUYEN</div>
+        </div>
         <a href="#homeSection" className="menuNavbar">
           <Button className="nav-btn">
             <HomeIcon className="menuIcon" />
@@ -64,9 +67,6 @@ const MenuHeader = ({ width, height }) => {
             Resume
           </Button>
         </a>
-        <div className="menuNavbar">
-          <div className="name">Justin Nguyen</div>
-        </div>
       </div>
     );
   };
