@@ -67,12 +67,9 @@
     justify-content: space-between;
     padding:1rem;
     border-radius: 0% 0% 20px 0%;
-    border-color: black;
-    border-top: none;
-    border-left: none;
     text-decoration: none;
     position: fixed;
-    border-style: solid;
+    box-shadow: 0 0 2rem black;
     background-color: rgb(244, 241, 241);
     color: rgb(244, 241, 241);
     z-index: 1;

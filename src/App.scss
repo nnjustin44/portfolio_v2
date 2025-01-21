@@ -71,6 +71,7 @@ div {
     margin: 4rem 2rem 2rem 2rem;
     color: white;
     background: #8dbff2;
+    box-shadow: 1px 1px 2px 0px (var(--joy-shadowChannel, 21 21 21) / var(--joy-shadowOpacity, 0.08));
   }
 
   .connect {
