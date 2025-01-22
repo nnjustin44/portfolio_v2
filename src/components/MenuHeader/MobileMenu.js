@@ -88,6 +88,7 @@ const MobileMenu = () => {
             <MenuIcon fontSize="medium" />
           </IconButton>
         )}
+        <div className="mobileName">JUSTIN NGUYEN</div>
       </div>
       {opened ? <MobileDropdown /> : null}
     </>
