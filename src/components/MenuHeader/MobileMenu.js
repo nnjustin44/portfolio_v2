@@ -12,14 +12,12 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import openInNewTab from "../helpers/openNewTab";
 import { LINKS } from "../../AppConstants";
 import { Button } from "@mui/material";
-import profile_pic from "../../images/profile_pic.jpeg";
 
 const MobileMenu = () => {
   const [opened, setOpened] = useState(false);
 
   const handleClick = (event) => {
     setOpened(!opened);
-    console.log("Hello");
   };
 
   const MobileDropdown = () => {
@@ -83,9 +81,6 @@ const MobileMenu = () => {
         <IconButton className="mobileButton" onClick={handleClick}>
           <MenuIcon fontSize="medium" />
         </IconButton>
-        <div className="mobileImgWrapper">
-          <img src={profile_pic} className="mobileProfilePic" />
-        </div>
       </div>
       {opened ? <MobileDropdown /> : null}
     </>

@@ -594,12 +594,19 @@
 }
 
 .mobileBioSection {
-    display: grid;
     width: 100%;
-    justify-self: center;
     color: white;
     .mobileTitle{
         justify-self: center;
+    }
+    .mobileImgWrapper{
+        z-index: 1;
+        .mobileProfilePic{
+            border-radius: 25px;
+            height: 95%;
+            width: 95%;
+            border: solid white .5rem;
+        }
     }
     .bioBody {
         display: grid;

@@ -1,9 +1,13 @@
 import React from "react";
+import profile_pic from "../../images/profile_pic.jpeg";
 
 const MobileBioSection = () => {
   return (
     <div className="mobileBioSection">
       <div className="bioBody">
+        <div className="mobileImgWrapper">
+          <img src={profile_pic} className="mobileProfilePic" />
+        </div>
         <p id="head1" class="aniHeader">
           Meet The Developer
         </p>

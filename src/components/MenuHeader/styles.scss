@@ -54,25 +54,18 @@
     z-index: 2;
     background-color: rgb(244, 241, 241);
     height: 5%;
-    .mobileProfilePic {
-        background-color: transparent;
-        margin: .3rem;
-        height: 3rem ;
-        border-radius: 25px;
-        border: solid white 1px;
-    }
 }
 .mobileMenu {
     display: grid;
     justify-content: space-between;
     padding:1rem;
-    border-radius: 0% 0% 20px 0%;
+    border-radius: 0% 20px 20px 0%;
     text-decoration: none;
     position: fixed;
     box-shadow: 0 0 2rem black;
     background-color: rgb(244, 241, 241);
     color: rgb(244, 241, 241);
-    z-index: 1;
+    z-index: 2;
     .menuNavbar{
         display: flex;
         text-decoration: none;
