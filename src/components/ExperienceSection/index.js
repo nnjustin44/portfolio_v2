@@ -20,10 +20,10 @@ const ExperienceSection = ({ deviceSize }) => {
       <p>
         In my initial rotation, I collaborated with the AI and ML team,
         contributing to projects involving IVRs and chatbots powered by IBM
-        Watson, and later delving into the utilization of advanced language
-        models like GPT 3.5 Turbo. Allowing to to utilize generative AI to crete
-        J.O.N.A.H. This experience involved extensive use of C# within the .NET
-        CORE framework.
+        Watson, and later developing into the utilization of advanced language
+        models like GPT 3.5 Turbo. Allowing to to utilize generative AI to
+        create J.O.N.A.H. This experience involved extensive use of C# within
+        the .NET CORE framework.
       </p>
 
       <p>

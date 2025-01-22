@@ -32,9 +32,6 @@ const MobileBioSection = () => {
         <p id="head8" class="aniHeader">
           Fullstack Software Engineer
         </p>
-        <a href="#jonahSection">
-          <button className="mobileButton">Continue</button>
-        </a>
         <div class="light x1"></div>
         <div class="light x2"></div>
         <div class="light x3"></div>
