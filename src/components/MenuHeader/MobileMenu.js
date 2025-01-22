@@ -4,6 +4,7 @@ import { IconButton } from "@mui/joy";
 import HomeIcon from "@mui/icons-material/Home";
 import HandymanIcon from "@mui/icons-material/Handyman";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import EngineeringIcon from "@mui/icons-material/Engineering";
@@ -78,9 +79,15 @@ const MobileMenu = () => {
   return (
     <>
       <div className="mobileHeader">
-        <IconButton className="mobileButton" onClick={handleClick}>
-          <MenuIcon fontSize="medium" />
-        </IconButton>
+        {opened ? (
+          <IconButton className="mobileButton" onClick={handleClick}>
+            <CloseIcon />
+          </IconButton>
+        ) : (
+          <IconButton className="mobileButton" onClick={handleClick}>
+            <MenuIcon fontSize="medium" />
+          </IconButton>
+        )}
       </div>
       {opened ? <MobileDropdown /> : null}
     </>
