@@ -9,7 +9,7 @@ const AboutJonah = ({ deviceSize }) => {
         Introducing Justin's Online Native Artificial Helper. Powered by
         OpenAI's cutting-edge technology, JONAH is designed to seamlessly
         integrate into this portfolio, providing intelligent assistance tailored
-        to by my personal representative. Making JONAH a complete Artificial
+        to be my personal representative. Making JONAH a complete Artificial
         Intelligence Assistant.
       </p>
       <p></p>
