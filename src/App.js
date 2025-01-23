@@ -13,11 +13,11 @@ require("dotenv").config();
 function App() {
   var width = window.innerWidth;
   var height = window.innerHeight;
-  console.log("width", width);
+
   var deviceSize = width <= 1100 ? "mobileTitle" : "title";
 
   const handleResize = () => {
-    if (window.innerWidth <= 1100) {
+    if (window.innerWidth < 1100) {
       window.location.reload();
     } else {
       window.location.reload();
