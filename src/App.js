@@ -31,14 +31,14 @@ function App() {
         </div>
       </div>
       <div className="info-body">
-        <div id="jonahSection">
-          <JONAH deviceSize={deviceSize} />
+        <div id="skillSection">
+          <SkillSection deviceSize={deviceSize} id="skillSection" />
         </div>
         <div id="experienceSection">
           <ExperienceSection deviceSize={deviceSize} />
         </div>
-        <div id="skillSection">
-          <SkillSection deviceSize={deviceSize} id="skillSection" />
+        <div id="jonahSection">
+          <JONAH deviceSize={deviceSize} />
         </div>
         <div id="aboutJonahSection">
           <AboutJonah deviceSize={deviceSize} />
