@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.scss";
 import BioSection from "./components/BioSection/index.js";
 import ConnectSection from "./components/ConnectSection/index.js";
@@ -13,8 +13,20 @@ require("dotenv").config();
 function App() {
   var width = window.innerWidth;
   var height = window.innerHeight;
-
+  console.log("width", width);
   var deviceSize = width <= 1100 ? "mobileTitle" : "title";
+
+  const handleResize = () => {
+    if (window.innerWidth <= 1100) {
+      window.location.reload();
+    } else {
+      window.location.reload();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  });
 
   return (
     <div className="App">
