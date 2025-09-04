@@ -14,7 +14,25 @@ function App() {
   var width = window.innerWidth;
   var height = window.innerHeight;
 
-  var deviceSize = width <= 1440 ? "mobileTitle" : "title";
+  var deviceSize = width <= 1100 ? "mobileTitle" : "title";
+
+  const reloadPage = () => {
+    window.location.reload();
+    console.log("reload");
+  };
+
+  useEffect(() => {
+    function handleResize() {
+      reloadPage();
+      console.log("effect");
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   return (
     <div className="App">
