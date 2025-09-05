@@ -10,7 +10,7 @@ const ExperienceSection = ({ deviceSize }) => {
       </p>
       <p>
         My journey as a developer began at Fiserv in 2021, a distinguished
-        Fortune 500 company at the forefront of the fintech industry.
+        Fortune 500 company at the forefront of the Fintech industry.
       </p>
       <p>
         During my tenure at Fiserv, I had the privilege of participating in a
@@ -28,8 +28,8 @@ const ExperienceSection = ({ deviceSize }) => {
 
       <p>
         Subsequently, I transitioned to a web development team for my second
-        rotation, where I specialized in Javascript within the React.js
-        ecosystem.
+        rotation, where I specialized in Javascript within the React.js, C# .NET
+        CORE, ecosystem.
       </p>
       <p>
         One of the notable accomplishments I achieved during this timeframe was

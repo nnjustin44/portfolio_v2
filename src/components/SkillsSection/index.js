@@ -10,13 +10,13 @@ const SkillSection = ({ deviceSize }) => {
         <div className="items">REDUX</div>
         <div className="items">TYPESCRIPT</div>
         <div className="items">JAVASCRIPT</div>
-        <div className="items">HTML</div>
-        <div className="items">CSS</div>
-        <div className="items">C#</div>
-        <div className="items">.NET CORE</div>
-        <div className="items">SQL</div>
-        <div className="items">GIT</div>
+        <div className="items">HTML/CSS</div>
         <div className="items">SDLC</div>
+        <div className="items">C# .NET CORE</div>
+        <div className="items">Docker/Kubernetes</div>
+        <div className="items">SQL/Postgres</div>
+        <div className="items">GIT</div>
+        <div className="items">Java Springboot</div>
       </div>
     </div>
   );
