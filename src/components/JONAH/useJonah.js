@@ -7,8 +7,8 @@ import useDateTime from "../helpers/dateTime";
 const useJonah = () => {
   const { time, date } = useDateTime();
   const [loading, setLoading] = useState(false);
-  const [input, setInput] = useState(null);
-  const [response, setResponse] = useState(null);
+  const [input, setInput] = useState("");
+  const [response, setResponse] = useState("");
   const [count, setCount] = useState(0);
 
   var userId = count.toString();

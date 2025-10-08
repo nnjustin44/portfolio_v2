@@ -1,28 +1,32 @@
 import React from "react";
-import { trainingPrompt } from "../components/helpers/jonahHelper";
-const gpt_key = process.env.REACT_APP_GPT_API_KEY;
-const gpt_url = process.env.REACT_APP_GPT_API_URL;
 
 export const postData = async (input, onSuccess, onFailure) => {
-  fetch(gpt_url, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${gpt_key}`,
-    },
-    body: JSON.stringify({
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: `${trainingPrompt}`,
-        },
-        { role: "user", content: `${input}` },
-      ],
-    }),
-  })
-    .then((resp) => resp.json())
-    .then((data) => onSuccess(data.choices[0].message.content))
-    .catch((err) => onFailure(err));
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+  try {
+    const response = await fetch(`${backendUrl}/chat`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: input,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        `HTTP error! status: ${response.status}, message: ${
+          errorData.message || "Unknown error"
+        }`
+      );
+    }
+
+    const data = await response.json();
+    onSuccess(data.response);
+  } catch (err) {
+    onFailure(err);
+  }
 };
