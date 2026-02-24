@@ -5,14 +5,13 @@ import openInNewTab from "../helpers/openNewTab";
 import { LINKS } from "../../AppConstants";
 import HomeIcon from "@mui/icons-material/Home";
 import HandymanIcon from "@mui/icons-material/Handyman";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DescriptionIcon from "@mui/icons-material/Description";
 
-const MenuHeader = ({ width, height }) => {
+const MenuHeader = ({ width }) => {
   const Menu = () => {
     return (
       <div className="menu">

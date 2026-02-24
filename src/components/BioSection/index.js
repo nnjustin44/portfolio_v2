@@ -2,7 +2,7 @@ import React from "react";
 import profile_pic from "../../images/profile_pic.jpeg";
 import "./styles.scss";
 import MobileBioSection from "./MobileBio";
-const BioSection = ({ width, height }) => {
+const BioSection = ({ width }) => {
   const BioSection = () => {
     return (
       <div className="bioSection">

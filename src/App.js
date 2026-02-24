@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import BioSection from "./components/BioSection/index.js";
 import ConnectSection from "./components/ConnectSection/index.js";
@@ -11,41 +11,34 @@ import AboutJonah from "./components/AboutJonah/index.js";
 require("dotenv").config();
 
 function App() {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
+  const [width, setWidth] = useState(window.innerWidth);
 
-  var deviceSize = width <= 1100 ? "mobileTitle" : "title";
-
-  const reloadPage = () => {
-    window.location.reload();
-    console.log("reload");
-  };
+  const deviceSize = width <= 1100 ? "mobileTitle" : "title";
 
   useEffect(() => {
-    function handleResize() {
-      reloadPage();
-      console.log("effect");
-    }
+    let timeoutId;
+
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setWidth(window.innerWidth);
+      }, 100);
+    };
 
     window.addEventListener("resize", handleResize);
-
-    return (_) => {
+    return () => {
       window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
     };
-  });
+  }, []);
 
   return (
     <div className="App">
       <title>Justin Nguyen Portfolio</title>
-      <MenuHeader width={width} height={height} />
+      <MenuHeader width={width} />
       <div className="topHeader" id="homeSection">
         <div className="bioSection" id="bioSection">
-          <BioSection
-            width={width}
-            height={height}
-            deviceSize={deviceSize}
-            id="bioSection"
-          />
+          <BioSection width={width} deviceSize={deviceSize} id="bioSection" />
         </div>
       </div>
       <div className="info-body">
