@@ -60,7 +60,14 @@ const MenuHeader = ({ width }) => {
         <a className="menuNavbar">
           <Button
             className="nav-btn"
-            onClick={() => openInNewTab(LINKS.RESUME_LINK)}
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/assets/Resume_Justin_Nguyen.pdf";
+              link.download = "Resume_Justin_Nguyen.pdf";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
           >
             <DescriptionIcon className="menuIcon" />
             Resume
