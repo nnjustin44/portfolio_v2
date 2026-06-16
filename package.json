@@ -5,23 +5,15 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
-    "@material-ui/core": "^5.0.0-beta.5",
     "@mui/icons-material": "^5.15.14",
     "@mui/joy": "^5.0.0-beta.30",
     "@mui/material": "^5.15.14",
-    "@mui/styled-engine-sc": "^5.14.8",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "babel-jest": "^26.6.0",
     "firebase": "^12.14.0",
-    "moment": "^2.29.1",
-    "moment-timezone": "^0.5.33",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-moment": "^1.1.1",
     "react-scripts": "^5.0.1",
-    "styled-components": "^5.3.11",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
