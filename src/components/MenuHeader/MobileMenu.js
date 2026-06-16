@@ -54,7 +54,7 @@ const MobileMenu = () => {
             Connect
           </Button>
         </a>
-        <a className="menuNavbar">
+        <div className="menuNavbar">
           <Button
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.GITHUB_LINK) & handleClick()}
@@ -62,8 +62,8 @@ const MobileMenu = () => {
             <GitHubIcon className="menuIcon" />
             Github
           </Button>
-        </a>
-        <a className="menuNavbar">
+        </div>
+        <div className="menuNavbar">
           <Button
             className="nav-btn"
             onClick={() => openInNewTab(LINKS.RESUME_LINK) & handleClick()}
@@ -71,7 +71,7 @@ const MobileMenu = () => {
             <DescriptionIcon className="menuIcon" />
             Resume
           </Button>
-        </a>
+        </div>
       </div>
     );
   };

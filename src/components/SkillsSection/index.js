@@ -1,5 +1,4 @@
 import React from "react";
-import { LINKS } from "../../AppConstants";
 
 const SkillSection = ({ deviceSize }) => {
   return (

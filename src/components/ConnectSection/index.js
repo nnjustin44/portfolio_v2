@@ -16,25 +16,21 @@ const ConnectSection = ({ deviceSize }) => {
       <h1 className={deviceSize}>Connect</h1>
       <div className="connectButton">
         <MailOutlineIcon />:
-        <a>
-          <button className="connect-btn" onClick={sendEmail}>
-            nnjustin44@gmail.com
-          </button>
-        </a>
+        <button className="connect-btn" onClick={sendEmail}>
+          nnjustin44@gmail.com
+        </button>
       </div>
       <div className="connectIcons">
         <PhoneIphoneIcon />:<div className="sub-item">404-789-0044</div>
       </div>
       <div className="connectButton">
         <LinkedInIcon />:
-        <a>
-          <button
-            className="connect-btn"
-            onClick={() => openInNewTab(LINKS.LINKEDIN_LINK)}
-          >
-            LinkedIn
-          </button>
-        </a>
+        <button
+          className="connect-btn"
+          onClick={() => openInNewTab(LINKS.LINKEDIN_LINK)}
+        >
+          LinkedIn
+        </button>
       </div>
     </div>
   );

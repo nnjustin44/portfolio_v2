@@ -1,6 +1,11 @@
 {
   "rules": {
     ".read": false,
-    ".write": true
+    ".write": false,
+    "jonahMessages": {
+      "$messageId": {
+        ".write": "newData.hasChildren(['input', 'time', 'date', 'response', 'createdAt']) && newData.child('input').isString() && newData.child('input').val().length > 0 && newData.child('input').val().length <= 1000 && newData.child('time').isString() && newData.child('time').val().length <= 20 && newData.child('date').isString() && newData.child('date').val().length <= 40 && newData.child('response').isString() && newData.child('response').val().length <= 4000 && newData.child('createdAt').isNumber()"
+      }
+    }
   }
 }

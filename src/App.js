@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import BioSection from "./components/BioSection/index.js";
 import ConnectSection from "./components/ConnectSection/index.js";
@@ -7,32 +7,51 @@ import SkillSection from "./components/SkillsSection/index.js";
 import JONAH from "./components/JONAH";
 import MenuHeader from "./components/MenuHeader";
 import AboutJonah from "./components/AboutJonah/index.js";
+import { MOBILE_BREAKPOINT } from "./AppConstants";
 
-require("dotenv").config();
+const getViewportSize = () => ({
+  width: window.innerWidth,
+  height: window.innerHeight,
+});
+
+const requestResizeFrame = (callback) => {
+  if (window.requestAnimationFrame) {
+    return window.requestAnimationFrame(callback);
+  }
+
+  callback();
+  return undefined;
+};
+
+const cancelResizeFrame = (animationFrameId) => {
+  if (animationFrameId && window.cancelAnimationFrame) {
+    window.cancelAnimationFrame(animationFrameId);
+  }
+};
 
 function App() {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
-
-  var deviceSize = width <= 1100 ? "mobileTitle" : "title";
-
-  const reloadPage = () => {
-    window.location.reload();
-    console.log("reload");
-  };
+  const [viewportSize, setViewportSize] = useState(getViewportSize);
+  const { width, height } = viewportSize;
+  const isMobile = width <= MOBILE_BREAKPOINT;
+  const deviceSize = isMobile ? "mobileTitle" : "title";
 
   useEffect(() => {
+    let animationFrameId;
+
     function handleResize() {
-      reloadPage();
-      console.log("effect");
+      cancelResizeFrame(animationFrameId);
+      animationFrameId = requestResizeFrame(() => {
+        setViewportSize(getViewportSize());
+      });
     }
 
     window.addEventListener("resize", handleResize);
 
-    return (_) => {
+    return () => {
+      cancelResizeFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
   return (
     <div className="App">

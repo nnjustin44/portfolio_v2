@@ -1,7 +1,9 @@
-import React from "react";
-
 const openInNewTab = (url) => {
-  window.open(url, "_blank", "noreferrer");
+  const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+
+  if (newWindow) {
+    newWindow.opener = null;
+  }
 };
 
 export default openInNewTab;

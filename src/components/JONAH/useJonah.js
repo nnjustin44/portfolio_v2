@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { postData } from "../../api/chatGPT";
 import { placeHolder } from "../../AppConstants";
 import { FirebaseDB } from "../../api/firebaseDB";
@@ -9,25 +9,30 @@ const useJonah = () => {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
-  const [count, setCount] = useState(0);
-
-  var userId = count.toString();
 
   const onSuccess = (data) => {
     setLoading(false);
     setResponse(data);
     setInput("");
-    FirebaseDB(input, time, date, userId, data);
+    Promise.resolve(FirebaseDB(input.trim(), time, date, data)).catch((error) => {
+      console.error("Error writing JONAH interaction: ", error);
+    });
   };
 
-  const onFailure = () => {
-    console.log("Something went wrong");
+  const onFailure = (error) => {
+    setLoading(false);
+    console.error("Something went wrong", error);
   };
 
   const onSubmit = () => {
-    postData(input, onSuccess, onFailure);
+    const trimmedInput = input.trim();
+
+    if (!trimmedInput || loading) {
+      return;
+    }
+
+    postData(trimmedInput, onSuccess, onFailure);
     setLoading(true);
-    setCount(count + 1);
   };
 
   const handleKeyDown = (e) => {

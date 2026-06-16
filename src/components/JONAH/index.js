@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./styles.scss";
 import Input from "@mui/joy/Input";
 import CircularProgress from "@mui/material/CircularProgress";

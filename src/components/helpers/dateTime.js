@@ -1,5 +1,3 @@
-import React from "react";
-
 const useDateTime = () => {
   const now = new Date();
   const hours = now.getHours();

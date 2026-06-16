@@ -1,0 +1,206 @@
+import React from "react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import AboutJonah from "./AboutJonah";
+import BioSection from "./BioSection";
+import MobileBioSection from "./BioSection/MobileBio";
+import ConnectSection from "./ConnectSection";
+import ExperienceSection from "./ExperienceSection";
+import JONAH from "./JONAH";
+import useJonah from "./JONAH/useJonah";
+import MenuHeader from "./MenuHeader";
+import MobileMenu from "./MenuHeader/MobileMenu";
+import SkillSection from "./SkillsSection";
+import openInNewTab from "./helpers/openNewTab";
+import { LINKS, placeHolder } from "../AppConstants";
+
+jest.mock("./helpers/openNewTab", () => jest.fn());
+jest.mock("./JONAH/useJonah", () => jest.fn());
+
+describe("portfolio components", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("BioSection renders the desktop bio when width is above the mobile breakpoint", () => {
+    const { container } = render(<BioSection width={1200} />);
+
+    expect(screen.getByText("Meet The Developer")).toBeInTheDocument();
+    expect(screen.getByText("Justin Nguyen")).toBeInTheDocument();
+    expect(screen.getByText("Fullstack Software Engineer")).toBeInTheDocument();
+    expect(container.querySelector(".bioSection")).toBeInTheDocument();
+    expect(container.querySelector(".profile_pic")).toBeInTheDocument();
+    expect(container.querySelectorAll(".light")).toHaveLength(9);
+  });
+
+  test("BioSection renders the mobile bio when width is at the mobile breakpoint", () => {
+    const { container } = render(<BioSection width={1100} />);
+
+    expect(screen.getByText("Welcome to my Portfolio")).toBeInTheDocument();
+    expect(container.querySelector(".mobileBioSection")).toBeInTheDocument();
+    expect(container.querySelector(".mobileProfilePic")).toBeInTheDocument();
+  });
+
+  test("MobileBioSection renders the mobile profile content", () => {
+    const { container } = render(<MobileBioSection />);
+
+    expect(screen.getByText("Powered by OpenAI")).toBeInTheDocument();
+    expect(container.querySelector(".mobileImgWrapper")).toBeInTheDocument();
+    expect(container.querySelectorAll(".light")).toHaveLength(9);
+  });
+
+  test("SkillSection renders the heading and core skills", () => {
+    render(<SkillSection deviceSize="title" />);
+
+    expect(screen.getByRole("heading", { name: "Skillset" })).toHaveClass(
+      "title"
+    );
+    [
+      "REACT",
+      "REDUX",
+      "TYPESCRIPT",
+      "JAVASCRIPT",
+      "HTML/CSS",
+      "SDLC",
+      "C# .NET CORE",
+      "Docker/Kubernetes",
+      "SQL/Postgres",
+      "GIT",
+      "Java Springboot",
+    ].forEach((skill) => {
+      expect(screen.getByText(skill)).toBeInTheDocument();
+    });
+  });
+
+  test("ExperienceSection renders its heading and portfolio experience copy", () => {
+    render(<ExperienceSection deviceSize="mobileTitle" />);
+
+    expect(screen.getByRole("heading", { name: "Experience" })).toHaveClass(
+      "mobileTitle"
+    );
+    expect(screen.getByText(/Fiserv in 2021/)).toBeInTheDocument();
+    expect(screen.getByText(/GitHub repository/)).toBeInTheDocument();
+  });
+
+  test("AboutJonah renders the JONAH description", () => {
+    render(<AboutJonah deviceSize="title" />);
+
+    expect(screen.getByRole("heading", { name: "About JONAH" })).toHaveClass(
+      "title"
+    );
+    expect(
+      screen.getByText(/Justin's Online Native Artificial Helper/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/OpenAI's cutting-edge technology/)
+    ).toBeInTheDocument();
+  });
+
+  test("ConnectSection renders contact options and opens LinkedIn", () => {
+    render(<ConnectSection deviceSize="title" />);
+
+    expect(screen.getByRole("heading", { name: "Connect" })).toHaveClass(
+      "title"
+    );
+    expect(screen.getByText("nnjustin44@gmail.com")).toBeInTheDocument();
+    expect(screen.getByText("404-789-0044")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "LinkedIn" }));
+    expect(openInNewTab).toHaveBeenCalledWith(LINKS.LINKEDIN_LINK);
+  });
+
+  test("MenuHeader renders desktop navigation and opens external links", () => {
+    render(<MenuHeader width={1200} height={800} />);
+
+    expect(screen.getByText("JUSTIN NGUYEN")).toBeInTheDocument();
+    expect(screen.getAllByRole("button")).toHaveLength(7);
+    expect(
+      screen.getByRole("button", { name: /Home/ }).closest("a")
+    ).toHaveAttribute("href", "#homeSection");
+    expect(
+      screen.getByRole("button", { name: /J\.O\.N\.A\.H/ }).closest("a")
+    ).toHaveAttribute("href", "#jonahSection");
+
+    fireEvent.click(screen.getByRole("button", { name: /Github/ }));
+    expect(openInNewTab).toHaveBeenCalledWith(LINKS.GITHUB_LINK);
+
+    fireEvent.click(screen.getByRole("button", { name: /Resume/ }));
+    expect(openInNewTab).toHaveBeenCalledWith(LINKS.RESUME_LINK);
+  });
+
+  test("MenuHeader renders MobileMenu at the mobile breakpoint", () => {
+    render(<MenuHeader width={800} />);
+
+    expect(screen.getByText("JUSTIN NGUYEN")).toHaveClass("mobileName");
+    expect(
+      screen.queryByRole("button", { name: /Home/ })
+    ).not.toBeInTheDocument();
+  });
+
+  test("MobileMenu toggles navigation and closes after selecting a link", () => {
+    render(<MobileMenu />);
+
+    fireEvent.click(screen.getAllByRole("button")[0]);
+    expect(screen.getByRole("button", { name: /Home/ })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Resume/ })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: /Github/ }));
+    expect(openInNewTab).toHaveBeenCalledWith(LINKS.GITHUB_LINK);
+    expect(
+      screen.queryByRole("button", { name: /Home/ })
+    ).not.toBeInTheDocument();
+  });
+
+  test("JONAH renders the assistant response form and submits typed input", () => {
+    const setInput = jest.fn();
+    const onSubmit = jest.fn();
+    const handleKeyDown = jest.fn();
+
+    useJonah.mockReturnValue({
+      loading: false,
+      input: "What can you do?",
+      setInput,
+      onSubmit,
+      handleKeyDown,
+      showResponse: placeHolder,
+    });
+
+    render(<JONAH deviceSize="title" />);
+
+    expect(screen.getByRole("heading", { name: "J.O.N.A.H" })).toHaveClass(
+      "title"
+    );
+    expect(screen.getByText(placeHolder)).toBeInTheDocument();
+
+    const input = screen.getByPlaceholderText("Ask me anything you'd like!");
+    expect(input).toHaveValue("What can you do?");
+    fireEvent.change(input, { target: { value: "Tell me about Justin" } });
+    expect(setInput).toHaveBeenCalledWith("Tell me about Justin");
+
+    fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
+    expect(handleKeyDown).toHaveBeenCalled();
+
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    expect(onSubmit).toHaveBeenCalled();
+  });
+
+  test("JONAH shows a loading indicator while awaiting a response", () => {
+    useJonah.mockReturnValue({
+      loading: true,
+      input: "",
+      setInput: jest.fn(),
+      onSubmit: jest.fn(),
+      handleKeyDown: jest.fn(),
+      showResponse: placeHolder,
+    });
+
+    const { container } = render(<JONAH deviceSize="mobileTitle" />);
+
+    expect(screen.getByRole("heading", { name: "J.O.N.A.H" })).toHaveClass(
+      "mobileTitle"
+    );
+    expect(
+      container.querySelector(".MuiCircularProgress-root")
+    ).toBeInTheDocument();
+    expect(screen.queryByText(placeHolder)).not.toBeInTheDocument();
+  });
+});

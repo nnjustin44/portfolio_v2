@@ -1,32 +1,42 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
 
-jest.mock("./components/BioSection", () => () => (
-  <div data-testid="bio-section">Bio Section</div>
+jest.mock("./components/BioSection", () => ({ width, deviceSize }) => (
+  <div data-testid="bio-section" data-width={width} data-device-size={deviceSize}>
+    Bio Section
+  </div>
 ));
-jest.mock("./components/ConnectSection", () => () => (
-  <div data-testid="connect-section">Connect Section</div>
+jest.mock("./components/ConnectSection", () => ({ deviceSize }) => (
+  <div data-testid="connect-section" data-device-size={deviceSize}>
+    Connect Section
+  </div>
 ));
-jest.mock("./components/ExperienceSection", () => () => (
-  <div data-testid="experience-section">Experience Section</div>
+jest.mock("./components/ExperienceSection", () => ({ deviceSize }) => (
+  <div data-testid="experience-section" data-device-size={deviceSize}>
+    Experience Section
+  </div>
 ));
-jest.mock("./components/SkillsSection", () => () => (
-  <div data-testid="skill-section">Skill Section</div>
+jest.mock("./components/SkillsSection", () => ({ deviceSize }) => (
+  <div data-testid="skill-section" data-device-size={deviceSize}>
+    Skill Section
+  </div>
 ));
-jest.mock("./components/JONAH", () => () => (
-  <div data-testid="jonah-section">JONAH Section</div>
+jest.mock("./components/JONAH", () => ({ deviceSize }) => (
+  <div data-testid="jonah-section" data-device-size={deviceSize}>
+    JONAH Section
+  </div>
 ));
-jest.mock("./components/AboutJonah", () => () => (
-  <div data-testid="about-jonah-section">About Jonah Section</div>
+jest.mock("./components/AboutJonah", () => ({ deviceSize }) => (
+  <div data-testid="about-jonah-section" data-device-size={deviceSize}>
+    About Jonah Section
+  </div>
 ));
-jest.mock("./components/MenuHeader", () => () => (
-  <div data-testid="menu-header">Menu Header</div>
+jest.mock("./components/MenuHeader", () => ({ width }) => (
+  <div data-testid="menu-header" data-width={width}>
+    Menu Header
+  </div>
 ));
-
-jest.mock("dotenv", () => ({
-  config: jest.fn(),
-}));
 
 const originalLocation = window.location;
 beforeEach(() => {
@@ -65,13 +75,37 @@ describe("App component", () => {
     });
     render(<App />);
     const bioSection = screen.getByTestId("bio-section");
-    expect(bioSection).toBeInTheDocument();
+    expect(bioSection).toHaveAttribute("data-device-size", "mobileTitle");
+    expect(bioSection).toHaveAttribute("data-width", "1000");
   });
 
-  test("handles window resize event", () => {
+  test("updates responsive props on resize without reloading the page", async () => {
+    Object.defineProperty(window, "innerWidth", {
+      writable: true,
+      value: 1200,
+    });
     render(<App />);
-    const resizeEvent = new Event("resize");
-    window.dispatchEvent(resizeEvent);
-    expect(window.location.reload).toHaveBeenCalled();
+
+    expect(screen.getByTestId("bio-section")).toHaveAttribute(
+      "data-device-size",
+      "title"
+    );
+
+    act(() => {
+      window.innerWidth = 800;
+      window.dispatchEvent(new Event("resize"));
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("bio-section")).toHaveAttribute(
+        "data-device-size",
+        "mobileTitle"
+      );
+    });
+    expect(screen.getByTestId("menu-header")).toHaveAttribute(
+      "data-width",
+      "800"
+    );
+    expect(window.location.reload).not.toHaveBeenCalled();
   });
 });

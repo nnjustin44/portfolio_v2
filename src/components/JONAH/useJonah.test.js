@@ -53,39 +53,32 @@ afterEach(() => {
 });
 
 describe("useJonah hook", () => {
-  test("initial state shows placeholder and loading false", async () => {
-    await act(async () => {
-      render(<TestComponent />);
-    });
+  test("initial state shows placeholder and loading false", () => {
+    render(<TestComponent />);
+
     expect(screen.getByTestId("loading").textContent).toBe("false");
     expect(screen.getByTestId("response").textContent).toBe("PLACEHOLDER_TEXT");
     expect(screen.getByTestId("input")).toHaveValue("");
   });
 
-  test("non-Enter key does not submit", async () => {
-    await act(async () => {
-      render(<TestComponent />);
-      const input = screen.getByTestId("input");
-      fireEvent.change(input, { target: { value: "Hello" } });
-      await waitFor(() => {
-        expect(screen.getByTestId("input")).toHaveValue("Hello");
-      });
-      fireEvent.keyDown(input, { key: "a", code: "KeyA" });
-    });
+  test("non-Enter key does not submit", () => {
+    render(<TestComponent />);
+    const input = screen.getByTestId("input");
+
+    fireEvent.change(input, { target: { value: "Hello" } });
+    fireEvent.keyDown(input, { key: "a", code: "KeyA" });
+
     expect(postData).not.toHaveBeenCalled();
   });
 
-  test("onSubmit calls postData with input and sets loading true", async () => {
-    await act(async () => {
-      render(<TestComponent />);
-      const input = screen.getByTestId("input");
-      fireEvent.change(input, { target: { value: "Hello Jonah" } });
-      await waitFor(() => {
-        expect(screen.getByTestId("input")).toHaveValue("Hello Jonah");
-      });
-      postData.mockImplementation(() => {});
-      fireEvent.click(screen.getByText("Submit"));
-    });
+  test("onSubmit calls postData with input and sets loading true", () => {
+    render(<TestComponent />);
+    const input = screen.getByTestId("input");
+    postData.mockImplementation(() => {});
+
+    fireEvent.change(input, { target: { value: "Hello Jonah" } });
+    fireEvent.click(screen.getByText("Submit"));
+
     expect(postData).toHaveBeenCalledTimes(1);
     const [passedInput, onSuccess, onFailure] = postData.mock.calls[0];
     expect(passedInput).toBe("Hello Jonah");
@@ -95,18 +88,14 @@ describe("useJonah hook", () => {
   });
 
   test("success path updates response, resets input, turns off loading, and writes to FirebaseDB with correct args", async () => {
-    await act(async () => {
-      render(<TestComponent />);
-      const input = screen.getByTestId("input");
-      fireEvent.change(input, { target: { value: "Original Input" } });
-      await waitFor(() => {
-        expect(screen.getByTestId("input")).toHaveValue("Original Input");
-      });
-      postData.mockImplementation((_input, onSuccess) => {
-        setTimeout(() => onSuccess("AI_RESPONSE"), 0);
-      });
-      fireEvent.click(screen.getByText("Submit"));
+    render(<TestComponent />);
+    const input = screen.getByTestId("input");
+    postData.mockImplementation((_input, onSuccess) => {
+      setTimeout(() => onSuccess("AI_RESPONSE"), 0);
     });
+
+    fireEvent.change(input, { target: { value: "Original Input" } });
+    fireEvent.click(screen.getByText("Submit"));
 
     expect(screen.getByTestId("loading").textContent).toBe("true");
 
@@ -121,49 +110,56 @@ describe("useJonah hook", () => {
       expect(FirebaseDB).toHaveBeenCalledTimes(1);
     });
 
-    const [fbInput] = FirebaseDB.mock.calls[0];
+    const [fbInput, _time, _date, fbResponse] = FirebaseDB.mock.calls[0];
     expect(fbInput).toBe("Original Input");
+    expect(fbResponse).toBe("AI_RESPONSE");
   });
 
-  test("Enter key triggers submit", async () => {
-    await act(async () => {
-      render(<TestComponent />);
-      postData.mockImplementation(() => {});
-      const input = screen.getByTestId("input");
-      fireEvent.change(input, { target: { value: "From Enter Key" } });
-      await waitFor(() => {
-        expect(screen.getByTestId("input")).toHaveValue("From Enter Key");
-      });
-      fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
-    });
+  test("Enter key triggers submit", () => {
+    render(<TestComponent />);
+    postData.mockImplementation(() => {});
+    const input = screen.getByTestId("input");
+
+    fireEvent.change(input, { target: { value: "From Enter Key" } });
+    fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
+
     expect(postData).toHaveBeenCalledTimes(1);
     expect(postData.mock.calls[0][0]).toBe("From Enter Key");
   });
 
-  test("failure path logs error and leaves loading true", async () => {
-    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
-    await act(async () => {
-      render(<TestComponent />);
-      const input = screen.getByTestId("input");
-      fireEvent.change(input, { target: { value: "Will Fail" } });
-      await waitFor(() => {
-        expect(screen.getByTestId("input")).toHaveValue("Will Fail");
-      });
-      postData.mockImplementation((_input, _onSuccess, onFailure) => {
-        setTimeout(() => onFailure(), 0);
-      });
-      fireEvent.click(screen.getByText("Submit"));
+  test("empty input does not submit", () => {
+    render(<TestComponent />);
+    const input = screen.getByTestId("input");
+
+    fireEvent.change(input, { target: { value: "   " } });
+    fireEvent.click(screen.getByText("Submit"));
+
+    expect(postData).not.toHaveBeenCalled();
+    expect(screen.getByTestId("loading").textContent).toBe("false");
+  });
+
+  test("failure path logs error and turns loading off", async () => {
+    const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+    const error = new Error("Network failed");
+
+    render(<TestComponent />);
+    const input = screen.getByTestId("input");
+    postData.mockImplementation((_input, _onSuccess, onFailure) => {
+      setTimeout(() => onFailure(error), 0);
     });
+
+    fireEvent.change(input, { target: { value: "Will Fail" } });
+    fireEvent.click(screen.getByText("Submit"));
 
     await act(async () => {
       jest.runAllTimers();
     });
 
     await waitFor(() => {
-      expect(logSpy).toHaveBeenCalledWith("Something went wrong");
-      expect(screen.getByTestId("loading").textContent).toBe("true");
+      expect(errorSpy).toHaveBeenCalledWith("Something went wrong", error);
+      expect(screen.getByTestId("loading").textContent).toBe("false");
     });
 
-    logSpy.mockRestore();
+    errorSpy.mockRestore();
   });
 });
