@@ -21,9 +21,9 @@ const ExperienceSection = ({ deviceSize }) => {
         In my initial rotation, I collaborated with the AI and ML team,
         contributing to projects involving IVRs and chatbots powered by IBM
         Watson, and later developing into the utilization of advanced language
-        models like GPT 3.5 Turbo. Allowing to to utilize generative AI to
-        create J.O.N.A.H. This experience involved extensive use of C# within
-        the .NET CORE framework.
+        models like GPT 3.5 Turbo (At the time, cutting edge). Allowing me the
+        experience to utilize generative AI in the creation of J.O.N.A.H. This
+        experience involved extensive use of C# within the .NET CORE framework.
       </p>
 
       <p>
@@ -33,11 +33,11 @@ const ExperienceSection = ({ deviceSize }) => {
       </p>
       <p>
         One of the notable accomplishments I achieved during this timeframe was
-        the creation of a robust portfolio website utilizing React.js. This
-        website was seamlessly integrated and hosted on Google Firebase,
-        complete with a fully functional database. Notably, the design was
-        optimized for both mobile and desktop usage, ensuring a smooth user
-        experience across all devices.
+        the creation of a robust portfolio website utilizing React.js/ Java
+        Quarkus. This website was seamlessly integrated and hosted on Google
+        Firebase, complete with a fully functional database in Google Cloud.
+        Notably, the design was optimized for both mobile and desktop usage,
+        ensuring a smooth user experience across all devices.
       </p>
       <p>
         For those interested, the entire source code for this project is

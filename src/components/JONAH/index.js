@@ -3,7 +3,6 @@ import "./styles.scss";
 import Input from "@mui/joy/Input";
 import useJonah from "./useJonah";
 import { Button } from "@mui/material";
-import AstronautLoader from "./AstronautLoader";
 import { MAX_CHAT_MESSAGE_LENGTH } from "../../AppConstants";
 
 const JONAH = ({ deviceSize }) => {
@@ -39,14 +38,18 @@ const JONAH = ({ deviceSize }) => {
             </div>
           ))}
           {loading && (
-            <div className="messageRow jonah loadingMessage">
-              {/* <AstronautLoader /> */}
+            <div
+              className="messageRow jonah loadingMessage"
+              role="status"
+              aria-label="J.O.N.A.H is thinking"
+            >
               <img
                 src="astronaut_loader.gif"
                 alt="Hold on tight!"
                 width="150"
                 height="150"
-              ></img>
+              />
+              <span className="loadingStatus">Hold On Tight!</span>
             </div>
           )}
         </div>

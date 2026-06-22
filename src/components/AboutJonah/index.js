@@ -9,7 +9,8 @@ const AboutJonah = ({ deviceSize }) => {
         Introducing Justin's Online Native Artificial Helper. Powered by OpenAI,
         JONAH is trained with my resume and hobbies. JONAH is tailored to be my
         personal representative and can answer any questions you may have on my
-        behalf.
+        behalf. JONAH is connected to a database and can learn from your
+        responses.
       </p>
       <p></p>
     </div>

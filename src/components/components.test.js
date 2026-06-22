@@ -210,7 +210,7 @@ describe("portfolio components", () => {
     expect(
       screen.getByRole("status", { name: "J.O.N.A.H is thinking" })
     ).toBeInTheDocument();
-    expect(screen.getByText("J.O.N.A.H is thinking...")).toBeInTheDocument();
+    expect(screen.getByText("Hold On Tight!")).toBeInTheDocument();
     expect(screen.getByText(placeHolder)).toBeInTheDocument();
     expect(screen.getByText("Hello Jonah")).toBeInTheDocument();
     expect(

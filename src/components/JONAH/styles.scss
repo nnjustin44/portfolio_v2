@@ -82,39 +82,22 @@
   }
 
   .loadingMessage {
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 11rem;
 
-    .astronautLoader {
-      width: min(100%, 22rem);
-      height: 10rem;
+    img {
+      max-width: 55%;
+      height: auto;
     }
-  }
-}
 
-.astronautLoader {
-  position: relative;
-  width: min(100%, 28rem);
-  height: 13rem;
-  overflow: hidden;
-
-  canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-  }
-
-  .loadingStatus {
-    position: absolute;
-    right: 0;
-    bottom: 0.15rem;
-    left: 0;
-    color: #354052;
-    font-family: "Courier New", monospace;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0;
+    .loadingStatus {
+      color: #263f5d;
+      font-family: ui-rounded, "Comic Sans MS", "Chalkboard SE", cursive;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
   }
 }
 
@@ -132,12 +115,12 @@
       max-width: 88%;
     }
 
-    .loadingMessage .astronautLoader {
-      height: 9rem;
-    }
-  }
+    .loadingMessage {
+      min-height: 10rem;
 
-  .astronautLoader {
-    height: 12rem;
+      img {
+        width: 8rem;
+      }
+    }
   }
 }
