@@ -8,28 +8,30 @@ import {
 } from "@testing-library/react";
 import useJonah from "./useJonah";
 import { postData } from "../../api/chatGPT";
-import { FirebaseDB } from "../../api/firebaseDB";
 
 jest.mock("../../api/chatGPT", () => ({
   postData: jest.fn(),
 }));
 
-jest.mock("../../api/firebaseDB", () => ({
-  FirebaseDB: jest.fn(),
-}));
-
 jest.mock("../../AppConstants", () => ({
+  MAX_CHAT_MESSAGE_LENGTH: 500,
   placeHolder: "PLACEHOLDER_TEXT",
 }));
 
 function TestComponent() {
-  const { loading, input, setInput, onSubmit, handleKeyDown, showResponse } =
+  const { loading, input, messages, setInput, onSubmit, handleKeyDown } =
     useJonah();
 
   return (
     <div>
       <div data-testid="loading">{loading ? "true" : "false"}</div>
-      <div data-testid="response">{showResponse}</div>
+      <div data-testid="messages">
+        {messages.map(({ id, sender, text }) => (
+          <div data-testid={`message-${sender}`} key={id}>
+            {text}
+          </div>
+        ))}
+      </div>
       <input
         data-testid="input"
         value={input ?? ""}
@@ -53,11 +55,13 @@ afterEach(() => {
 });
 
 describe("useJonah hook", () => {
-  test("initial state shows placeholder and loading false", () => {
+  test("initial state shows a J.O.N.A.H welcome message and loading false", () => {
     render(<TestComponent />);
 
     expect(screen.getByTestId("loading").textContent).toBe("false");
-    expect(screen.getByTestId("response").textContent).toBe("PLACEHOLDER_TEXT");
+    expect(screen.getByTestId("message-jonah")).toHaveTextContent(
+      "PLACEHOLDER_TEXT"
+    );
     expect(screen.getByTestId("input")).toHaveValue("");
   });
 
@@ -85,9 +89,11 @@ describe("useJonah hook", () => {
     expect(typeof onSuccess).toBe("function");
     expect(typeof onFailure).toBe("function");
     expect(screen.getByTestId("loading").textContent).toBe("true");
+    expect(screen.getByTestId("message-user")).toHaveTextContent("Hello Jonah");
+    expect(screen.getByTestId("input")).toHaveValue("");
   });
 
-  test("success path updates response, resets input, turns off loading, and writes to FirebaseDB with correct args", async () => {
+  test("success path appends the response, resets input, and turns off loading", async () => {
     render(<TestComponent />);
     const input = screen.getByTestId("input");
     postData.mockImplementation((_input, onSuccess) => {
@@ -105,14 +111,20 @@ describe("useJonah hook", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("loading").textContent).toBe("false");
-      expect(screen.getByTestId("response").textContent).toBe("AI_RESPONSE");
+      expect(screen.getAllByTestId("message-jonah")[1]).toHaveTextContent(
+        "AI_RESPONSE"
+      );
       expect(screen.getByTestId("input")).toHaveValue("");
-      expect(FirebaseDB).toHaveBeenCalledTimes(1);
     });
+  });
 
-    const [fbInput, _time, _date, fbResponse] = FirebaseDB.mock.calls[0];
-    expect(fbInput).toBe("Original Input");
-    expect(fbResponse).toBe("AI_RESPONSE");
+  test("limits input state to 500 characters", () => {
+    render(<TestComponent />);
+    const input = screen.getByTestId("input");
+
+    fireEvent.change(input, { target: { value: "a".repeat(501) } });
+
+    expect(input).toHaveValue("a".repeat(500));
   });
 
   test("Enter key triggers submit", () => {
@@ -125,6 +137,31 @@ describe("useJonah hook", () => {
 
     expect(postData).toHaveBeenCalledTimes(1);
     expect(postData.mock.calls[0][0]).toBe("From Enter Key");
+  });
+
+  test("retains earlier messages across multiple exchanges", async () => {
+    render(<TestComponent />);
+    const input = screen.getByTestId("input");
+    postData.mockImplementation((message, onSuccess) => {
+      setTimeout(() => onSuccess(`Response to ${message}`), 0);
+    });
+
+    fireEvent.change(input, { target: { value: "First question" } });
+    fireEvent.click(screen.getByText("Submit"));
+    await act(async () => {
+      jest.runAllTimers();
+    });
+
+    fireEvent.change(input, { target: { value: "Second question" } });
+    fireEvent.click(screen.getByText("Submit"));
+    await act(async () => {
+      jest.runAllTimers();
+    });
+
+    expect(screen.getAllByTestId("message-user")).toHaveLength(2);
+    expect(screen.getAllByTestId("message-jonah")).toHaveLength(3);
+    expect(screen.getByText("Response to First question")).toBeInTheDocument();
+    expect(screen.getByText("Response to Second question")).toBeInTheDocument();
   });
 
   test("empty input does not submit", () => {
@@ -158,6 +195,9 @@ describe("useJonah hook", () => {
     await waitFor(() => {
       expect(errorSpy).toHaveBeenCalledWith("Something went wrong", error);
       expect(screen.getByTestId("loading").textContent).toBe("false");
+      expect(screen.getAllByTestId("message-jonah")[1]).toHaveTextContent(
+        "I couldn't reach the server. Please try your message again."
+      );
     });
 
     errorSpy.mockRestore();

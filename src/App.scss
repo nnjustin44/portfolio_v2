@@ -17,7 +17,7 @@ div {
   padding: 2rem 2rem;
   margin: 2rem;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  .bioSection{
+  .bioSection {
     justify-self: center;
   }
 }
@@ -31,12 +31,12 @@ div {
   margin: 3rem;
   justify-content: center;
 }
-.mobileTitle{
-    height: 30%;
-    text-align: center;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 200;
-    justify-content: center;
+.mobileTitle {
+  height: 30%;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  justify-content: center;
 }
 
 .info-body {
@@ -45,26 +45,26 @@ div {
   flex-wrap: wrap;
   background-color: rgb(244, 241, 241);
   font-family: Helvetica, Arial, sans-serif;
- 
+
   .skillsetWrapper {
-      margin: 9vh 9vw 10vh 9vw;
-      color:rgb(19, 16, 16);
-      .skill{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        .items{
-          margin:1rem;
-          padding: 5px 15px 5px 15px;
-          border-radius: 20px;
-          color: rgb(244, 241, 241);
-          background: #3a80c7;
-        }
+    margin: 9vh 9vw 10vh 9vw;
+    color: rgb(19, 16, 16);
+    .skill {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      .items {
+        margin: 1rem;
+        padding: 5px 15px 5px 15px;
+        border-radius: 20px;
+        color: rgb(244, 241, 241);
+        background: #3a80c7;
       }
+    }
   }
   .p {
     font-family: Helvetica, Arial, sans-serif !important;
-    color:rgb(19, 16, 16)!important;
+    color: rgb(19, 16, 16) !important;
   }
   .experience {
     border-radius: 25px;
@@ -81,7 +81,7 @@ div {
     margin-right: 15vw;
     margin-top: 9vh;
     margin-bottom: 20vh;
-    color:rgb(19, 16, 16);
+    color: rgb(19, 16, 16);
     background-color: rgb(244, 241, 241);
     .connectIcons {
       display: flex;
@@ -120,4 +120,10 @@ div {
   margin: 18vw;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+  .topHeader > .bioSection {
+    width: 100%;
+  }
 }

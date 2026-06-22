@@ -6,11 +6,10 @@ const AboutJonah = ({ deviceSize }) => {
     <div className="aboutJonah">
       <h1 className={deviceSize}>About JONAH</h1>
       <p>
-        Introducing Justin's Online Native Artificial Helper. Powered by
-        OpenAI's cutting-edge technology, JONAH is designed to seamlessly
-        integrate into this portfolio, providing intelligent assistance tailored
-        to be my personal representative. Making JONAH a complete Artificial
-        Intelligence Assistant.
+        Introducing Justin's Online Native Artificial Helper. Powered by OpenAI,
+        JONAH is trained with my resume and hobbies. JONAH is tailored to be my
+        personal representative and can answer any questions you may have on my
+        behalf.
       </p>
       <p></p>
     </div>

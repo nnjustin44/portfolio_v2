@@ -1,38 +1,68 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { postData } from "../../api/chatGPT";
-import { placeHolder } from "../../AppConstants";
-import { FirebaseDB } from "../../api/firebaseDB";
-import useDateTime from "../helpers/dateTime";
+import { MAX_CHAT_MESSAGE_LENGTH, placeHolder } from "../../AppConstants";
 
 const useJonah = () => {
-  const { time, date } = useDateTime();
+  const minimumLoadingTime = 1200;
   const [loading, setLoading] = useState(false);
-  const [input, setInput] = useState("");
-  const [response, setResponse] = useState("");
+  const [input, setInputValue] = useState("");
+  const [messages, setMessages] = useState([
+    { id: "welcome", sender: "jonah", text: placeHolder },
+  ]);
+  const requestStartedAt = useRef(0);
+  const messageId = useRef(0);
+
+  const setInput = (value) => {
+    setInputValue(String(value ?? "").slice(0, MAX_CHAT_MESSAGE_LENGTH));
+  };
+
+  const finishAfterMinimumDelay = (callback) => {
+    const elapsed = Date.now() - requestStartedAt.current;
+    window.setTimeout(callback, Math.max(minimumLoadingTime - elapsed, 0));
+  };
+
+  const addMessage = (sender, text) => {
+    messageId.current += 1;
+    setMessages((currentMessages) => [
+      ...currentMessages,
+      { id: `${sender}-${messageId.current}`, sender, text },
+    ]);
+  };
 
   const onSuccess = (data) => {
-    setLoading(false);
-    setResponse(data);
-    setInput("");
-    Promise.resolve(FirebaseDB(input.trim(), time, date, data)).catch((error) => {
-      console.error("Error writing JONAH interaction: ", error);
+    finishAfterMinimumDelay(() => {
+      setLoading(false);
+      addMessage("jonah", data);
     });
   };
 
   const onFailure = (error) => {
-    setLoading(false);
-    console.error("Something went wrong", error);
+    finishAfterMinimumDelay(() => {
+      setLoading(false);
+      addMessage(
+        "jonah",
+        "I couldn't reach the server. Please try your message again."
+      );
+      console.error("Something went wrong", error);
+    });
   };
 
   const onSubmit = () => {
     const trimmedInput = input.trim();
 
-    if (!trimmedInput || loading) {
+    if (
+      !trimmedInput ||
+      trimmedInput.length > MAX_CHAT_MESSAGE_LENGTH ||
+      loading
+    ) {
       return;
     }
 
-    postData(trimmedInput, onSuccess, onFailure);
+    requestStartedAt.current = Date.now();
+    addMessage("user", trimmedInput);
+    setInputValue("");
     setLoading(true);
+    postData(trimmedInput, onSuccess, onFailure);
   };
 
   const handleKeyDown = (e) => {
@@ -41,9 +71,7 @@ const useJonah = () => {
     }
   };
 
-  const showResponse = response ? response : placeHolder;
-
-  return { loading, input, setInput, onSubmit, handleKeyDown, showResponse };
+  return { loading, input, messages, setInput, onSubmit, handleKeyDown };
 };
 
 export default useJonah;

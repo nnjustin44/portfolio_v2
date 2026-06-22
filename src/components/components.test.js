@@ -90,9 +90,7 @@ describe("portfolio components", () => {
     expect(
       screen.getByText(/Justin's Online Native Artificial Helper/)
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(/OpenAI's cutting-edge technology/)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Powered by OpenAI/)).toBeInTheDocument();
   });
 
   test("ConnectSection renders contact options and opens LinkedIn", () => {
@@ -161,7 +159,10 @@ describe("portfolio components", () => {
       setInput,
       onSubmit,
       handleKeyDown,
-      showResponse: placeHolder,
+      messages: [
+        { id: "welcome", sender: "jonah", text: placeHolder },
+        { id: "user-1", sender: "user", text: "What can you do?" },
+      ],
     });
 
     render(<JONAH deviceSize="title" />);
@@ -170,9 +171,14 @@ describe("portfolio components", () => {
       "title"
     );
     expect(screen.getByText(placeHolder)).toBeInTheDocument();
+    expect(screen.getByText("What can you do?")).toBeInTheDocument();
+    expect(
+      screen.getByRole("log", { name: "Conversation with J.O.N.A.H" })
+    ).toBeInTheDocument();
 
     const input = screen.getByPlaceholderText("Ask me anything you'd like!");
     expect(input).toHaveValue("What can you do?");
+    expect(input).toHaveAttribute("maxlength", "500");
     fireEvent.change(input, { target: { value: "Tell me about Justin" } });
     expect(setInput).toHaveBeenCalledWith("Tell me about Justin");
 
@@ -190,17 +196,50 @@ describe("portfolio components", () => {
       setInput: jest.fn(),
       onSubmit: jest.fn(),
       handleKeyDown: jest.fn(),
-      showResponse: placeHolder,
+      messages: [
+        { id: "welcome", sender: "jonah", text: placeHolder },
+        { id: "user-1", sender: "user", text: "Hello Jonah" },
+      ],
     });
 
-    const { container } = render(<JONAH deviceSize="mobileTitle" />);
+    render(<JONAH deviceSize="mobileTitle" />);
 
     expect(screen.getByRole("heading", { name: "J.O.N.A.H" })).toHaveClass(
       "mobileTitle"
     );
     expect(
-      container.querySelector(".MuiCircularProgress-root")
+      screen.getByRole("status", { name: "J.O.N.A.H is thinking" })
     ).toBeInTheDocument();
-    expect(screen.queryByText(placeHolder)).not.toBeInTheDocument();
+    expect(screen.getByText("J.O.N.A.H is thinking...")).toBeInTheDocument();
+    expect(screen.getByText(placeHolder)).toBeInTheDocument();
+    expect(screen.getByText("Hello Jonah")).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText("Ask me anything you'd like!")
+    ).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Submit" })).toBeDisabled();
+  });
+
+  test("JONAH renders message content as text instead of executable markup", () => {
+    useJonah.mockReturnValue({
+      loading: false,
+      input: "",
+      setInput: jest.fn(),
+      onSubmit: jest.fn(),
+      handleKeyDown: jest.fn(),
+      messages: [
+        {
+          id: "hostile-1",
+          sender: "jonah",
+          text: '<img src=x onerror="window.compromised=true">',
+        },
+      ],
+    });
+
+    const { container } = render(<JONAH deviceSize="title" />);
+
+    expect(
+      screen.getByText('<img src=x onerror="window.compromised=true">')
+    ).toBeInTheDocument();
+    expect(container.querySelector(".messageBubble img")).toBeNull();
   });
 });
