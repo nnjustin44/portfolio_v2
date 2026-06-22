@@ -40,7 +40,13 @@ const JONAH = ({ deviceSize }) => {
           ))}
           {loading && (
             <div className="messageRow jonah loadingMessage">
-              <AstronautLoader />
+              {/* <AstronautLoader /> */}
+              <img
+                src="astronaut_loader.gif"
+                alt="Hold on tight!"
+                width="150"
+                height="150"
+              ></img>
             </div>
           )}
         </div>
