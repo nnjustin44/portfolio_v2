@@ -12,7 +12,6 @@ const AboutJonah = ({ deviceSize }) => {
         behalf. JONAH is connected to a database and can learn from your
         responses.
       </p>
-      <p></p>
     </div>
   );
 };

@@ -1,9 +1,22 @@
-.aboutJonah{
-    border-radius: 25px;
-    padding: 3rem 3rem 7.5rem 3rem;
-    margin: 4rem 2rem 2rem 2rem;
-    color: white;
-    background: #8dbff2;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    // box-shadow: 1px 1px 2px 0px (var(--joy-shadowChannel, 21 21 21) / var(--joy-shadowOpacity, 0.08));
+.aboutJonah {
+  margin: 0;
+  padding: 5rem 1.5rem;
+  color: var(--text);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+
+  p {
+    max-width: 68ch;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 1100px) {
+  .aboutJonah {
+    padding: 3.75rem 1rem;
+  }
 }

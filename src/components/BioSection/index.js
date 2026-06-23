@@ -10,13 +10,25 @@ const BioSection = ({ width, height }) => {
       <div className="bioSection">
         <div className="bioBody">
           <div className="imgWrapper">
-            <img src={profile_pic} className="profile_pic" alt="Justin Nguyen" />
+            <img
+              src={profile_pic}
+              className="profile_pic"
+              alt="Justin Nguyen"
+            />
+          </div>
+          <div className="heroCopy">
+            <p className="heroEyebrow">Fullstack Software Engineer</p>
+            <h1>Justin Nguyen</h1>
+            <p className="heroSummary">
+              Building practical, dependable software from inception to
+              deployment.
+            </p>
           </div>
           <p id="head1" className="aniHeader">
             Meet The Developer
           </p>
           <p id="head2" className="aniHeader">
-            Justin Nguyen
+            Welcome to my Portfolio
           </p>
           <p id="head3" className="aniHeader">
             Honest. Creative. Dedicated.
@@ -31,9 +43,6 @@ const BioSection = ({ width, height }) => {
             Powered by OpenAI
           </p>
           <p id="head7" className="aniHeader">
-            Welcome to my Portfolio
-          </p>
-          <p id="head8" className="aniHeader">
             Fullstack Software Engineer
           </p>
         </div>
@@ -50,7 +59,9 @@ const BioSection = ({ width, height }) => {
     );
   };
 
-  return <>{width <= MOBILE_BREAKPOINT ? <MobileBioSection /> : <BioSection />}</>;
+  return (
+    <>{width <= MOBILE_BREAKPOINT ? <MobileBioSection /> : <BioSection />}</>
+  );
 };
 
 export default BioSection;

@@ -1,40 +1,26 @@
 .jonah {
   display: grid;
-  color: rgb(19, 16, 16);
-  margin: 3rem 2rem 0;
+  margin: 0;
+  padding: 5rem 1.5rem;
+  color: var(--text);
 
   .chatPanel {
     display: grid;
   }
 
-  .composer {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: stretch;
-    gap: 0.75rem;
-
-    .jonahButton {
-      min-width: 7rem;
-      margin: 0;
-      padding: 5px 15px;
-      border-radius: 8px;
-      color: rgb(244, 241, 241);
-      background: #3a80c7;
-    }
-  }
-
   .chatLog {
     box-sizing: border-box;
     display: grid;
+    width: 100%;
+    max-height: 30rem;
     align-content: start;
     gap: 0.85rem;
-    width: 100%;
-    max-height: 28rem;
-    padding: 1rem 0;
+    padding: 0.5rem 0 1rem;
+    margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    margin: 1rem 0 0.75rem;
     scroll-behavior: smooth;
+    scrollbar-color: var(--border-strong) transparent;
   }
 
   .messageRow {
@@ -45,12 +31,13 @@
       justify-content: flex-end;
 
       .messageBubble {
-        color: #ffffff;
-        background: #276fb7;
+        color: var(--user-message-text);
+        background: var(--user-message-bg);
+        border-color: var(--user-message-border);
       }
 
       .messageAuthor {
-        color: #dceeff;
+        color: var(--user-message-author);
       }
     }
 
@@ -60,67 +47,154 @@
   }
 
   .messageBubble {
-    max-width: min(78%, 38rem);
-    padding: 0.7rem 0.85rem;
-    border: 1px solid #cbd5df;
+    box-sizing: border-box;
+    max-width: min(82%, 42rem);
+    padding: 0.8rem 0.9rem;
+    color: var(--text);
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    background: #ffffff;
-    text-align: left;
     overflow-wrap: anywhere;
+    text-align: left;
 
     p {
-      margin: 0.25rem 0 0;
-      line-height: 1.45;
+      margin: 0.3rem 0 0;
+      color: inherit;
+      line-height: 1.5;
     }
   }
 
   .messageAuthor {
-    color: #40556b;
-    font-size: 0.72rem;
-    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0;
     text-transform: uppercase;
   }
 
   .loadingMessage {
     flex-direction: column;
-    gap: 0.5rem;
     min-height: 11rem;
+    gap: 0.55rem;
 
     img {
-      max-width: 55%;
+      display: block;
+      width: 8.5rem;
+      max-width: 50%;
       height: auto;
+      object-fit: contain;
     }
 
     .loadingStatus {
-      color: #263f5d;
+      color: var(--accent-strong);
       font-family: ui-rounded, "Comic Sans MS", "Chalkboard SE", cursive;
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0;
     }
   }
+
+  .composer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    width: min(82%, 42rem);
+    align-items: stretch;
+    justify-self: center;
+    gap: 0.65rem;
+    margin-top: 0.25rem;
+
+    .MuiInput-root {
+      min-width: 0;
+      color: var(--text);
+      background: var(--surface-raised);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      box-shadow: none;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      &:focus-within {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--focus-ring);
+      }
+    }
+
+    .MuiInput-input {
+      color: var(--text);
+
+      &::placeholder {
+        color: var(--text-subtle);
+        opacity: 1;
+      }
+    }
+
+    .MuiInput-endDecorator {
+      color: var(--text-subtle);
+      font-size: 0.78rem;
+    }
+
+    .jonahButton {
+      min-width: 7rem;
+      margin: 0;
+      padding: 0.55rem 1rem;
+      color: var(--accent-contrast);
+      background: var(--accent);
+      border-radius: 8px;
+      font-weight: 750;
+      text-transform: none;
+
+      &:hover {
+        background: var(--accent-strong);
+      }
+
+      &:disabled {
+        color: var(--text-subtle);
+        background: var(--surface-soft);
+      }
+    }
+  }
 }
 
 @media (max-width: 1100px) {
   .jonah {
-    margin-right: 1rem;
-    margin-left: 1rem;
+    padding: 3.75rem 1rem;
 
     .chatLog {
       max-height: 25rem;
-      padding: 0.75rem 0;
+    }
+
+    .messageBubble,
+    .composer {
+      max-width: none;
+      width: 90%;
     }
 
     .messageBubble {
-      max-width: 88%;
+      max-width: 90%;
     }
 
     .loadingMessage {
       min-height: 10rem;
 
       img {
-        width: 8rem;
+        width: 7.5rem;
       }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .jonah .composer {
+    width: 100%;
+    gap: 0.5rem;
+
+    .jonahButton {
+      min-width: 5.5rem;
+      padding-right: 0.7rem;
+      padding-left: 0.7rem;
     }
   }
 }

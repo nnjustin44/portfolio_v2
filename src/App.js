@@ -9,6 +9,13 @@ import MenuHeader from "./components/MenuHeader";
 import AboutJonah from "./components/AboutJonah/index.js";
 import { MOBILE_BREAKPOINT } from "./AppConstants";
 
+const THEME_STORAGE_KEY = "portfolio-theme";
+
+const getInitialTheme = () => {
+  const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+  return savedTheme === "dark" ? "dark" : "light";
+};
+
 const getViewportSize = () => ({
   width: window.innerWidth,
   height: window.innerHeight,
@@ -31,9 +38,19 @@ const cancelResizeFrame = (animationFrameId) => {
 
 function App() {
   const [viewportSize, setViewportSize] = useState(getViewportSize);
+  const [theme, setTheme] = useState(getInitialTheme);
   const { width, height } = viewportSize;
   const isMobile = width <= MOBILE_BREAKPOINT;
   const deviceSize = isMobile ? "mobileTitle" : "title";
+
+  useEffect(() => {
+    document.title = "Justin Nguyen Portfolio";
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }, [theme]);
 
   useEffect(() => {
     let animationFrameId;
@@ -53,12 +70,20 @@ function App() {
     };
   }, []);
 
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
+  };
+
   return (
     <div className="App">
-      <title>Justin Nguyen Portfolio</title>
-      <MenuHeader width={width} height={height} />
+      <MenuHeader
+        width={width}
+        height={height}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
       <div className="topHeader" id="homeSection">
-        <div className="bioSection" id="bioSection">
+        <div className="bioSectionAnchor" id="bioSection">
           <BioSection
             width={width}
             height={height}

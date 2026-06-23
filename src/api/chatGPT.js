@@ -3,6 +3,38 @@ import {
   MAX_CHAT_RESPONSE_LENGTH,
 } from "../AppConstants";
 
+const LOCAL_CHAT_BACKEND_URL = "http://localhost:8080/api";
+const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
+
+const normalizeBackendUrl = (url) => (url || "").replace(/\/+$/, "");
+
+const isLocalAppOrigin = (hostname) => LOCAL_HOSTNAMES.has(hostname);
+
+const isLocalBackendTarget = (backendUrl) => {
+  try {
+    return LOCAL_HOSTNAMES.has(new URL(backendUrl).hostname);
+  } catch {
+    return false;
+  }
+};
+
+export const resolveChatBackendUrl = ({
+  hostname = window.location.hostname,
+  productionUrl = process.env.REACT_APP_BACKEND_URL,
+} = {}) => {
+  if (isLocalAppOrigin(hostname)) {
+    return LOCAL_CHAT_BACKEND_URL;
+  }
+
+  const normalizedProductionUrl = normalizeBackendUrl(productionUrl);
+
+  if (isLocalBackendTarget(normalizedProductionUrl)) {
+    return "";
+  }
+
+  return normalizedProductionUrl;
+};
+
 const parseResponseBody = async (response) => {
   const contentType = response.headers.get("content-type") || "";
 
@@ -18,7 +50,7 @@ const parseResponseBody = async (response) => {
 };
 
 export const postData = async (input, onSuccess, onFailure) => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const backendUrl = resolveChatBackendUrl();
   const message = typeof input === "string" ? input.trim() : "";
 
   if (!backendUrl) {

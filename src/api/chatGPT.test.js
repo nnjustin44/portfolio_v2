@@ -1,4 +1,4 @@
-import { postData } from "./chatGPT";
+import { postData, resolveChatBackendUrl } from "./chatGPT";
 
 describe("postData", () => {
   const originalBackendUrl = process.env.REACT_APP_BACKEND_URL;
@@ -11,6 +11,39 @@ describe("postData", () => {
   afterEach(() => {
     process.env.REACT_APP_BACKEND_URL = originalBackendUrl;
     jest.restoreAllMocks();
+  });
+
+  test("always uses localhost:8080 from local app origins", () => {
+    expect(
+      resolveChatBackendUrl({
+        hostname: "localhost",
+        productionUrl: "https://api.example.com/api",
+      })
+    ).toBe("http://localhost:8080/api");
+    expect(
+      resolveChatBackendUrl({
+        hostname: "127.0.0.1",
+        productionUrl: "https://api.example.com/api",
+      })
+    ).toBe("http://localhost:8080/api");
+  });
+
+  test("uses production backend from deployed origins", () => {
+    expect(
+      resolveChatBackendUrl({
+        hostname: "justinnguyen.dev",
+        productionUrl: "https://api.example.com/api/",
+      })
+    ).toBe("https://api.example.com/api");
+  });
+
+  test("rejects localhost backend targets from deployed origins", () => {
+    expect(
+      resolveChatBackendUrl({
+        hostname: "justinnguyen.dev",
+        productionUrl: "http://localhost:8080/api",
+      })
+    ).toBe("");
   });
 
   test("rejects messages longer than 500 characters without making a request", async () => {
@@ -40,7 +73,7 @@ describe("postData", () => {
     await postData("  Hi  ", onSuccess, onFailure);
 
     expect(fetch).toHaveBeenCalledWith(
-      "https://api.example.com/api/chat",
+      "http://localhost:8080/api/chat",
       expect.objectContaining({
         body: JSON.stringify({ message: "Hi" }),
         method: "POST",

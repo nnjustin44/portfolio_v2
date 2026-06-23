@@ -3,7 +3,11 @@ import { act, render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
 
 jest.mock("./components/BioSection", () => ({ width, deviceSize }) => (
-  <div data-testid="bio-section" data-width={width} data-device-size={deviceSize}>
+  <div
+    data-testid="bio-section"
+    data-width={width}
+    data-device-size={deviceSize}
+  >
     Bio Section
   </div>
 ));
@@ -32,16 +36,24 @@ jest.mock("./components/AboutJonah", () => ({ deviceSize }) => (
     About Jonah Section
   </div>
 ));
-jest.mock("./components/MenuHeader", () => ({ width }) => (
-  <div data-testid="menu-header" data-width={width}>
-    Menu Header
-  </div>
-));
+jest.mock(
+  "./components/MenuHeader",
+  () =>
+    ({ width, theme, onToggleTheme }) =>
+      (
+        <div data-testid="menu-header" data-width={width} data-theme={theme}>
+          Menu Header
+          <button onClick={onToggleTheme}>Toggle theme</button>
+        </div>
+      )
+);
 
 const originalLocation = window.location;
 beforeEach(() => {
   delete window.location;
   window.location = { ...originalLocation, reload: jest.fn() };
+  window.localStorage.clear();
+  delete document.documentElement.dataset.theme;
 });
 
 afterEach(() => {
@@ -52,9 +64,41 @@ afterEach(() => {
 describe("App component", () => {
   test("renders portfolio title", () => {
     render(<App />);
-    const titleElement = screen.getByText("Justin Nguyen Portfolio");
-    expect(titleElement).toBeInTheDocument();
-    expect(titleElement.tagName).toBe("TITLE");
+    expect(document.title).toBe("Justin Nguyen Portfolio");
+  });
+
+  test("defaults to light mode and toggles to dark mode", async () => {
+    render(<App />);
+
+    expect(screen.getByTestId("menu-header")).toHaveAttribute(
+      "data-theme",
+      "light"
+    );
+    expect(document.documentElement).toHaveAttribute("data-theme", "light");
+
+    act(() => {
+      screen.getByRole("button", { name: "Toggle theme" }).click();
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("menu-header")).toHaveAttribute(
+        "data-theme",
+        "dark"
+      );
+    });
+    expect(document.documentElement).toHaveAttribute("data-theme", "dark");
+    expect(window.localStorage.getItem("portfolio-theme")).toBe("dark");
+  });
+
+  test("restores a saved dark mode preference", () => {
+    window.localStorage.setItem("portfolio-theme", "dark");
+
+    render(<App />);
+
+    expect(screen.getByTestId("menu-header")).toHaveAttribute(
+      "data-theme",
+      "dark"
+    );
   });
 
   test("renders all main sections", () => {

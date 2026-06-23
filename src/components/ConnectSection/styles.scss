@@ -1,38 +1,60 @@
- .connect {
-    margin-left: 15vw;
-    margin-right: 15vw;
-    margin-top: 9vh;
-    margin-bottom: 20vh;
-    color:white;
-    background-color: black;
-    .connectIcons {
-      display: flex;
-      margin-top: 2vh;
-      margin-bottom: 2vh;
-      .sub-item {
-        padding-left: 0.5rem;
-      }
-    }
-    .connectButton {
-      display: flex;
-      .connect-btn {
-        border: none;
-        background-color: transparent;
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 17px;
-        color: #1976d2;
-        padding-left: 8px;
-        padding-right: 1vw;
-      }
-      .connect-btn:hover {
-        padding-left: 8px;
-        padding-right: 1vw;
-        transition: 0.5s;
-        color: rgb(195, 26, 26);
-        font-size: 17px;
-        font-family: Helvetica, Arial, sans-serif;
-        text-decoration: none;
-        background-color: rgba(25, 118, 210, 0.04);
-      }
+.connect {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 5rem 1.5rem 7rem;
+  color: var(--text);
+  background: transparent;
+
+  h1 {
+    grid-column: 1 / -1;
+  }
+
+  .connectIcons,
+  .connectButton {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 1rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    svg {
+      flex: 0 0 auto;
+      color: var(--accent);
     }
   }
+
+  .sub-item {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .connect-btn {
+    min-width: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+    color: var(--text);
+    background: transparent;
+    border: 0;
+    font-family: inherit;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--accent-strong);
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .connect {
+    grid-template-columns: 1fr;
+    padding: 3.75rem 1rem 5rem;
+  }
+}

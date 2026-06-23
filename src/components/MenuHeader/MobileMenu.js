@@ -13,11 +13,12 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import openInNewTab from "../helpers/openNewTab";
 import { LINKS } from "../../AppConstants";
 import { Button } from "@mui/material";
+import ThemeToggle from "./ThemeToggle";
 
-const MobileMenu = () => {
+const MobileMenu = ({ theme, onToggleTheme }) => {
   const [opened, setOpened] = useState(false);
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     setOpened(!opened);
   };
 
@@ -57,7 +58,10 @@ const MobileMenu = () => {
         <div className="menuNavbar">
           <Button
             className="nav-btn"
-            onClick={() => openInNewTab(LINKS.GITHUB_LINK) & handleClick()}
+            onClick={() => {
+              openInNewTab(LINKS.GITHUB_LINK);
+              handleClick();
+            }}
           >
             <GitHubIcon className="menuIcon" />
             Github
@@ -66,7 +70,10 @@ const MobileMenu = () => {
         <div className="menuNavbar">
           <Button
             className="nav-btn"
-            onClick={() => openInNewTab(LINKS.RESUME_LINK) & handleClick()}
+            onClick={() => {
+              openInNewTab(LINKS.RESUME_LINK);
+              handleClick();
+            }}
           >
             <DescriptionIcon className="menuIcon" />
             Resume
@@ -80,15 +87,24 @@ const MobileMenu = () => {
     <>
       <div className="mobileHeader">
         {opened ? (
-          <IconButton className="mobileButton" onClick={handleClick}>
+          <IconButton
+            aria-label="Close navigation menu"
+            className="mobileButton"
+            onClick={handleClick}
+          >
             <CloseIcon />
           </IconButton>
         ) : (
-          <IconButton className="mobileButton" onClick={handleClick}>
+          <IconButton
+            aria-label="Open navigation menu"
+            className="mobileButton"
+            onClick={handleClick}
+          >
             <MenuIcon fontSize="medium" />
           </IconButton>
         )}
         <div className="mobileName">JUSTIN NGUYEN</div>
+        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} />
       </div>
       {opened ? <MobileDropdown /> : null}
     </>

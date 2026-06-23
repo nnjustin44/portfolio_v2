@@ -1,100 +1,139 @@
+.menu,
+.mobileHeader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  min-height: 4rem;
+  color: var(--text);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+}
+
 .menu {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0 1.25rem;
+
+  .menuNavbar {
+    margin: 0;
     text-decoration: none;
-    position: sticky;
-    top: 0;
-    background-color: rgb(244, 241, 241);
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bolder;
-    color: black;
-    z-index: 2;
 
-    .nav-btn {
-        font-family: Helvetica, Arial, sans-serif;
-        font-weight: bolder;
-        box-shadow: none;
-        box-shadow: none;
+    &:first-child {
+      margin-right: auto;
     }
+  }
 
-    .nav-btn:hover {
-        transition: 0.5s;
-        color: rgb(195, 26, 26);
-        font-family: Helvetica, Arial, sans-serif;
-    }
+  .name {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 750;
+    letter-spacing: 0;
+  }
 
-    .menuNavbar {
-        margin: 1vw 2vw 1vw 2vw;
-        text-decoration: none;
-        .menuIcon {
-                margin-right: .5rem !important;
-                color:primary
-            }
-        .menuIcon:hover {
-            color: rgb(195, 26, 26);
-        }
-        .menuIcon {
-                margin-right: .5rem !important;
-            }
-    }
+  .nav-btn {
+    min-width: 0;
+    padding: 0.55rem 0.65rem;
+    color: var(--text-muted);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: none;
 
-    .name {
-        margin-top: 6px;
-        font-size: 1.5rem;
-        font-weight: 200;
-        justify-self: center;
+    &:hover {
+      color: var(--text);
+      background: var(--surface-soft);
     }
+  }
+
+  .menuIcon {
+    margin-right: 0.35rem;
+    color: var(--accent);
+    font-size: 1.05rem;
+  }
+
+  .themeToggle {
+    margin-left: 0.35rem;
+  }
 }
-.mobileHeader{
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: rgb(244, 241, 241);
-    height: 5%;
-    .mobileName{
-        color:black;
-        margin: 6px;
-        font-size: 1.5rem;
-        font-weight: 200;
-    }
+
+.mobileHeader {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 2.5rem;
+  align-items: center;
+  padding: 0 0.75rem;
+
+  .mobileName {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 750;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .mobileButton {
+    color: var(--text);
+    border-radius: 6px;
+  }
 }
+
+.themeToggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  &:hover {
+    color: var(--text);
+    background: var(--surface-soft);
+  }
+}
+
 .mobileMenu {
-    display: grid;
-    justify-content: space-between;
-    padding:1rem;
-    border-radius: 0% 20px 20px 0%;
-    text-decoration: none;
-    position: fixed;
-    box-shadow: 1rem 1rem 2rem black;
-    background-color: rgb(244, 241, 241);
-    color: rgb(244, 241, 241);
-    z-index: 2;
-    .menuNavbar{
-        display: flex;
-        text-decoration: none;
-        .menuIcon{
-            margin-right: .5rem !important;
-            color: primary
-        }
-        .menuIcon:hover{
-            color: rgb(195, 26, 26);
-        }
-        .nav-btn {
-            font-family: Helvetica, Arial, sans-serif;
-            font-weight: bolder;
-            box-shadow: none;
-            box-shadow: none;
-        }
-        
-        .nav-btn:hover {
-            transition: 0.5s;
-            color: rgb(195, 26, 26);
-            font-family: Helvetica, Arial, sans-serif;
-        }
-        }
-    }
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  z-index: 19;
+  display: grid;
+  width: min(19rem, calc(100vw - 2rem));
+  padding: 0.65rem;
+  background: var(--surface-raised);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 8px 0;
+  box-shadow: var(--shadow);
 
-   
+  .menuNavbar {
+    display: flex;
+    text-decoration: none;
+  }
+
+  .nav-btn {
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0.75rem;
+    color: var(--text-muted);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: none;
+
+    &:hover {
+      color: var(--text);
+      background: var(--surface-soft);
+    }
+  }
+
+  .menuIcon {
+    margin-right: 0.65rem;
+    color: var(--accent);
+  }
+}

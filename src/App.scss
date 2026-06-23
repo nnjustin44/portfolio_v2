@@ -1,129 +1,180 @@
-div {
-  position: relative;
-}
 .App {
-  /*to fit with screen size vw*/
   width: 100%;
-  height: 100%;
-  scroll-behavior: smooth !important;
-  background-color: rgb(244, 241, 241);
+  min-height: 100vh;
+  padding-top: 4rem;
+  overflow-x: hidden;
+  color: var(--text);
+  background: var(--bg);
 }
+
+#homeSection,
+#bioSection,
+#skillSection,
+#experienceSection,
+#jonahSection,
+#aboutJonahSection,
+#connectSection {
+  scroll-margin-top: 4.5rem;
+}
+
 .topHeader {
+  position: relative;
   display: grid;
-  height: 35%;
+  min-height: min(72vh, 42rem);
+  padding: 4.5rem max(1.25rem, calc((100vw - var(--content-width)) / 2));
   overflow: hidden;
-  background-color: #1279e0;
-  border-radius: 25px;
-  padding: 2rem 2rem;
-  margin: 2rem;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  .bioSection {
-    justify-self: center;
+  isolation: isolate;
+  background: radial-gradient(
+      circle at 18% 18%,
+      var(--hero-gradient-start),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at 82% 24%,
+      var(--hero-gradient-end),
+      transparent 32rem
+    ),
+    var(--surface);
+  border-bottom: 1px solid var(--border);
+
+  &::before {
+    position: absolute;
+    inset: -20%;
+    z-index: 0;
+    background: radial-gradient(
+        circle at 30% 40%,
+        var(--hero-light-glow),
+        transparent 22rem
+      ),
+      radial-gradient(
+        circle at 70% 65%,
+        var(--hero-gradient-start),
+        transparent 24rem
+      );
+    content: "";
+    opacity: 0.76;
+    animation: heroBackdrop 16s ease-in-out infinite alternate;
+  }
+
+  > .bioSectionAnchor {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: auto;
   }
 }
 
-.title {
-  height: 30%;
-  text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  font-size: 3vw;
-  margin: 3rem;
-  justify-content: center;
+@keyframes heroBackdrop {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.05);
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .topHeader::before {
+    animation: none;
+  }
+}
+
+.title,
 .mobileTitle {
-  height: 30%;
-  text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  justify-content: center;
+  height: auto;
+  margin: 0 0 2rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: left;
 }
 
 .info-body {
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: rgb(244, 241, 241);
-  font-family: Helvetica, Arial, sans-serif;
+  display: grid;
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  font-family: inherit;
+
+  > div {
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skillsetWrapper,
+  .experience {
+    margin: 0;
+    padding: 5rem 1.5rem;
+  }
 
   .skillsetWrapper {
-    margin: 9vh 9vw 10vh 9vw;
-    color: rgb(19, 16, 16);
+    color: var(--text);
+
     .skill {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-evenly;
+      gap: 0.65rem;
+
       .items {
-        margin: 1rem;
-        padding: 5px 15px 5px 15px;
-        border-radius: 20px;
-        color: rgb(244, 241, 241);
-        background: #3a80c7;
+        margin: 0;
+        padding: 0.55rem 0.8rem;
+        color: var(--skill-text);
+        background: var(--skill-bg);
+        border: 1px solid var(--skill-border);
+        border-radius: 6px;
+        font-size: 0.82rem;
+        font-weight: 650;
+        line-height: 1;
       }
     }
-  }
-  .p {
-    font-family: Helvetica, Arial, sans-serif !important;
-    color: rgb(19, 16, 16) !important;
-  }
-  .experience {
-    border-radius: 25px;
-    padding: 3rem 3rem 7.5rem 3rem;
-    margin: 1rem 2rem 2rem 2rem;
-    color: white;
-    background: #8dbff2;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    // box-shadow: 1px 1px 2px 0px (var(--joy-shadowChannel, 21 21 21) / var(--joy-shadowOpacity, 0.08));
   }
 
-  .connect {
-    margin-left: 15vw;
-    margin-right: 15vw;
-    margin-top: 9vh;
-    margin-bottom: 20vh;
-    color: rgb(19, 16, 16);
-    background-color: rgb(244, 241, 241);
-    .connectIcons {
-      display: flex;
-      margin-top: 2vh;
-      margin-bottom: 2vh;
-      .sub-item {
-        padding-left: 0.5rem;
-      }
-    }
-    .linkedIn {
-      display: flex;
-      .linkedIn-btn {
-        border: none;
-        background-color: transparent;
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 17px;
-        color: #1976d2;
-        padding-left: 8px;
-        padding-right: 1vw;
-      }
-      .linkedIn-btn:hover {
-        padding-left: 8px;
-        padding-right: 1vw;
-        transition: 0.5s;
-        color: rgb(195, 26, 26);
-        font-size: 17px;
-        font-family: Helvetica, Arial, sans-serif;
-        text-decoration: none;
-        background-color: rgba(25, 118, 210, 0.04);
-      }
+  .experience {
+    color: var(--text);
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+
+    p {
+      max-width: 72ch;
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.75;
     }
   }
 }
+
 .linkButton {
-  border: solid cornflowerblue 2px;
-  margin: 18vw;
-  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--border-strong);
   text-decoration: none;
 }
 
 @media (max-width: 1100px) {
-  .topHeader > .bioSection {
-    width: 100%;
+  .topHeader {
+    min-height: auto;
+    padding: 2rem 1rem 3rem;
+
+    > .bioSectionAnchor {
+      width: 100%;
+    }
+  }
+
+  .title,
+  .mobileTitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.65rem;
+  }
+
+  .info-body {
+    .skillsetWrapper,
+    .experience {
+      padding: 3.75rem 1rem;
+    }
   }
 }

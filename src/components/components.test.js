@@ -25,8 +25,10 @@ describe("portfolio components", () => {
     const { container } = render(<BioSection width={1200} />);
 
     expect(screen.getByText("Meet The Developer")).toBeInTheDocument();
-    expect(screen.getByText("Justin Nguyen")).toBeInTheDocument();
-    expect(screen.getByText("Fullstack Software Engineer")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Justin Nguyen" })
+    ).toBeInTheDocument();
+    expect(screen.getAllByText("Fullstack Software Engineer")).toHaveLength(2);
     expect(container.querySelector(".bioSection")).toBeInTheDocument();
     expect(container.querySelector(".profile_pic")).toBeInTheDocument();
     expect(container.querySelectorAll(".light")).toHaveLength(9);
@@ -65,7 +67,9 @@ describe("portfolio components", () => {
       "Docker/Kubernetes",
       "SQL/Postgres",
       "GIT",
-      "Java Springboot",
+      "Java",
+      "SpringBoot",
+      "Quarkus",
     ].forEach((skill) => {
       expect(screen.getByText(skill)).toBeInTheDocument();
     });
@@ -107,10 +111,18 @@ describe("portfolio components", () => {
   });
 
   test("MenuHeader renders desktop navigation and opens external links", () => {
-    render(<MenuHeader width={1200} height={800} />);
+    const onToggleTheme = jest.fn();
+    render(
+      <MenuHeader
+        width={1200}
+        height={800}
+        theme="light"
+        onToggleTheme={onToggleTheme}
+      />
+    );
 
     expect(screen.getByText("JUSTIN NGUYEN")).toBeInTheDocument();
-    expect(screen.getAllByRole("button")).toHaveLength(7);
+    expect(screen.getAllByRole("button")).toHaveLength(8);
     expect(
       screen.getByRole("button", { name: /Home/ }).closest("a")
     ).toHaveAttribute("href", "#homeSection");
@@ -123,6 +135,11 @@ describe("portfolio components", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Resume/ }));
     expect(openInNewTab).toHaveBeenCalledWith(LINKS.RESUME_LINK);
+
+    fireEvent.click(
+      screen.getByRole("button", { name: "Switch to dark mode" })
+    );
+    expect(onToggleTheme).toHaveBeenCalled();
   });
 
   test("MenuHeader renders MobileMenu at the mobile breakpoint", () => {
@@ -135,9 +152,18 @@ describe("portfolio components", () => {
   });
 
   test("MobileMenu toggles navigation and closes after selecting a link", () => {
-    render(<MobileMenu />);
+    render(<MobileMenu theme="dark" onToggleTheme={jest.fn()} />);
 
-    fireEvent.click(screen.getAllByRole("button")[0]);
+    expect(
+      screen.getByRole("button", { name: "Switch to light mode" })
+    ).toBeInTheDocument();
+
+    fireEvent.click(
+      screen.getByRole("button", { name: "Open navigation menu" })
+    );
+    expect(
+      screen.getByRole("button", { name: "Close navigation menu" })
+    ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Home/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Resume/ })).toBeInTheDocument();
 

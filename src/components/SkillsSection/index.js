@@ -15,7 +15,9 @@ const SkillSection = ({ deviceSize }) => {
         <div className="items">Docker/Kubernetes</div>
         <div className="items">SQL/Postgres</div>
         <div className="items">GIT</div>
-        <div className="items">Java Springboot</div>
+        <div className="items">Java</div>
+        <div className="items">SpringBoot</div>
+        <div className="items">Quarkus</div>
       </div>
     </div>
   );

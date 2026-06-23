@@ -10,8 +10,9 @@ import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DescriptionIcon from "@mui/icons-material/Description";
+import ThemeToggle from "./ThemeToggle";
 
-const MenuHeader = ({ width, height }) => {
+const MenuHeader = ({ width, height, theme, onToggleTheme }) => {
   const Menu = () => {
     return (
       <div className="menu">
@@ -66,10 +67,19 @@ const MenuHeader = ({ width, height }) => {
             Resume
           </Button>
         </div>
+        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} />
       </div>
     );
   };
-  return <>{width <= MOBILE_BREAKPOINT ? <MobileMenu /> : <Menu />}</>;
+  return (
+    <>
+      {width <= MOBILE_BREAKPOINT ? (
+        <MobileMenu theme={theme} onToggleTheme={onToggleTheme} />
+      ) : (
+        <Menu />
+      )}
+    </>
+  );
 };
 
 export default MenuHeader;
