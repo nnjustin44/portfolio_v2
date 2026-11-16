@@ -153,3 +153,8 @@ describe("App component", () => {
     expect(window.location.reload).not.toHaveBeenCalled();
   });
 });
+
+// Asset byte decoding is covered separately; component tests exercise UI states.
+const originalSpriteFetch = global.fetch;
+beforeEach(() => { global.fetch = jest.fn(() => new Promise(() => {})); });
+afterEach(() => { global.fetch = originalSpriteFetch; });

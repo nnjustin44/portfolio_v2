@@ -36,16 +36,13 @@ export const resolveChatBackendUrl = ({
 };
 
 const parseResponseBody = async (response) => {
-  const contentType = response.headers.get("content-type") || "";
-
+  const body = await response.text();
   try {
-    if (contentType.includes("application/json")) {
-      return await response.json();
-    }
-
-    return { message: await response.text() };
+    const data = JSON.parse(body);
+    return typeof data === "string" ? { message: data } : (data || {});
   } catch {
-    return {};
+    // The backend can label plain-text error responses as application/json.
+    return { message: body };
   }
 };
 
@@ -81,11 +78,13 @@ export const postData = async (input, onSuccess, onFailure) => {
 
     if (!response.ok) {
       const errorData = await parseResponseBody(response);
-      throw new Error(
+      const error = new Error(
         `Chat request failed (${response.status} ${response.statusText}): ${
-          errorData.message || "Unknown error"
+          errorData.message || errorData.error || "Unknown error"
         }`
       );
+      error.status = response.status;
+      throw error;
     }
 
     const data = await parseResponseBody(response);

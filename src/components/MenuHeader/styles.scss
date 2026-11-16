@@ -5,11 +5,11 @@
   right: 0;
   left: 0;
   z-index: 20;
-  min-height: 4rem;
+  min-height: 4.5rem;
   color: var(--text);
   background: var(--header-bg);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(22px);
 }
 
 .menu {
@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.15rem;
-  padding: 0 1.25rem;
+  padding: 0 max(1.25rem, calc((100vw - var(--content-width)) / 2));
 
   .menuNavbar {
     margin: 0;
@@ -30,20 +30,23 @@
 
   .name {
     color: var(--text);
-    font-size: 0.95rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
     font-weight: 750;
-    letter-spacing: 0;
+    letter-spacing: -.02em;
   }
 
   .nav-btn {
     min-width: 0;
     padding: 0.55rem 0.65rem;
     color: var(--text-muted);
-    border-radius: 6px;
+    border-radius: 0;
     font-family: inherit;
-    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    font-size: max(11px, 0.66rem);
     font-weight: 600;
-    text-transform: none;
+    letter-spacing: .07em;
+    text-transform: uppercase;
 
     &:hover {
       color: var(--text);
@@ -51,11 +54,7 @@
     }
   }
 
-  .menuIcon {
-    margin-right: 0.35rem;
-    color: var(--accent);
-    font-size: 1.05rem;
-  }
+  .menuIcon { display:none; }
 
   .themeToggle {
     margin-left: 0.35rem;
@@ -98,7 +97,7 @@
 
 .mobileMenu {
   position: fixed;
-  top: 4rem;
+  top: 4.5rem;
   left: 0;
   z-index: 19;
   display: grid;

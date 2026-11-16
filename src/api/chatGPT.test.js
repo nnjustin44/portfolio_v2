@@ -67,7 +67,7 @@ describe("postData", () => {
     fetch.mockResolvedValue({
       ok: true,
       headers: { get: () => "application/json" },
-      json: async () => ({ response: "Hello" }),
+      text: async () => JSON.stringify({ response: "Hello" }),
     });
 
     await postData("  Hi  ", onSuccess, onFailure);
@@ -83,13 +83,29 @@ describe("postData", () => {
     expect(onFailure).not.toHaveBeenCalled();
   });
 
+  test("preserves an HTTP error and its plain-text body even when labeled JSON", async () => {
+    const onFailure = jest.fn();
+    fetch.mockResolvedValue({
+      ok: false,
+      status: 500,
+      statusText: "Internal Server Error",
+      headers: { get: () => "application/json" },
+      text: async () => "Error: Failed to get response from AI service",
+    });
+    await postData("Hi", jest.fn(), onFailure);
+    expect(onFailure).toHaveBeenCalledWith(expect.objectContaining({
+      status: 500,
+      message: expect.stringContaining("Failed to get response from AI service"),
+    }));
+  });
+
   test("rejects oversized backend responses", async () => {
     const onSuccess = jest.fn();
     const onFailure = jest.fn();
     fetch.mockResolvedValue({
       ok: true,
       headers: { get: () => "application/json" },
-      json: async () => ({ response: "a".repeat(4001) }),
+      text: async () => JSON.stringify({ response: "a".repeat(4001) }),
     });
 
     await postData("Hi", onSuccess, onFailure);

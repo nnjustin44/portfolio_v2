@@ -41,7 +41,9 @@ const useJonah = () => {
       setLoading(false);
       addMessage(
         "jonah",
-        "I couldn't reach the server. Please try your message again."
+        error.status
+          ? `JONAH's server returned an error (HTTP ${error.status}). Please try again shortly.`
+          : "I couldn't reach the server. Please try your message again."
       );
       console.error("Something went wrong", error);
     });

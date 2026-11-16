@@ -58,13 +58,16 @@ describe("portfolio components", () => {
     );
     [
       "REACT",
+      "AI INTEGRATION",
+      "NEXT.JS",
       "REDUX",
       "TYPESCRIPT",
       "JAVASCRIPT",
       "HTML/CSS",
-      "SDLC",
+      "Software Development Life Cycle",
       "C# .NET CORE",
       "Docker/Kubernetes",
+      "Palantir Foundry / AIP",
       "SQL/Postgres",
       "GIT",
       "Java",
@@ -82,6 +85,7 @@ describe("portfolio components", () => {
       "mobileTitle"
     );
     expect(screen.getByText(/Fiserv in 2021/)).toBeInTheDocument();
+    expect(screen.getByText(/integrating AI into production applications/)).toBeInTheDocument();
     expect(screen.getByText(/GitHub repository/)).toBeInTheDocument();
   });
 

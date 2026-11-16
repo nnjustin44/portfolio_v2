@@ -7,7 +7,7 @@
   color: var(--text);
   background: transparent;
 
-  h1 {
+  h1, .sectionIntro {
     grid-column: 1 / -1;
   }
 
@@ -17,11 +17,12 @@
     min-width: 0;
     align-items: center;
     gap: 0.45rem;
-    padding: 1rem;
+    padding: 1.35rem 0;
     color: var(--text-muted);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
 
     svg {
       flex: 0 0 auto;
@@ -42,7 +43,8 @@
     background: transparent;
     border: 0;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-family:var(--font-mono);
+    font-size: 0.78rem;
     text-align: left;
     cursor: pointer;
 

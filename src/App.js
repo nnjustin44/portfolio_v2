@@ -7,6 +7,7 @@ import SkillSection from "./components/SkillsSection/index.js";
 import JONAH from "./components/JONAH";
 import MenuHeader from "./components/MenuHeader";
 import AboutJonah from "./components/AboutJonah/index.js";
+import ScrollAstronaut from "./components/ScrollAstronaut";
 import { MOBILE_BREAKPOINT } from "./AppConstants";
 
 const THEME_STORAGE_KEY = "portfolio-theme";
@@ -39,12 +40,35 @@ const cancelResizeFrame = (animationFrameId) => {
 function App() {
   const [viewportSize, setViewportSize] = useState(getViewportSize);
   const [theme, setTheme] = useState(getInitialTheme);
+  const [isReady, setIsReady] = useState(false);
+  const [chatLoading, setChatLoading] = useState(false);
   const { width, height } = viewportSize;
   const isMobile = width <= MOBILE_BREAKPOINT;
   const deviceSize = isMobile ? "mobileTitle" : "title";
 
   useEffect(() => {
     document.title = "Justin Nguyen Portfolio";
+    const readyTimer = window.setTimeout(() => setIsReady(true), 900);
+    return () => window.clearTimeout(readyTimer);
+  }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("[data-reveal]");
+    if (!("IntersectionObserver" in window)) {
+      sections.forEach((section) => section.classList.add("is-visible"));
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.12 }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -76,6 +100,11 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollAstronaut hidden={chatLoading} />
+      <div className={`preloader ${isReady ? "preloader--hidden" : ""}`} aria-hidden="true">
+        <span className="preloader__mark">JN<span>.</span></span>
+        <span className="preloader__line" />
+      </div>
       <MenuHeader
         width={width}
         height={height}
@@ -93,19 +122,19 @@ function App() {
         </div>
       </div>
       <div className="info-body">
-        <div id="skillSection">
+        <div id="skillSection" data-reveal>
           <SkillSection deviceSize={deviceSize} id="skillSection" />
         </div>
-        <div id="experienceSection">
+        <div id="experienceSection" data-reveal>
           <ExperienceSection deviceSize={deviceSize} />
         </div>
-        <div id="jonahSection">
-          <JONAH deviceSize={deviceSize} />
+        <div id="jonahSection" data-reveal>
+          <JONAH deviceSize={deviceSize} onLoadingChange={setChatLoading} />
         </div>
-        <div id="aboutJonahSection">
+        <div id="aboutJonahSection" data-reveal>
           <AboutJonah deviceSize={deviceSize} />
         </div>
-        <div id="connectSection">
+        <div id="connectSection" data-reveal>
           <ConnectSection deviceSize={deviceSize} />
         </div>
       </div>

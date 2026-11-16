@@ -5,10 +5,14 @@ import useJonah from "./useJonah";
 import { Button } from "@mui/material";
 import { MAX_CHAT_MESSAGE_LENGTH } from "../../AppConstants";
 
-const JONAH = ({ deviceSize }) => {
+const JONAH = ({ deviceSize, onLoadingChange }) => {
   const { loading, input, messages, setInput, onSubmit, handleKeyDown } =
     useJonah();
   const chatLogRef = useRef(null);
+
+  useEffect(() => {
+    onLoadingChange?.(loading);
+  }, [loading, onLoadingChange]);
 
   useEffect(() => {
     if (chatLogRef.current) {
@@ -18,7 +22,8 @@ const JONAH = ({ deviceSize }) => {
 
   return (
     <div className="jonah">
-      <h1 className={deviceSize}>J.O.N.A.H</h1>
+      <div className="sectionIntro"><span>03</span><p>Interactive experiment</p></div>
+      <h1 className={deviceSize} aria-label="J.O.N.A.H">Meet J.O.N.A.H<span className="accentDot">.</span></h1>
       <div className="chatPanel">
         <div
           className="chatLog"
@@ -70,6 +75,7 @@ const JONAH = ({ deviceSize }) => {
             Submit
           </Button>
         </div>
+        <div id="jonahSpriteDock" className="jonahSpriteDock" />
       </div>
     </div>
   );

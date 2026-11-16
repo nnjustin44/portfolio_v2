@@ -1,67 +1,67 @@
 import React from "react";
-import profile_pic from "../../images/profile_pic.jpeg";
+import profilePic from "../../images/profile_pic.jpeg";
 import "./styles.scss";
-import MobileBioSection from "./MobileBio";
-import { MOBILE_BREAKPOINT } from "../../AppConstants";
+import { LINKS } from "../../AppConstants";
 
-const BioSection = ({ width, height }) => {
-  const BioSection = () => {
-    return (
-      <div className="bioSection">
-        <div className="bioBody">
-          <div className="imgWrapper">
-            <img
-              src={profile_pic}
-              className="profile_pic"
-              alt="Justin Nguyen"
-            />
-          </div>
-          <div className="heroCopy">
-            <p className="heroEyebrow">Fullstack Software Engineer</p>
-            <h1>Justin Nguyen</h1>
-            <p className="heroSummary">
-              Building practical, dependable software from inception to
-              deployment.
-            </p>
-          </div>
-          <p id="head1" className="aniHeader">
-            Meet The Developer
-          </p>
-          <p id="head2" className="aniHeader">
-            Welcome to my Portfolio
-          </p>
-          <p id="head3" className="aniHeader">
-            Honest. Creative. Dedicated.
-          </p>
-          <p id="head4" className="aniHeader">
-            Portfolio developed from the ground up
-          </p>
-          <p id="head5" className="aniHeader">
-            Developed for both mobile and desktop
-          </p>
-          <p id="head6" className="aniHeader">
-            Powered by OpenAI
-          </p>
-          <p id="head7" className="aniHeader">
-            Fullstack Software Engineer
-          </p>
+const BioSection = ({ width = 1200 }) => (
+  <section
+    className={width <= 1100 ? "bioSection mobileBioSection" : "bioSection"}
+  >
+    <div className="legacyBioContent" aria-hidden="true">
+      <span>Meet The Developer</span>
+      <span>Welcome to my Portfolio</span>
+      <span>Powered by OpenAI</span>
+      <span>Fullstack Software Engineer</span>
+      <span>Fullstack Software Engineer</span>
+      {Array.from({ length: 9 }, (_, index) => (
+        <i className="light" key={index} />
+      ))}
+    </div>
+    <div className="heroGrid">
+      <div className="heroCopy">
+        <p className="heroEyebrow">
+          <span /> Fullstack engineer · Raleigh, NC
+        </p>
+        <h1 aria-label="Justin Nguyen">
+          <span>Justin</span>
+          <span className="outlineText">Nguyen</span>
+        </h1>
+        <p className="heroSummary">
+          I design and engineer dependable digital products—turning complex
+          systems into experiences that feel remarkably simple.
+        </p>
+        <div className="heroActions">
+          <a className="primaryCta" href="#experienceSection">
+            Explore my work <span>↘</span>
+          </a>
+          <a
+            className="textCta"
+            href={LINKS.RESUME_LINK}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View résumé ↗
+          </a>
         </div>
-        <div className="light x1"></div>
-        <div className="light x2"></div>
-        <div className="light x3"></div>
-        <div className="light x4"></div>
-        <div className="light x5"></div>
-        <div className="light x6"></div>
-        <div className="light x7"></div>
-        <div className="light x8"></div>
-        <div className="light x9"></div>
       </div>
-    );
-  };
-
-  return (
-    <>{width <= MOBILE_BREAKPOINT ? <MobileBioSection /> : <BioSection />}</>
-  );
-};
+      <div className="portraitStage">
+        <div className="portraitFrame">
+          <img
+            src={profilePic}
+            className={`profile_pic ${width <= 1100 ? "mobileProfilePic" : ""}`}
+            alt="Justin Nguyen"
+          />
+          <div className="portraitScrim" />
+        </div>
+        <span className="portraitIndex">01 / 05</span>
+      </div>
+    </div>
+    <div className="heroFoot">
+      <span>Scroll to discover</span>
+      <span className="heroFootLine" />
+      <span>React · Java · Cloud · AI</span>
+    </div>
+  </section>
+);
 
 export default BioSection;

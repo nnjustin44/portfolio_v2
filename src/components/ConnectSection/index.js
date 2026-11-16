@@ -13,7 +13,8 @@ const ConnectSection = ({ deviceSize }) => {
   };
   return (
     <div className="connect">
-      <h1 className={deviceSize}>Connect</h1>
+      <div className="sectionIntro"><span>04</span><p>Start a conversation</p></div>
+      <h1 className={deviceSize} aria-label="Connect">Have an ambitious idea?<br/><em>Let's build it well.</em></h1>
       <div className="connectButton">
         <MailOutlineIcon />:
         <button className="connect-btn" onClick={sendEmail}>
