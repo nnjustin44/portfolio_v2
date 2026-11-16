@@ -14,7 +14,7 @@ const THEME_STORAGE_KEY = "portfolio-theme";
 
 const getInitialTheme = () => {
   const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-  return savedTheme === "dark" ? "dark" : "light";
+  return savedTheme === "light" ? "light" : "dark";
 };
 
 const getViewportSize = () => ({

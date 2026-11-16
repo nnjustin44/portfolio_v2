@@ -67,14 +67,14 @@ describe("App component", () => {
     expect(document.title).toBe("Justin Nguyen Portfolio");
   });
 
-  test("defaults to light mode and toggles to dark mode", async () => {
+  test("defaults to dark mode and toggles to light mode", async () => {
     render(<App />);
 
     expect(screen.getByTestId("menu-header")).toHaveAttribute(
       "data-theme",
-      "light"
+      "dark"
     );
-    expect(document.documentElement).toHaveAttribute("data-theme", "light");
+    expect(document.documentElement).toHaveAttribute("data-theme", "dark");
 
     act(() => {
       screen.getByRole("button", { name: "Toggle theme" }).click();
@@ -83,11 +83,11 @@ describe("App component", () => {
     await waitFor(() => {
       expect(screen.getByTestId("menu-header")).toHaveAttribute(
         "data-theme",
-        "dark"
+        "light"
       );
     });
-    expect(document.documentElement).toHaveAttribute("data-theme", "dark");
-    expect(window.localStorage.getItem("portfolio-theme")).toBe("dark");
+    expect(document.documentElement).toHaveAttribute("data-theme", "light");
+    expect(window.localStorage.getItem("portfolio-theme")).toBe("light");
   });
 
   test("restores a saved dark mode preference", () => {
@@ -98,6 +98,17 @@ describe("App component", () => {
     expect(screen.getByTestId("menu-header")).toHaveAttribute(
       "data-theme",
       "dark"
+    );
+  });
+
+  test("restores a saved light mode preference", () => {
+    window.localStorage.setItem("portfolio-theme", "light");
+
+    render(<App />);
+
+    expect(screen.getByTestId("menu-header")).toHaveAttribute(
+      "data-theme",
+      "light"
     );
   });
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { decodeGif } from "./decodeGif";
+import { removeBackground } from "./removeBackground";
 
 // Remove only dark pixels connected to the frame edges. Enclosed dark details
 // (such as the visor) remain intact, unlike a global black color key.
@@ -17,29 +18,7 @@ function drawTransparentFrame(image, canvas) {
   context.imageSmoothingEnabled = false;
   context.drawImage(image, 0, 0, width, height);
   const frame = context.getImageData(0, 0, width, height);
-  const { data } = frame;
-  const visited = new Uint8Array(width * height);
-  const queue = new Int32Array(width * height);
-  let head = 0;
-  let tail = 0;
-  const add = (pixel) => {
-    if (visited[pixel]) return;
-    visited[pixel] = 1;
-    const offset = pixel * 4;
-    if (data[offset + 3] === 0 || Math.max(data[offset], data[offset + 1], data[offset + 2]) <= 32) {
-      queue[tail++] = pixel;
-    }
-  };
-  for (let x = 0; x < width; x++) { add(x); add((height - 1) * width + x); }
-  for (let y = 0; y < height; y++) { add(y * width); add(y * width + width - 1); }
-  while (head < tail) {
-    const pixel = queue[head++];
-    data[pixel * 4 + 3] = 0;
-    if (pixel % width > 0) add(pixel - 1);
-    if (pixel % width < width - 1) add(pixel + 1);
-    if (pixel >= width) add(pixel - width);
-    if (pixel < width * (height - 1)) add(pixel + width);
-  }
+  removeBackground(frame);
   context.putImageData(frame, 0, 0);
 }
 
