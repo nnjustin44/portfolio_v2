@@ -18,6 +18,8 @@
 .portraitFrame { position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--surface); clip-path:polygon(0 5%,100% 0,100% 95%,0 100%); }
 .profile_pic { width:100%; height:100%; object-fit:cover; object-position:center; filter:grayscale(100%) contrast(1.05); transform:scale(1.025); transition:filter .6s ease, transform .8s ease; }
 .portraitStage:hover .profile_pic { filter:grayscale(10%) contrast(1); transform:scale(1.06); }
+html[data-theme="light"] .profile_pic { filter:grayscale(0) contrast(1); }
+html[data-theme="light"] .portraitStage:hover .profile_pic { filter:grayscale(100%) contrast(1.05); }
 .portraitScrim { position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(12,13,11,.72)); pointer-events:none; }
 .portraitIndex { position:absolute; top:1.5rem; right:-2.4rem; color:var(--text-subtle); font:600 max(11px, .63rem) var(--font-mono); writing-mode:vertical-rl; letter-spacing:.18em; }
 .heroFoot { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:1.25rem; color:var(--text-subtle); font:600 max(11px, .62rem) var(--font-mono); letter-spacing:.13em; text-transform:uppercase; }

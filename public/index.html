@@ -2,6 +2,27 @@
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
+    <style>
+      html,
+      body,
+      #root {
+        background: #10110f;
+        color: #f2f0e9;
+        color-scheme: dark;
+      }
+
+      html[data-theme="light"],
+      html[data-theme="light"] body,
+      html[data-theme="light"] #root {
+        background: #efeee8;
+        color: #181915;
+        color-scheme: light;
+      }
+
+      body {
+        margin: 0;
+      }
+    </style>
     <script src="%PUBLIC_URL%/theme-init.js"></script>
     <link rel="icon" href="%PUBLIC_URL%/my_logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
