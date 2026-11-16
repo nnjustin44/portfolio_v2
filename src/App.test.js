@@ -87,11 +87,11 @@ describe("App component", () => {
       );
     });
     expect(document.documentElement).toHaveAttribute("data-theme", "light");
-    expect(window.localStorage.getItem("portfolio-theme")).toBe("light");
+    expect(window.localStorage.getItem("portfolio-theme-choice")).toBe("light");
   });
 
   test("restores a saved dark mode preference", () => {
-    window.localStorage.setItem("portfolio-theme", "dark");
+    window.localStorage.setItem("portfolio-theme-choice", "dark");
 
     render(<App />);
 
@@ -102,7 +102,7 @@ describe("App component", () => {
   });
 
   test("restores a saved light mode preference", () => {
-    window.localStorage.setItem("portfolio-theme", "light");
+    window.localStorage.setItem("portfolio-theme-choice", "light");
 
     render(<App />);
 
@@ -110,6 +110,13 @@ describe("App component", () => {
       "data-theme",
       "light"
     );
+  });
+
+  test("ignores a legacy automatic light default after deployment", () => {
+    window.localStorage.setItem("portfolio-theme", "light");
+    render(<App />);
+    expect(document.documentElement).toHaveAttribute("data-theme", "dark");
+    expect(window.localStorage.getItem("portfolio-theme-choice")).toBeNull();
   });
 
   test("renders all main sections", () => {

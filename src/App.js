@@ -10,11 +10,14 @@ import AboutJonah from "./components/AboutJonah/index.js";
 import ScrollAstronaut from "./components/ScrollAstronaut";
 import { MOBILE_BREAKPOINT } from "./AppConstants";
 
-const THEME_STORAGE_KEY = "portfolio-theme";
+const THEME_STORAGE_KEY = "portfolio-theme-choice";
 
 const getInitialTheme = () => {
-  const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-  return savedTheme === "light" ? "light" : "dark";
+  try {
+    return window.localStorage.getItem(THEME_STORAGE_KEY) === "light" ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
 };
 
 const getViewportSize = () => ({
@@ -73,7 +76,6 @@ function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
 
   useEffect(() => {
@@ -95,7 +97,13 @@ function App() {
   }, []);
 
   const toggleTheme = () => {
-    setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
+    const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch {
+      // Keep the toggle usable when browser storage is unavailable.
+    }
   };
 
   return (
