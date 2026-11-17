@@ -7,6 +7,7 @@ import SkillSection from "./components/SkillsSection/index.js";
 import JONAH from "./components/JONAH";
 import MenuHeader from "./components/MenuHeader";
 import AboutJonah from "./components/AboutJonah/index.js";
+import RocketScrollBar from "./components/RocketScrollBar";
 import ScrollAstronaut from "./components/ScrollAstronaut";
 import { MOBILE_BREAKPOINT } from "./AppConstants";
 
@@ -108,6 +109,7 @@ function App() {
 
   return (
     <div className="App">
+      <RocketScrollBar hidden={chatLoading} />
       <ScrollAstronaut hidden={chatLoading} />
       <div className={`preloader ${isReady ? "preloader--hidden" : ""}`} aria-hidden="true">
         <span className="preloader__mark">JN<span>.</span></span>
