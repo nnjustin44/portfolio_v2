@@ -45,6 +45,10 @@
           {
             "key": "Content-Disposition",
             "value": "inline; filename=\"Justin_Nguyen_Resume.pdf\""
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, max-age=0, must-revalidate"
           }
         ]
       }

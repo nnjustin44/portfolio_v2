@@ -1,5 +1,5 @@
 export const LINKS = {
-  RESUME_LINK: "/Justin_Nguyen_Resume.pdf",
+  RESUME_LINK: "/Justin_Nguyen_Resume.pdf?view=inline",
   GITHUB_LINK: "https://github.com/nnjustin44",
   LINKEDIN_LINK: "https://www.linkedin.com/in/justin-nguyen-00a624192/",
 };
