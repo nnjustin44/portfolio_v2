@@ -139,8 +139,9 @@ describe("portfolio components", () => {
 
     const resumeLink = screen.getByRole("link", { name: /Resume/ });
     expect(resumeLink).toHaveAttribute("href", LINKS.RESUME_LINK);
-    expect(resumeLink).toHaveAttribute("download", "Justin_Nguyen_Resume.pdf");
-    expect(resumeLink).not.toHaveAttribute("target");
+    expect(resumeLink).not.toHaveAttribute("download");
+    expect(resumeLink).toHaveAttribute("target", "_blank");
+    expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
 
     fireEvent.click(
       screen.getByRole("button", { name: "Switch to dark mode" })
@@ -173,7 +174,9 @@ describe("portfolio components", () => {
     expect(screen.getByRole("button", { name: /Home/ })).toBeInTheDocument();
     const resumeLink = screen.getByRole("link", { name: /Resume/ });
     expect(resumeLink).toHaveAttribute("href", LINKS.RESUME_LINK);
-    expect(resumeLink).toHaveAttribute("download", "Justin_Nguyen_Resume.pdf");
+    expect(resumeLink).not.toHaveAttribute("download");
+    expect(resumeLink).toHaveAttribute("target", "_blank");
+    expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
 
     fireEvent.click(screen.getByRole("button", { name: /Github/ }));
     expect(openInNewTab).toHaveBeenCalledWith(LINKS.GITHUB_LINK);

@@ -63,7 +63,8 @@ const MenuHeader = ({ width, height, theme, onToggleTheme }) => {
             className="nav-btn"
             component="a"
             href={LINKS.RESUME_LINK}
-            download="Justin_Nguyen_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <DescriptionIcon className="menuIcon" />
             Resume

@@ -72,7 +72,8 @@ const MobileMenu = ({ theme, onToggleTheme }) => {
             className="nav-btn"
             component="a"
             href={LINKS.RESUME_LINK}
-            download="Justin_Nguyen_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={handleClick}
           >
             <DescriptionIcon className="menuIcon" />
