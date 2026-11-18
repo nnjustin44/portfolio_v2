@@ -61,7 +61,9 @@ const MenuHeader = ({ width, height, theme, onToggleTheme }) => {
         <div className="menuNavbar">
           <Button
             className="nav-btn"
-            onClick={() => openInNewTab(LINKS.RESUME_LINK)}
+            component="a"
+            href={LINKS.RESUME_LINK}
+            download="Justin_Nguyen_Resume.pdf"
           >
             <DescriptionIcon className="menuIcon" />
             Resume

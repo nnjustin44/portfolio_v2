@@ -126,7 +126,7 @@ describe("portfolio components", () => {
     );
 
     expect(screen.getByText("JUSTIN NGUYEN")).toBeInTheDocument();
-    expect(screen.getAllByRole("button")).toHaveLength(8);
+    expect(screen.getAllByRole("button")).toHaveLength(7);
     expect(
       screen.getByRole("button", { name: /Home/ }).closest("a")
     ).toHaveAttribute("href", "#homeSection");
@@ -137,8 +137,10 @@ describe("portfolio components", () => {
     fireEvent.click(screen.getByRole("button", { name: /Github/ }));
     expect(openInNewTab).toHaveBeenCalledWith(LINKS.GITHUB_LINK);
 
-    fireEvent.click(screen.getByRole("button", { name: /Resume/ }));
-    expect(openInNewTab).toHaveBeenCalledWith(LINKS.RESUME_LINK);
+    const resumeLink = screen.getByRole("link", { name: /Resume/ });
+    expect(resumeLink).toHaveAttribute("href", LINKS.RESUME_LINK);
+    expect(resumeLink).toHaveAttribute("download", "Justin_Nguyen_Resume.pdf");
+    expect(resumeLink).not.toHaveAttribute("target");
 
     fireEvent.click(
       screen.getByRole("button", { name: "Switch to dark mode" })
@@ -169,7 +171,9 @@ describe("portfolio components", () => {
       screen.getByRole("button", { name: "Close navigation menu" })
     ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Home/ })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Resume/ })).toBeInTheDocument();
+    const resumeLink = screen.getByRole("link", { name: /Resume/ });
+    expect(resumeLink).toHaveAttribute("href", LINKS.RESUME_LINK);
+    expect(resumeLink).toHaveAttribute("download", "Justin_Nguyen_Resume.pdf");
 
     fireEvent.click(screen.getByRole("button", { name: /Github/ }));
     expect(openInNewTab).toHaveBeenCalledWith(LINKS.GITHUB_LINK);

@@ -70,10 +70,10 @@ const MobileMenu = ({ theme, onToggleTheme }) => {
         <div className="menuNavbar">
           <Button
             className="nav-btn"
-            onClick={() => {
-              openInNewTab(LINKS.RESUME_LINK);
-              handleClick();
-            }}
+            component="a"
+            href={LINKS.RESUME_LINK}
+            download="Justin_Nguyen_Resume.pdf"
+            onClick={handleClick}
           >
             <DescriptionIcon className="menuIcon" />
             Resume
